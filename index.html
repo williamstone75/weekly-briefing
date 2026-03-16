@@ -31,6 +31,10 @@
     }
     .header h1 { font-size: 2rem; letter-spacing: 0.05em; margin-bottom: 8px; position: relative; }
     .header p { font-size: 0.95rem; opacity: 0.65; position: relative; }
+    .nav-bar { display: flex; gap: 16px; justify-content: center; margin-top: 16px; flex-wrap: wrap; position: relative; }
+    .nav-bar a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.88rem; padding: 5px 16px; border-radius: 20px; background: rgba(255,255,255,0.08); transition: all 0.2s; }
+    .nav-bar a.active { background: rgba(255,255,255,0.2); color: white; font-weight: 600; }
+    .nav-bar a:hover { background: rgba(255,255,255,0.15); color: white; }
     .header-meta {
       display: flex;
       justify-content: center;
@@ -237,10 +241,11 @@
       <div class="lbl">產出時間</div>
     </div>
   </div>
-  <div style="display:flex; justify-content:center; gap:16px; margin-top:16px; padding-bottom:4px;">
-    <a href="index.html" style="color:rgba(255,255,255,0.9); text-decoration:none; font-size:0.88rem; padding:5px 16px; border-radius:20px; background:rgba(255,255,255,0.2); font-weight:600;">📰 週報首頁</a>
-    <a href="timeline.html" style="color:rgba(255,255,255,0.65); text-decoration:none; font-size:0.88rem; padding:5px 16px; border-radius:20px; background:rgba(255,255,255,0.08);">📊 事件時間軸</a>
-  </div>
+  <nav class="nav-bar">
+    <a href="index.html" class="active">📰 週報首頁</a>
+    <a href="timeline.html">📊 事件時間軸</a>
+    <!-- 未來新增分頁請在此加一行 <a href="xxx.html">🔖 名稱</a> -->
+  </nav>
 </div>
 
 <div class="container">
