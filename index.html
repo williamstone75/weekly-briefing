@@ -302,7 +302,6 @@
     {
       date: "2026-03-13",
       label: "2026年3月9日－3月13日",
-      issue: 1,
       file: "weekly-briefing-2026-03-13.html",
       summary: "美伊衝突第二週，原油史詩飆漲，美股連跌",
       keywords: ["美伊衝突", "原油飆漲", "非農爆冷", "GDC 2026", "FOMC"],
@@ -315,7 +314,6 @@
     {
       date: "2026-03-07",
       label: "2026年3月2日－3月7日",
-      issue: 0,
       file: "weekly-briefing-2026-03-07.html",
       summary: "美伊衝突爆發第一週，非農-9.2萬爆冷，油價單週飆23%",
       keywords: ["美伊衝突爆發", "非農-9.2萬", "油價+23%", "MWC巴塞隆納", "CONEXPO 2026"],
@@ -323,6 +321,54 @@
         { label: "S&P 500", val: "▼ -2.0%", type: "red" },
         { label: "原油", val: "▲ +23%", type: "orange" },
         { label: "黃金", val: "▲ +2%", type: "green" },
+      ]
+    },
+    {
+      date: "2026-02-28",
+      label: "2026年2月23日－2月28日",
+      file: "weekly-briefing-2026-02-28.html",
+      summary: "2月科技股大崩，Magnificent Seven月跌7.3%，板塊輪動防禦股逆勢走強",
+      keywords: ["科技股崩跌", "Magnificent Seven", "AI估值泡沫", "板塊輪動", "CP+ 2026", "MWC新聞日"],
+      metrics: [
+        { label: "S&P 500", val: "▼ -0.8%", type: "red" },
+        { label: "納斯達克", val: "▼ -2.3%", type: "red" },
+        { label: "Mag7月跌", val: "▼ -7.3%", type: "red" },
+      ]
+    },
+    {
+      date: "2026-02-21",
+      label: "2026年2月16日－2月21日",
+      file: "weekly-briefing-2026-02-21.html",
+      summary: "Nvidia財報大超預期卻利多出盡跌5%，法院裁定川普關稅違憲，納斯達克止跌",
+      keywords: ["Nvidia財報", "利多出盡", "關稅違憲", "納斯達克止跌", "AI資本支出", "縮短交易週"],
+      metrics: [
+        { label: "S&P 500", val: "▲ +1.1%", type: "green" },
+        { label: "納斯達克", val: "▲ +1.5%", type: "green" },
+        { label: "NVDA", val: "▼ -5%+", type: "red" },
+      ]
+    },
+    {
+      date: "2026-02-14",
+      label: "2026年2月9日－2月14日",
+      file: "weekly-briefing-2026-02-14.html",
+      summary: "CPI符合預期但油價壓抑降息空間，6月降息機率從56%驟降至23%",
+      keywords: ["CPI符合預期", "降息後退", "higher for longer", "DeepSeek新模型", "Nvidia財報倒數"],
+      metrics: [
+        { label: "S&P 500", val: "▲ +0.05%", type: "green" },
+        { label: "納斯達克", val: "▼ -0.22%", type: "red" },
+        { label: "6月降息率", val: "▼ 23%", type: "red" },
+      ]
+    },
+    {
+      date: "2026-02-07",
+      label: "2026年2月2日－2月7日",
+      file: "weekly-briefing-2026-02-07.html",
+      summary: "AI代理衝擊SaaS生態，軟體股單日蒸發2850億美元，黃金白銀逆勢漲6-7%",
+      keywords: ["AI代理衝擊", "SaaS崩跌", "黃金避險", "保證金債務新高", "Kevin Warsh提名"],
+      metrics: [
+        { label: "S&P 500", val: "▼ 震盪", type: "red" },
+        { label: "黃金", val: "▲ +6%", type: "green" },
+        { label: "軟體板塊", val: "▼ -6%", type: "red" },
       ]
     }
     // 未來每週自動在此新增一筆
@@ -337,7 +383,7 @@
     }
     grid.innerHTML = filtered.map(r => `
       <a class="history-card" href="${r.file}" target="_blank" data-keywords="${r.keywords.join(' ')} ${r.label}">
-        <div class="hdate">第 ${r.issue} 期 · ${r.label}</div>
+        <div class="hdate">${r.label}</div>
         <div class="htitle">${r.summary}</div>
         <div class="hmetrics">
           ${r.metrics.map(m => `<span class="hm ${m.type}">${m.label} ${m.val}</span>`).join('')}
