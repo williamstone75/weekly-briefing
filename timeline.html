@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📊 重大事件時間軸｜2026年1月－3月</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif; background: #f0f2f5; color: #1a1a2e; line-height: 1.6; }
+    .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 36px 32px 28px; text-align: center; }
+    .header h1 { font-size: 1.7rem; letter-spacing: 0.04em; margin-bottom: 6px; }
+    .header p { font-size: 0.92rem; opacity: 0.7; }
+    .nav-bar { display: flex; gap: 16px; justify-content: center; margin-top: 16px; }
+    .nav-bar a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.88rem; padding: 5px 16px; border-radius: 20px; background: rgba(255,255,255,0.08); transition: all 0.2s; }
+    .nav-bar a.active { background: rgba(255,255,255,0.2); color: white; font-weight: 600; }
+    .nav-bar a:hover { background: rgba(255,255,255,0.15); color: white; }
+    .container { max-width: 1040px; margin: 0 auto; padding: 28px 20px 60px; }
+
+    /* Legend */
+    .legend-bar { background: white; border-radius: 12px; padding: 14px 20px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+    .legend-hint { font-size: 0.8rem; color: #aaa; margin-right: 4px; }
+    .legend-item { display: flex; align-items: center; gap: 7px; cursor: pointer; padding: 5px 12px; border-radius: 20px; border: 1.5px solid #eee; transition: all 0.15s; user-select: none; }
+    .legend-item:hover { border-color: #ccc; background: #f8f9fa; }
+    .legend-item.hidden { opacity: 0.3; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .legend-name { font-size: 0.88rem; font-weight: 700; color: #333; }
+    .legend-pct { font-size: 0.78rem; font-weight: 600; }
+
+    /* Chart */
+    .chart-card { background: white; border-radius: 14px; padding: 24px 24px 16px; margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .chart-title { font-size: 1.05rem; font-weight: 700; color: #0f3460; }
+    .chart-subtitle { font-size: 0.8rem; color: #999; margin: 4px 0 18px; }
+    .chart-wrap { position: relative; height: 380px; }
+    .band-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 12px; padding-top: 10px; border-top: 1px solid #f0f2f5; }
+    .band-item { display: flex; align-items: center; gap: 5px; font-size: 0.75rem; color: #888; }
+    .band-swatch { width: 14px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+    /* Timeline */
+    .timeline-card { background: white; border-radius: 14px; padding: 24px; margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .section-title { font-size: 1.05rem; font-weight: 700; color: #0f3460; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e8ecf0; }
+    .month-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin: 20px 0 10px; cursor: pointer; display: flex; align-items: center; gap: 8px; user-select: none; padding: 6px 10px; border-radius: 8px; transition: background 0.15s; }
+    .month-label:hover { background: #f0f2f5; }
+    .month-label:first-child { margin-top: 0; }
+    .month-label .toggle-icon { font-size: 0.85rem; transition: transform 0.2s; display: inline-block; }
+    .month-label.collapsed .toggle-icon { transform: rotate(-90deg); }
+    .month-group { display: flex; flex-direction: column; gap: 10px; overflow: hidden; transition: max-height 0.3s ease, opacity 0.2s ease; }
+    .month-group.collapsed { max-height: 0 !important; opacity: 0; pointer-events: none; }
+    .event-list { display: flex; flex-direction: column; gap: 10px; }
+    .event-row { display: grid; grid-template-columns: 90px 1fr auto; gap: 14px; align-items: start; padding: 14px 16px; border-radius: 10px; border-left: 4px solid #ddd; background: #f8fafc; transition: transform 0.15s, box-shadow 0.15s; }
+    .event-row:hover { transform: translateX(3px); box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+    .event-row.green  { border-left-color: #27ae60; background: #f3fdf6; }
+    .event-row.blue   { border-left-color: #3498db; background: #f3f8fd; }
+    .event-row.red    { border-left-color: #e74c3c; background: #fdf5f5; }
+    .event-row.orange { border-left-color: #e67e22; background: #fef9f3; }
+    .event-row.purple { border-left-color: #9b59b6; background: #f8f3fd; }
+    .event-row.teal   { border-left-color: #1abc9c; background: #f0fdf9; }
+    .event-date { font-size: 0.8rem; font-weight: 700; color: #666; padding-top: 2px; }
+    .event-name { font-weight: 700; font-size: 0.93rem; color: #1a1a2e; margin-bottom: 3px; }
+    .event-desc { font-size: 0.81rem; color: #666; line-height: 1.55; }
+    .event-impacts { display: flex; flex-direction: column; gap: 4px; min-width: 120px; text-align: right; padding-top: 2px; }
+    .imp { display: inline-block; padding: 2px 9px; border-radius: 10px; font-size: 0.73rem; font-weight: 700; white-space: nowrap; }
+    .imp-r { background: #fdecea; color: #c0392b; }
+    .imp-g { background: #eafaf1; color: #1e8449; }
+    .imp-o { background: #fef9e7; color: #d35400; }
+    .imp-b { background: #ebf5fb; color: #1a5276; }
+    .imp-gray { background: #f0f2f5; color: #666; }
+
+    /* Table */
+    .table-card { background: white; border-radius: 14px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 640px; }
+    th { background: #f5f7fa; color: #555; font-weight: 600; padding: 10px 12px; text-align: center; border-bottom: 2px solid #e0e4e8; white-space: nowrap; }
+    th:first-child { text-align: left; }
+    td { padding: 9px 12px; border-bottom: 1px solid #f0f2f5; text-align: center; white-space: nowrap; }
+    td:first-child { text-align: left; font-weight: 600; font-size: 0.82rem; white-space: normal; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #fafbfc; }
+    .up { color: #27ae60; font-weight: 700; }
+    .dn { color: #e74c3c; font-weight: 700; }
+    .total-row td { background: #f0f3f8 !important; font-weight: 700; }
+    .note { font-size: 0.77rem; color: #bbb; margin-top: 12px; text-align: center; }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 重大事件時間軸 × ETF 漲跌對照</h1>
+  <p>2026年1月 — 3月｜VOO · QQQ · DIA · SOXX · IWM</p>
+  <div class="nav-bar">
+    <a href="index.html">📰 週報首頁</a>
+    <a href="timeline.html" class="active">📊 事件時間軸</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 走勢圖 -->
+  <div class="chart-card">
+    <div class="chart-title">📈 ETF 相對表現　<small style="font-weight:400; font-size:0.82rem; color:#aaa;">基準 = 2026年1月2日（100）</small></div>
+    <div class="chart-subtitle">滑鼠懸停查看各週數值・背景色區域為重大事件期間</div>
+    <div class="chart-wrap">
+      <canvas id="etfChart"></canvas>
+    </div>
+
+    <!-- 圖例（圖表下方）-->
+    <div class="legend-bar" style="margin: 16px 0 8px; box-shadow: none; border: 1px solid #f0f2f5; padding: 10px 14px;">
+      <span class="legend-hint">點擊顯示／隱藏：</span>
+      <div class="legend-item" onclick="toggleLine(0)" id="leg-0">
+        <div class="legend-dot" style="background:#2ecc71;"></div>
+        <span class="legend-name">VOO</span>
+        <span class="legend-pct" id="pct-0"></span>
+      </div>
+      <div class="legend-item" onclick="toggleLine(1)" id="leg-1">
+        <div class="legend-dot" style="background:#3498db;"></div>
+        <span class="legend-name">QQQ</span>
+        <span class="legend-pct" id="pct-1"></span>
+      </div>
+      <div class="legend-item" onclick="toggleLine(2)" id="leg-2">
+        <div class="legend-dot" style="background:#e67e22;"></div>
+        <span class="legend-name">DIA</span>
+        <span class="legend-pct" id="pct-2"></span>
+      </div>
+      <div class="legend-item" onclick="toggleLine(3)" id="leg-3">
+        <div class="legend-dot" style="background:#9b59b6;"></div>
+        <span class="legend-name">SOXX</span>
+        <span class="legend-pct" id="pct-3"></span>
+      </div>
+      <div class="legend-item" onclick="toggleLine(4)" id="leg-4">
+        <div class="legend-dot" style="background:#e74c3c;"></div>
+        <span class="legend-name">IWM</span>
+        <span class="legend-pct" id="pct-4"></span>
+      </div>
+    </div>
+
+    <div class="band-legend">
+      <div class="band-item"><div class="band-swatch" style="background:rgba(39,174,96,0.12);"></div> 市場上漲期</div>
+      <div class="band-item"><div class="band-swatch" style="background:rgba(231,76,60,0.10);"></div> 科技崩跌事件</div>
+      <div class="band-item"><div class="band-swatch" style="background:rgba(230,126,34,0.10);"></div> 地緣政治衝擊</div>
+      <div class="band-item" style="margin-left:auto;"><span style="font-size:0.75rem; color:#bbb;">── 基準線 100</span></div>
+    </div>
+    <p class="note">⚠️ 數據為根據各週漲跌幅逆推之近似估算值，非實際收盤價，僅供趨勢參考</p>
+  </div>
+
+  <!-- 時間軸（最新在最上） -->
+  <div class="timeline-card">
+    <div class="section-title">🗓️ 重大事件時間軸　<small style="font-weight:400; font-size:0.82rem; color:#aaa;">最新在上</small></div>
+    <div class="event-list">
+
+      <div class="month-label" onclick="toggleMonth(this)"><span class="toggle-icon">▾</span>📅 2026年3月</div>
+      <div class="month-group">
+
+      <div class="event-row red">
+        <div class="event-date">3/9–3/13</div>
+        <div class="event-content">
+          <div class="event-name">🔥 美伊衝突第二週：油價史詩飆漲 +35%</div>
+          <div class="event-desc">美軍空襲伊朗哈爾克島石油設施，伊朗宣布禁止盟友船隻通行霍爾木茲海峽。WTI 週衝 ~$94，單週漲幅 +35% 為 1983 年以來最大。S&P 500 連續第三週下跌，Nikkei 225 單日暴跌 -5.2%，GDC 2026 在舊金山同期舉行。</div>
+        </div>
+        <div class="event-impacts">
+          <span class="imp imp-r">VOO ▼ -1.99%</span>
+          <span class="imp imp-r">QQQ ▼ -1.22%</span>
+          <span class="imp imp-o">原油 ▲ +35%</span>
+          <span class="imp imp-r">Nikkei ▼ -5.2%</span>
+        </div>
+      </div>
+
+      <div class="event-row red">
+        <div class="event-date">3/6</div>
+        <div class="event-content">
+          <div class="event-name">📊 2月非農就業爆冷（-9.2 萬人）</div>
+          <div class="event-desc">遠遜預期 +5.9 萬人，為近年最差。醫療 -28K、製造 -12K、聯邦政府 -10K。工資年增 3.8% 仍高於預期，Fed 陷「停滯性通脹」兩難，降息預期後移至 7 月。</div>
+        </div>
+        <div class="event-impacts">
+          <span class="imp imp-r">就業 -9.2萬</span>
+          <span class="imp imp-r">降息後移7月</span>
+          <span class="imp imp-o">通脹仍頑固</span>
+        </div>
+      </div>
+
+      <div class="event-row orange">
+        <div class="event-date">3/1–3/2</div>
+        <div class="event-content">
+          <div class="event-name">⚔️ 美伊衝突爆發（美以聯合打擊伊朗核設施）</div>
+          <div class="event-desc">週末美以對伊朗核設施發動打擊，週一亞盤全球風險資產重新定價。Brent 原油單日 +6.7%、WTI +6.3%，週累計 +23%。防禦股大漲（Northrop +6%），航空股重挫（American -4.2%）。MWC Barcelona 同期展覽。</div>
+        </div>
+        <div class="event-impacts">
+          <span class="imp imp-r">VOO ▼ -2.0%</span>
+          <span class="imp imp-o">原油 ▲ +23%</span>
+          <span class="imp imp-g">黃金 ▲ +2%</span>
+          <span class="imp imp-g">防禦股 ▲</span>
+        </div>
+      </div>
+
+      </div><!-- end month-group March -->
+
+      <div class="month-label" style="margin-top:24px;" onclick="toggleMonth(this)"><span class="toggle-icon">▾</span>📅 2026年2月</div>
+      <div class="month-group">
+
+      <div class="event-row purple">
+        <div class="event-date">2/23–2/28</div>
+        <div class="event-content">
+          <div class="event-name">📉 2月月底科技大崩盤（Magnificent Seven 月跌 -7.3%）</div>
+          <div class="event-desc">AI 估值泡沫論 + 通脹頑固 + 關稅不確定性三重壓力。Mag7 月跌 -7.3%，納斯達克 100 創 2025/3 以來最大月跌。防禦型板塊逆勢漲 +1%，市場板塊輪動明顯。MWC 巴塞隆納新聞日 2/28 揭幕，CP+ 2026 橫濱同期開展。</div>
+        </div>
+        <div class="event-impacts">
+          <span class="imp imp-r">QQQ ▼ -2.3%</span>
+          <span class="imp imp-r">Mag7月▼ -7.3%</span>
+          <span class="imp imp-g">防禦板塊 ▲</span>
+        </div>
+      </div>
+
+      <div class="event-row green">
+        <div class="event-date">2/19</div>
+        <div class="event-content">
+          <div class="event-name">🟢 Nvidia Q4 財報大超預期（但利多出盡）</div>
+          <div class="event-desc">EPS $1.62（+82% YoY）、營收 $681 億（+73.2%），Q1 指引 $780 億全超預期。然而「利多出盡」，NVDA 盤後跌逾 5%。AI 資本支出「何時回本」質疑成焦點，法院同期裁定川普部分關稅違憲。</div>
+        </div>
+        <div class="event-impacts">
+          <span class="imp imp-g">VOO ▲ +1.1%</span>
+          <span class="imp imp-g">QQQ ▲ +1.5%</span>
+          <span class="imp imp-r">NVDA ▼ -5%+</span>
+        </div>
+      </div>
+
+      <div class="event-row blue">
+        <div class="event-date">2/12</div>
+        <div class="event-content">
+          <div class="event-name">📊 2月 CPI 公布：符合預期但降息空間收窄</div>
+          <div class="event-desc">月增 0.3%、年增 2.4%，核心 CPI 月增 0.2%，與預期一致。但油價持高，6 月降息機率從 56% 驟降至 23%，市場重新定價「higher for longer」。</div>
+        </div>
+        <div class="event-impacts">
+          <span class="imp imp-gray">VOO ▲ +0.05%</span>
+          <span class="imp imp-r">6月降息 23%</span>
+          <span class="imp imp-r">降息預期 ▼</span>
+        </div>
+      </div>
+
+      <div class="event-row red">
+        <div class="event-date">2/3–2/7</div>
+        <div class="event-content">
+          <div class="event-name">🤖 AI 代理衝擊 SaaS 生態（首波科技崩跌）</div>
+          <div class="event-desc">Anthropic 等 AI 代理工具快速擴張，引發對 SaaS 商業模式的根本質疑。軟體板塊單日跌幅 -6%，道瓊一度急挫 600 點，軟體股單日蒸發 $2,850 億市值。保證金債務達 $1.23 兆歷史新高，黃金、白銀逆勢走強。</div>
+        </div>
+        <div class="event-impacts">
+          <span class="imp imp-r">VOO ▼ -1.7%</span>
+          <span class="imp imp-r">QQQ ▼ -2.9%</span>
+          <span class="imp imp-r">SOXX ▼ -8.3%</span>
+          <span class="imp imp-g">黃金 ▲ +6%</span>
+        </div>
+      </div>
+
+      </div><!-- end month-group February -->
+
+      <div class="month-label" style="margin-top:24px;" onclick="toggleMonth(this)"><span class="toggle-icon">▾</span>📅 2026年1月</div>
+      <div class="month-group">
+
+      <div class="event-row blue">
+        <div class="event-date">1/20–1/28</div>
+        <div class="event-content">
+          <div class="event-name">📈 市場創 52 週高點（S&P 500 1月漲 +1.4%）</div>
+          <div class="event-desc">1 月整體表現強勁，VOO（對應 S&P 500）於 1/28 觸及 52 週高點。AI 資本支出話題、強勁企業獲利支撐估值，市場情緒樂觀，「1 月指標」顯示全年看多。</div>
+        </div>
+        <div class="event-impacts">
+          <span class="imp imp-g">VOO 1月 ▲ +1.4%</span>
+          <span class="imp imp-g">52週新高</span>
+        </div>
+      </div>
+
+      <div class="event-row teal">
+        <div class="event-date">1/7–1/10</div>
+        <div class="event-content">
+          <div class="event-name">🖥️ CES 2026（消費電子展，拉斯維加斯）</div>
+          <div class="event-desc">NVIDIA Jensen Huang 發布 Blackwell Ultra 架構，AI PC、AI 機器人、智慧駕駛全面爆發。半導體、AI 相關股受消息面推升，SOXX 週間領漲，為 1 月行情最大催化劑。</div>
+        </div>
+        <div class="event-impacts">
+          <span class="imp imp-g">SOXX ▲ 領漲</span>
+          <span class="imp imp-g">QQQ ▲ 正面</span>
+          <span class="imp imp-b">AI題材延燒</span>
+        </div>
+      </div>
+
+      <div class="event-row green">
+        <div class="event-date">1/2</div>
+        <div class="event-content">
+          <div class="event-name">🎉 2026 年開市：美股延續強勢</div>
+          <div class="event-desc">美股以強勁姿態迎接 2026 年，S&P 500 首個交易日再創高點。市場延續 2025 年 AI 投資熱潮，各大指數均站在歷史高位附近。本頁面以此日為基準（= 100）。</div>
+        </div>
+        <div class="event-impacts">
+          <span class="imp imp-g">基準日</span>
+          <span class="imp imp-b">全部 ETF = 100</span>
+        </div>
+      </div>
+
+      </div><!-- end month-group January -->
+
+    </div>
+  </div>
+
+  <!-- 摘要表格 -->
+  <div class="table-card">
+    <div class="section-title">📋 各事件週期 ETF 漲跌摘要</div>
+    <table>
+      <tr>
+        <th>週別 / 事件</th>
+        <th>VOO</th>
+        <th>QQQ</th>
+        <th>DIA</th>
+        <th>SOXX</th>
+        <th>IWM</th>
+      </tr>
+      <tr>
+        <td>1月整月（市場創高）</td>
+        <td class="up">▲ +1.4%</td>
+        <td class="up">▲ +0.7%</td>
+        <td class="up">▲ +1.8%</td>
+        <td class="up">▲ +3.5%</td>
+        <td class="up">▲ +1.8%</td>
+      </tr>
+      <tr>
+        <td>AI代理衝擊 (2/2–7)</td>
+        <td class="dn">▼ -1.7%</td>
+        <td class="dn">▼ -2.9%</td>
+        <td class="dn">▼ -1.1%</td>
+        <td class="dn">▼ -8.3%</td>
+        <td class="dn">▼ -2.0%</td>
+      </tr>
+      <tr>
+        <td>CPI公布後 (2/9–14)</td>
+        <td class="up">▲ +0.05%</td>
+        <td class="dn">▼ -0.2%</td>
+        <td class="up">▲ +0.1%</td>
+        <td class="dn">▼ -0.3%</td>
+        <td class="up">▲ +0.1%</td>
+      </tr>
+      <tr>
+        <td>Nvidia財報週 (2/16–21)</td>
+        <td class="up">▲ +1.1%</td>
+        <td class="up">▲ +1.5%</td>
+        <td class="up">▲ +0.3%</td>
+        <td class="up">▲ +2.4%</td>
+        <td class="up">▲ +0.8%</td>
+      </tr>
+      <tr>
+        <td>2月月底大崩 (2/23–28)</td>
+        <td class="dn">▼ -0.8%</td>
+        <td class="dn">▼ -2.3%</td>
+        <td class="up">▲ +0.3%</td>
+        <td class="dn">▼ -2.4%</td>
+        <td class="dn">▼ -1.0%</td>
+      </tr>
+      <tr>
+        <td>美伊衝突爆發 (3/2–7)</td>
+        <td class="dn">▼ -2.0%</td>
+        <td class="up">▲ +0.4%</td>
+        <td class="dn">▼ -3.4%</td>
+        <td class="up">▲ +1.5%</td>
+        <td class="dn">▼ -2.5%</td>
+      </tr>
+      <tr>
+        <td>衝突升溫+非農 (3/9–13)</td>
+        <td class="dn">▼ -1.99%</td>
+        <td class="dn">▼ -1.22%</td>
+        <td class="dn">▼ -4.3%</td>
+        <td class="dn">▼ -1.8%</td>
+        <td class="dn">▼ -2.8%</td>
+      </tr>
+      <tr class="total-row">
+        <td>📊 年初（1/2）至今累計</td>
+        <td class="dn">▼ -3.9%</td>
+        <td class="dn">▼ -4.3%</td>
+        <td class="dn">▼ -6.2%</td>
+        <td class="dn">▼ -5.1%</td>
+        <td class="dn">▼ -5.5%</td>
+      </tr>
+    </table>
+    <p class="note">⚠️ 數據為根據各週漲跌幅估算之近似值，非精確收盤價，僅供趨勢參考</p>
+  </div>
+
+</div>
+
+<script>
+  const labels = ['1/2', '1/9', '1/16', '1/23', '1/30', '2/7', '2/14', '2/21', '2/28', '3/7', '3/13'];
+
+  // 基準 = 1/2 = 100（VOO 追蹤 S&P 500，與 SPY 相同漲跌幅）
+  const vooData  = [100, 100.8, 101.2, 101.5, 101.4, 99.7,  99.75, 100.85, 100.04, 98.04, 96.09];
+  const qqqData  = [100, 101.8, 102.0, 102.3, 100.7, 97.8,  97.6,  99.1,   96.8,   97.2,  95.9 ];
+  const diaData  = [100, 100.8, 101.2, 101.5, 101.8, 100.7, 100.8, 101.1,  101.4,  97.9,  93.7 ];
+  const soxxData = [100, 103.2, 103.8, 104.2, 103.5, 94.9,  94.6,  96.8,   94.5,   95.9,  94.2 ];
+  // IWM（羅素 2000）：小型股，較受內需影響，對AI直接衝擊較小但地緣風險承壓
+  const iwmData  = [100, 100.5, 101.0, 101.5, 101.8, 99.8,  99.9,  100.7,  99.7,   97.3,  94.6 ];
+
+  const allData = [vooData, qqqData, diaData, soxxData, iwmData];
+  const colors  = ['#2ecc71', '#3498db', '#e67e22', '#9b59b6', '#e74c3c'];
+  const names   = ['VOO', 'QQQ', 'DIA', 'SOXX', 'IWM'];
+
+  const datasets = allData.map((data, i) => ({
+    label: names[i],
+    data,
+    borderColor: colors[i],
+    borderWidth: 2.5,
+    pointRadius: 5,
+    pointHoverRadius: 8,
+    pointBackgroundColor: colors[i],
+    tension: 0.35,
+    fill: false,
+  }));
+
+  const ctx = document.getElementById('etfChart').getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(20,20,40,0.93)',
+          titleColor: '#e0e6f0',
+          bodyColor: '#c8d0e0',
+          padding: 14,
+          cornerRadius: 8,
+          callbacks: {
+            title: ctx => `📅 週收 ${ctx[0].label}`,
+            label: ctx => {
+              const v = ctx.parsed.y;
+              const diff = (v - 100).toFixed(2);
+              const sign = diff >= 0 ? '+' : '';
+              return `  ${ctx.dataset.label}：${v.toFixed(1)}  （${sign}${diff}%）`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: { grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { font: { size: 11 }, color: '#888', maxRotation: 0 } },
+        y: {
+          grid: { color: 'rgba(0,0,0,0.04)' },
+          ticks: { font: { size: 11 }, color: '#888', callback: v => v },
+          min: 90, max: 108,
+        }
+      }
+    },
+    plugins: [{
+      id: 'eventBands',
+      beforeDraw(chart) {
+        const { ctx, scales } = chart;
+        const x = scales.x, y = scales.y;
+        // 背景色塊
+        const bands = [
+          { from: 0,   to: 1.5, color: 'rgba(39,174,96,0.08)'   },
+          { from: 4.5, to: 5.5, color: 'rgba(231,76,60,0.09)'   },
+          { from: 7.5, to: 8.5, color: 'rgba(155,89,182,0.08)'  },
+          { from: 8.5, to: 9.5, color: 'rgba(230,126,34,0.09)'  },
+          { from: 9.5, to: 10.5,color: 'rgba(231,76,60,0.09)'   },
+        ];
+        ctx.save();
+        bands.forEach(b => {
+          ctx.fillStyle = b.color;
+          ctx.fillRect(x.getPixelForValue(b.from), y.top, x.getPixelForValue(b.to) - x.getPixelForValue(b.from), y.bottom - y.top);
+        });
+        // 基準線 100
+        const y100 = y.getPixelForValue(100);
+        ctx.strokeStyle = 'rgba(0,0,0,0.15)';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([5, 5]);
+        ctx.beginPath();
+        ctx.moveTo(x.left, y100);
+        ctx.lineTo(x.right, y100);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.restore();
+      },
+      afterDatasetsDraw(chart) {
+        const { ctx, scales } = chart;
+        const x = scales.x, y = scales.y;
+        // 重大事件垂直標記線
+        const markers = [
+          { idx: 1,  label: '🖥️ CES',      color: '#27ae60', dash: [4,3] },
+          { idx: 5,  label: '🤖 AI衝擊',    color: '#e74c3c', dash: [4,3] },
+          { idx: 7,  label: '🟢 NVDA財報',  color: '#8e44ad', dash: [4,3] },
+          { idx: 8,  label: '📉 月底崩盤',  color: '#9b59b6', dash: [4,3] },
+          { idx: 9,  label: '⚔️ 美伊衝突',  color: '#e67e22', dash: [4,3] },
+          { idx: 10, label: '🔥 油價+35%',  color: '#c0392b', dash: [4,3] },
+        ];
+        ctx.save();
+        markers.forEach(m => {
+          const xPos = x.getPixelForValue(m.idx);
+          // 垂直虛線
+          ctx.strokeStyle = m.color;
+          ctx.lineWidth = 1.5;
+          ctx.setLineDash(m.dash);
+          ctx.globalAlpha = 0.7;
+          ctx.beginPath();
+          ctx.moveTo(xPos, y.top);
+          ctx.lineTo(xPos, y.bottom);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.globalAlpha = 1;
+          // 頂部標籤背景
+          ctx.font = '600 10.5px -apple-system, sans-serif';
+          const textW = ctx.measureText(m.label).width;
+          const padX = 5, padY = 3;
+          const boxW = textW + padX * 2;
+          const boxH = 18;
+          let labelX = xPos - boxW / 2;
+          // 防止超出左右邊界
+          labelX = Math.max(x.left, Math.min(labelX, x.right - boxW));
+          ctx.fillStyle = m.color;
+          ctx.globalAlpha = 0.88;
+          roundRect(ctx, labelX, y.top + 4, boxW, boxH, 4);
+          ctx.fill();
+          ctx.globalAlpha = 1;
+          ctx.fillStyle = '#fff';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(m.label, labelX + padX, y.top + 4 + boxH / 2);
+        });
+        ctx.restore();
+      }
+    }]
+  });
+
+  // 圖例 YTD 漲跌
+  allData.forEach((data, i) => {
+    const pct = (data[data.length - 1] - 100).toFixed(1);
+    const sign = pct >= 0 ? '+' : '';
+    const el = document.getElementById(`pct-${i}`);
+    el.textContent = `YTD ${sign}${pct}%`;
+    el.style.color = pct >= 0 ? '#27ae60' : '#e74c3c';
+  });
+
+  // 月份展開／收合
+  function toggleMonth(label) {
+    const group = label.nextElementSibling;
+    const isCollapsed = label.classList.contains('collapsed');
+    if (isCollapsed) {
+      label.classList.remove('collapsed');
+      group.style.maxHeight = group.scrollHeight + 'px';
+      group.classList.remove('collapsed');
+    } else {
+      label.classList.add('collapsed');
+      group.style.maxHeight = group.scrollHeight + 'px'; // 先設定高度才能動畫
+      requestAnimationFrame(() => {
+        group.classList.add('collapsed');
+      });
+    }
+  }
+  // 初始化：設定每個 month-group 的 max-height
+  document.querySelectorAll('.month-group').forEach(g => {
+    g.style.maxHeight = g.scrollHeight + 'px';
+  });
+
+  const hidden = [false, false, false, false, false];
+  function toggleLine(idx) {
+    hidden[idx] = !hidden[idx];
+    chart.data.datasets[idx].hidden = hidden[idx];
+    chart.update();
+    document.getElementById(`leg-${idx}`).classList.toggle('hidden', hidden[idx]);
+  }
+</script>
+</body>
+</html>
