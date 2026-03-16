@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📰 全球財經 × 重大展覽週報｜2026年3月2日－3月7日</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
+      line-height: 1.7;
+    }
+    .header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: white;
+      padding: 40px 32px 32px;
+      text-align: center;
+    }
+    .header h1 { font-size: 1.8rem; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .header p { font-size: 1rem; opacity: 0.75; }
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.82rem;
+      margin-top: 12px;
+    }
+    .container { max-width: 880px; margin: 0 auto; padding: 28px 20px 60px; }
+    .section {
+      background: white;
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .section h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0f3460;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e8ecf0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #333;
+      margin: 20px 0 10px;
+    }
+    .overview-box {
+      background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+      border-left: 4px solid #f39c12;
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+    th {
+      background: #f5f7fa;
+      color: #555;
+      font-weight: 600;
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 2px solid #e0e4e8;
+    }
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #f0f2f5;
+      vertical-align: middle;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #fafbfc; }
+    .up { color: #27ae60; font-weight: 700; }
+    .down { color: #e74c3c; font-weight: 700; }
+    .neutral { color: #7f8c8d; }
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin: 2px;
+    }
+    .tag-red { background: #fdecea; color: #c0392b; }
+    .tag-green { background: #eafaf1; color: #1e8449; }
+    .tag-blue { background: #ebf5fb; color: #1a5276; }
+    .tag-orange { background: #fef9e7; color: #d35400; }
+    .tag-purple { background: #f5eef8; color: #6c3483; }
+    .info-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .info-card {
+      flex: 1;
+      min-width: 140px;
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 14px 16px;
+      border: 1px solid #e8ecf0;
+    }
+    .info-card .label { font-size: 0.75rem; color: #888; margin-bottom: 4px; }
+    .info-card .value { font-size: 1.1rem; font-weight: 700; color: #1a1a2e; }
+    .info-card .change { font-size: 0.82rem; margin-top: 2px; }
+    .geo-item {
+      background: #f8fafc;
+      border-left: 3px solid #3498db;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      margin-bottom: 10px;
+      font-size: 0.92rem;
+    }
+    .geo-item strong { color: #1a5276; }
+    .expo-grid { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+    .expo-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 14px 16px;
+      border: 1px solid #e8ecf0;
+    }
+    .expo-dot { font-size: 1.3rem; margin-top: 2px; flex-shrink: 0; }
+    .expo-content { flex: 1; }
+    .expo-name { font-weight: 700; font-size: 0.95rem; color: #1a1a2e; }
+    .expo-meta { font-size: 0.82rem; color: #666; margin-top: 3px; }
+    .expo-link { font-size: 0.82rem; margin-top: 4px; }
+    .expo-link a { color: #2980b9; text-decoration: none; }
+    .expo-link a:hover { text-decoration: underline; }
+    .highlight-box {
+      background: #eafaf1;
+      border: 1px solid #a9dfbf;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      color: #1e8449;
+    }
+    .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .keyword {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+    }
+    .sources { margin-top: 12px; font-size: 0.82rem; color: #888; }
+    .sources a { color: #2980b9; text-decoration: none; margin-right: 8px; }
+    .star { color: #f1c40f; }
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #aaa;
+      margin: 18px 0 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📰 全球財經 × 重大展覽週報</h1>
+  <p>2026年3月2日（週一）— 3月7日（週六）</p>
+  <div class="badge">第 0 期（上上週回顧）</div>
+</div>
+
+<div class="container">
+
+  <!-- 一、市場總覽 -->
+  <div class="section">
+    <h2>一、本週市場總覽</h2>
+    <div class="overview-box">
+      本週是美伊地緣衝突<strong>爆發第一週</strong>。週末美以對伊朗核設施發動打擊，週一市場全面震盪：原油單日暴漲逾 6%，布倫特突破 $77，防禦股大漲。週五非農就業意外錄得 <strong>-9.2 萬人</strong>，為近年來最差表現，美股承壓，S&P 500 週跌 <strong>-2.0%</strong>，創下今年以來最大單週跌幅，並刷新 2025 年 12 月中旬以來最低收盤。
+    </div>
+  </div>
+
+  <!-- 二、各市場表現 -->
+  <div class="section">
+    <h2>二、各市場表現</h2>
+
+    <h3>📈 美股</h3>
+    <table>
+      <tr><th>指數</th><th>本週漲跌</th><th>備註</th></tr>
+      <tr><td>S&P 500</td><td class="down">▼ -2.0%</td><td>今年以來最大單週跌幅，年初以來最低收盤</td></tr>
+      <tr><td>道瓊工業</td><td class="down">▼ 波動劇烈</td><td>週一一度急跌 600 點後收斂</td></tr>
+      <tr><td>納斯達克</td><td class="up">▲ 微幅</td><td>週一小幅回升 +0.36%，科技股相對抗跌</td></tr>
+      <tr><td>歐洲 Stoxx 600</td><td class="down">▼ -1.61%</td><td>歐股承壓</td></tr>
+      <tr><td>日本 Nikkei 225</td><td class="down">▼ -1.35%</td><td>週一單日跌幅顯著</td></tr>
+    </table>
+
+    <div style="margin-top:12px; font-size:0.9rem; color:#555;">
+      <strong>防禦股大漲：</strong>Northrop Grumman <span class="up">+6.0%</span>、RTX <span class="up">+4.7%</span>、Lockheed Martin <span class="up">+3.4%</span>。
+      <strong>航空股重挫：</strong>American Airlines <span class="down">-4.2%</span>、Delta <span class="down">-2.2%</span>、United <span class="down">-2.9%</span>。
+    </div>
+
+    <div class="section-label" style="margin-top:20px;">黃金 · 原油 · 美元</div>
+    <div class="info-row">
+      <div class="info-card">
+        <div class="label">🥇 黃金（現貨）</div>
+        <div class="value">~$5,317</div>
+        <div class="change up">▲ 週漲約 +2%（避險買盤）</div>
+      </div>
+      <div class="info-card">
+        <div class="label">🛢️ 原油（WTI）</div>
+        <div class="value">~$71–73/桶</div>
+        <div class="change up">▲ 週漲約 +23%（近年最大）</div>
+      </div>
+      <div class="info-card">
+        <div class="label">💵 美元指數（DXY）</div>
+        <div class="value">↑ 收復年初跌幅</div>
+        <div class="change up">▲ 週漲 +0.95%，五週高點</div>
+      </div>
+    </div>
+
+    <div class="geo-item" style="margin-top:14px; border-left-color:#e67e22;">
+      🛢️ <strong>原油關鍵數字</strong>：Brent 週一急升至 $77.74（+6.7%），WTI 達 $71.23（+6.3%）。整週累計漲幅逼近 <strong>23%</strong>，為 2020 年春季新冠疫情以來最大單週漲幅，能源板塊全面受惠。
+    </div>
+
+    <div class="geo-item" style="margin-top:10px; border-left-color:#27ae60;">
+      🥇 <strong>黃金高位</strong>：週一短暫突破 <strong>$5,400/盎司</strong>（歷史新高附近），但隨美元走強，週收約 $5,317。公募機構預測：2026 年黃金有望突破 <strong>$6,000</strong>。
+    </div>
+
+    <h3 style="margin-top:20px;">🏦 聯準會動態</h3>
+    <div style="font-size:0.9rem; color:#555; line-height:1.8;">
+      本週無 FOMC 決議。非農數據爆冷後，市場大幅修正降息預期：<strong>下次降息時點從 5 月後移至 7 月</strong>，年內降息次數預期升至兩次。油價通脹衝擊 vs. 就業市場降溫，聯準會面臨「停滯性通脹」兩難困境。
+    </div>
+  </div>
+
+  <!-- 三、地緣政治 -->
+  <div class="section">
+    <h2>三、地緣政治與宏觀事件</h2>
+
+    <div class="geo-item">
+      <strong>⚔️ 美伊衝突爆發（第一週）</strong><br>
+      週末美國與以色列聯合對伊朗核設施發動打擊，為本週所有市場波動的主要導火線。週一亞盤開市即引發全球風險資產重新定價，霍爾木茲海峽航運受阻疑慮推升全球油價。伊朗宣布將採取反制措施，緊張局勢持續升溫。
+    </div>
+    <div class="geo-item" style="border-left-color:#e74c3c;">
+      <strong>📊 2月非農就業報告爆冷（3/6 公布）</strong><br>
+      2月非農新增就業人數：<strong>-9.2 萬人</strong>，遠遜於預期 +5.9 萬人，醫療保健（-28K）、製造業（-12K）、聯邦政府（-10K）均見裁員。工資年增 <strong>3.8%</strong>（略高於預期），揭示就業降溫但通脹仍頑固，為聯準會政策帶來更大不確定性。
+    </div>
+    <div class="geo-item" style="border-left-color:#9b59b6;">
+      <strong>🏭 能源供應鏈初步衝擊</strong><br>
+      全球航運業開始評估霍爾木茲海峽風險，部分貨輪改道繞行，運費開始攀升。能源相關化工、鋁業等板塊開始預警成本上升壓力。
+    </div>
+  </div>
+
+  <!-- 四、下週預告 -->
+  <div class="section">
+    <h2>四、下週重要事件預告（3/9–3/13）</h2>
+    <table>
+      <tr><th>日期</th><th>事件</th><th>重要程度</th></tr>
+      <tr>
+        <td>3/9</td>
+        <td><strong>GDC 2026 開幕</strong>（遊戲開發者大會，舊金山）</td>
+        <td><span class="star">★★★★</span></td>
+      </tr>
+      <tr>
+        <td>3/10</td>
+        <td>2月 CPI 消費者物價指數</td>
+        <td><span class="star">★★★★★</span></td>
+      </tr>
+      <tr>
+        <td>3/11</td>
+        <td>2月 PPI 生產者物價指數</td>
+        <td><span class="star">★★★</span></td>
+      </tr>
+      <tr>
+        <td>全週</td>
+        <td>美伊局勢後續發展、原油走勢觀察</td>
+        <td><span class="star">★★★★★</span></td>
+      </tr>
+      <tr>
+        <td>全週</td>
+        <td>Fed 官員發言（FOMC 靜默期前最後窗口）</td>
+        <td><span class="star">★★★★</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 五、展覽動態 -->
+  <div class="section">
+    <h2>五、重大展覽動態</h2>
+
+    <div class="section-label">🟢 本週進行中（3/2–3/7）</div>
+    <div class="expo-grid">
+      <div class="expo-item" style="border: 1px solid #a9dfbf;">
+        <div class="expo-dot">🟢</div>
+        <div class="expo-content">
+          <div class="expo-name">MWC Barcelona 2026（世界行動通訊大會）</div>
+          <div class="expo-meta">📅 3/2–5　📍 西班牙巴塞隆納 Fira Gran Via　🏷 行動通訊 / AI手機 / 6G</div>
+          <div class="expo-link"><a href="https://www.mwcbarcelona.com/" target="_blank">📎 官方網站</a></div>
+          <div class="highlight-box">
+            🎯 本屆亮點：三星、小米、榮耀等品牌發表旗艦 AI 手機；6G 標準化進程討論成焦點；AI 融入通訊基礎設施為最熱議題，出席人數逾 10 萬人。
+          </div>
+        </div>
+      </div>
+      <div class="expo-item" style="border: 1px solid #a9dfbf;">
+        <div class="expo-dot">🟢</div>
+        <div class="expo-content">
+          <div class="expo-name">CONEXPO-CON/AGG 2026（北美最大建設機械展）</div>
+          <div class="expo-meta">📅 3/3–7　📍 美國拉斯維加斯 Las Vegas Convention Center　🏷 建設機械 / 工業自動化 / 電動重機</div>
+          <div class="expo-link">
+            <a href="https://www.conexpoconagg.com/" target="_blank">📎 官方網站</a> ·
+            <a href="https://www.indexbox.io/blog/conexpo-conagg-2026-concludes-showcasing-construction-tech-electrification/" target="_blank">📎 展後報導</a>
+          </div>
+          <div class="highlight-box">
+            🎯 規模亮點：吸引來自 128 個國家超過 <strong>14 萬人</strong>次參觀，超過 2,000 家展商，展覽面積逾 300 萬平方英尺。<br>
+            🤖 技術亮點：Caterpillar 展示 <strong>Cat AI Assistant</strong>（延續 CES 2026 動能）；Komatsu 展示智慧挖掘機控制系統；人工智慧、電氣化、無人機作業為三大主題；設 150 場教育論壇。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:18px;">🔵 近期結束（可回顧）</div>
+    <div class="expo-grid">
+      <div class="expo-item">
+        <div class="expo-dot">🔵</div>
+        <div class="expo-content">
+          <div class="expo-name">CP+ 2026（國際相機影像展）</div>
+          <div class="expo-meta">📅 2/26–3/1　📍 日本橫濱　🏷 相機 / 攝影 / 影像</div>
+          <div class="expo-link"><a href="https://www.dpreview.com/articles/1561972432/ccplus2026" target="_blank">📎 DPReview 完整報導</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:18px;">🟡 即將到來（下週以後）</div>
+    <div class="expo-grid">
+      <div class="expo-item">
+        <div class="expo-dot">🟡</div>
+        <div class="expo-content">
+          <div class="expo-name">GDC 2026（遊戲開發者大會）</div>
+          <div class="expo-meta">📅 3/9–13　📍 美國舊金山 Moscone Center　🏷 電玩 / 遊戲開發 / AI遊戲</div>
+          <div class="expo-link"><a href="https://gdconf.com/" target="_blank">📎 官方網站</a></div>
+        </div>
+      </div>
+      <div class="expo-item">
+        <div class="expo-dot">🟡</div>
+        <div class="expo-content">
+          <div class="expo-name">NVIDIA GTC 2026</div>
+          <div class="expo-meta">📅 3/16–19　📍 美國聖荷西　🏷 AI / GPU / 機器人</div>
+          <div class="expo-link"><a href="https://www.nvidia.com/gtc/" target="_blank">📎 官方網站</a></div>
+        </div>
+      </div>
+      <div class="expo-item">
+        <div class="expo-dot">🟡</div>
+        <div class="expo-content">
+          <div class="expo-name">Hannover Messe 2026</div>
+          <div class="expo-meta">📅 4/20–24　📍 德國漢諾威　🏷 工業自動化 / 製造 / 能源</div>
+          <div class="expo-link"><a href="https://www.hannovermesse.de/" target="_blank">📎 官方網站</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 六、本週關鍵字 -->
+  <div class="section">
+    <h2>六、本週關鍵字</h2>
+    <div class="keywords">
+      <span class="keyword">美伊衝突爆發</span>
+      <span class="keyword">油價單週飆23%</span>
+      <span class="keyword">非農爆冷-9.2萬</span>
+      <span class="keyword">停滯性通脹</span>
+      <span class="keyword">降息後移7月</span>
+      <span class="keyword">防禦股大漲</span>
+      <span class="keyword">航空股重挫</span>
+      <span class="keyword">黃金破5400</span>
+      <span class="keyword">MWC Barcelona</span>
+      <span class="keyword">CONEXPO 2026</span>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="section" style="background:#f8fafc;">
+    <h2>📎 資料來源</h2>
+    <div class="sources">
+      <a href="https://www.cnn.com/2026/03/02/investing/oil-us-stock-market-iran" target="_blank">CNN: US stocks recover, oil surges (Mar 2)</a>
+      <a href="https://www.profilenews.com/en/global-markets-fall-march-3-2026/" target="_blank">Profile News: Global Markets Fall (Mar 3)</a>
+      <a href="https://www.advisorperspectives.com/dshort/updates/2026/03/06/s-p-500-snapshot-lowest-close-of-2026" target="_blank">Advisor Perspectives: S&P 500 Lowest Close</a>
+      <a href="https://www.cnbc.com/2026/03/06/february-2026-jobs-report.html" target="_blank">CNBC: February 2026 Jobs Report</a>
+      <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank">BLS: Employment Situation (Feb 2026)</a>
+      <a href="https://www.conexpoconagg.com/" target="_blank">CONEXPO-CON/AGG 2026</a>
+      <a href="https://www.aem.org/news/conexpoconagg-2026-attracts-140000-attendees-as-industry-drives-sales-showcases-innovation-and-indu" target="_blank">AEM: CONEXPO 140,000 Attendees</a>
+      <a href="https://www.mwcbarcelona.com/" target="_blank">MWC Barcelona 2026</a>
+      <a href="https://am.gs.com/en-us/advisors/insights/article/market-pulse" target="_blank">Goldman Sachs: Market Pulse March 2026</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
