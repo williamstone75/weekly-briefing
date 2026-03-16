@@ -79,6 +79,59 @@
     .dn { color: #e74c3c; font-weight: 700; }
     .total-row td { background: #f0f3f8 !important; font-weight: 700; }
     .note { font-size: 0.77rem; color: #bbb; margin-top: 12px; text-align: center; }
+
+    /* ── 手機版響應式（iPhone 13 = 390px） ── */
+    @media (max-width: 600px) {
+      /* Header */
+      .header { padding: 24px 16px 20px; }
+      .header h1 { font-size: 1.2rem; letter-spacing: 0.02em; }
+      .header p { font-size: 0.82rem; }
+      .nav-bar { gap: 10px; margin-top: 14px; }
+      .nav-bar a { font-size: 0.88rem; padding: 8px 18px; }
+      .container { padding: 16px 12px 48px; }
+
+      /* Chart */
+      .chart-card { padding: 16px 14px 12px; }
+      .chart-wrap { height: 240px; }
+      .chart-title { font-size: 0.95rem; }
+      .chart-subtitle { font-size: 0.74rem; }
+      .band-legend { gap: 8px; flex-direction: column; align-items: flex-start; }
+      .band-legend > div:last-child { flex-direction: column; align-items: flex-start; gap: 6px; margin-left: 0; }
+
+      /* Legend bar */
+      .legend-bar { padding: 10px 12px; gap: 6px; }
+      .legend-item { padding: 4px 8px; }
+      .legend-name { font-size: 0.82rem; }
+      .legend-pct { font-size: 0.72rem; }
+
+      /* Event row：改為兩列（日期＋內容），影響標籤另起一行 */
+      .event-row {
+        grid-template-columns: 68px 1fr;
+        gap: 10px;
+      }
+      .event-impacts {
+        grid-column: 1 / -1;   /* 跨整列 */
+        flex-direction: row;
+        flex-wrap: wrap;
+        min-width: 0;
+        text-align: left;
+        padding-top: 0;
+        gap: 5px;
+      }
+      .event-date { font-size: 0.75rem; }
+      .event-name { font-size: 0.88rem; }
+      .event-desc { font-size: 0.78rem; }
+      .imp { font-size: 0.7rem; padding: 2px 7px; }
+
+      /* Timeline card */
+      .timeline-card { padding: 16px 14px; }
+      .section-title { font-size: 0.95rem; }
+
+      /* Table */
+      .table-card { padding: 16px 12px; }
+      table { font-size: 0.78rem; }
+      th, td { padding: 7px 8px; }
+    }
   </style>
 </head>
 <body>
