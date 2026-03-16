@@ -11,10 +11,10 @@
     .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 36px 32px 28px; text-align: center; }
     .header h1 { font-size: 1.7rem; letter-spacing: 0.04em; margin-bottom: 6px; }
     .header p { font-size: 0.92rem; opacity: 0.7; }
-    .nav-bar { display: flex; gap: 16px; justify-content: center; margin-top: 16px; }
-    .nav-bar a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.88rem; padding: 5px 16px; border-radius: 20px; background: rgba(255,255,255,0.08); transition: all 0.2s; }
-    .nav-bar a.active { background: rgba(255,255,255,0.2); color: white; font-weight: 600; }
-    .nav-bar a:hover { background: rgba(255,255,255,0.15); color: white; }
+    .nav-bar { display: flex; gap: 14px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+    .nav-bar a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 1rem; font-weight: 500; padding: 10px 28px; border-radius: 30px; background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.15); transition: all 0.2s; letter-spacing: 0.02em; }
+    .nav-bar a.active { background: rgba(255,255,255,0.25); color: white; font-weight: 700; border-color: rgba(255,255,255,0.4); }
+    .nav-bar a:hover { background: rgba(255,255,255,0.2); color: white; border-color: rgba(255,255,255,0.35); }
     .container { max-width: 1040px; margin: 0 auto; padding: 28px 20px 60px; }
 
     /* Legend */
@@ -96,7 +96,7 @@
 
   <!-- 走勢圖 -->
   <div class="chart-card">
-    <div class="chart-title">📈 ETF 相對表現　<small style="font-weight:400; font-size:0.82rem; color:#aaa;">基準 = 2026年1月2日（100）</small></div>
+    <div class="chart-title">📈 ETF 相對表現　<small style="font-weight:400; font-size:0.82rem; color:#aaa;">基準 = 2026年1月1日（100）</small></div>
     <div class="chart-subtitle">滑鼠懸停查看各週數值・背景色區域為重大事件期間</div>
     <div class="chart-wrap">
       <canvas id="etfChart"></canvas>
@@ -282,7 +282,7 @@
         <div class="event-date">1/2</div>
         <div class="event-content">
           <div class="event-name">🎉 2026 年開市：美股延續強勢</div>
-          <div class="event-desc">美股以強勁姿態迎接 2026 年，S&P 500 首個交易日再創高點。市場延續 2025 年 AI 投資熱潮，各大指數均站在歷史高位附近。本頁面以此日為基準（= 100）。</div>
+          <div class="event-desc">美股以強勁姿態迎接 2026 年，S&P 500 首個交易日（1/2）再創高點。市場延續 2025 年 AI 投資熱潮，各大指數均站在歷史高位附近。本頁面以 2026 年 1 月 1 日為基準（= 100）。</div>
         </div>
         <div class="event-impacts">
           <span class="imp imp-g">基準日</span>
@@ -378,9 +378,9 @@
 </div>
 
 <script>
-  const labels = ['1/2', '1/9', '1/16', '1/23', '1/30', '2/7', '2/14', '2/21', '2/28', '3/7', '3/13'];
+  const labels = ['1/1', '1/9', '1/16', '1/23', '1/30', '2/7', '2/14', '2/21', '2/28', '3/7', '3/13'];
 
-  // 基準 = 1/2 = 100（VOO 追蹤 S&P 500，與 SPY 相同漲跌幅）
+  // 基準 = 1/1 = 100（2026年開年基準，第一個交易日 1/2 開盤值）
   const vooData  = [100, 100.8, 101.2, 101.5, 101.4, 99.7,  99.75, 100.85, 100.04, 98.04, 96.09];
   const qqqData  = [100, 101.8, 102.0, 102.3, 100.7, 97.8,  97.6,  99.1,   96.8,   97.2,  95.9 ];
   const diaData  = [100, 100.8, 101.2, 101.5, 101.8, 100.7, 100.8, 101.1,  101.4,  97.9,  93.7 ];
@@ -396,12 +396,15 @@
     label: names[i],
     data,
     borderColor: colors[i],
-    borderWidth: 2.5,
-    pointRadius: 5,
-    pointHoverRadius: 8,
+    borderWidth: 4,
+    pointRadius: 6,
+    pointHoverRadius: 10,
     pointBackgroundColor: colors[i],
-    tension: 0.35,
+    pointBorderColor: '#fff',
+    pointBorderWidth: 2,
+    tension: 0.3,
     fill: false,
+    order: i,
   }));
 
   const ctx = document.getElementById('etfChart').getContext('2d');
@@ -436,7 +439,8 @@
         y: {
           grid: { color: 'rgba(0,0,0,0.04)' },
           ticks: { font: { size: 11 }, color: '#888', callback: v => v },
-          min: 90, max: 108,
+          suggestedMin: 91,
+          suggestedMax: 106,
         }
       }
     },
