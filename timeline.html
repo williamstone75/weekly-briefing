@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📊 重大事件時間軸｜2026年1月－3月</title>
+  <title>📊 全球事件整理｜2026年1月－3月</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,14 +47,12 @@
     .month-group { display: flex; flex-direction: column; gap: 10px; overflow: hidden; transition: max-height 0.3s ease, opacity 0.2s ease; }
     .month-group.collapsed { max-height: 0 !important; opacity: 0; pointer-events: none; }
     .event-list { display: flex; flex-direction: column; gap: 10px; }
-    .event-row { display: grid; grid-template-columns: 90px 1fr auto; gap: 14px; align-items: start; padding: 14px 16px; border-radius: 10px; border-left: 4px solid #ddd; background: #f8fafc; transition: transform 0.15s, box-shadow 0.15s; }
+    .event-row { display: grid; grid-template-columns: 90px 1fr auto; gap: 14px; align-items: start; padding: 14px 16px; border-radius: 10px; border-left: 4px solid #c9c5be; background: #eeebe7; transition: transform 0.15s, box-shadow 0.15s; }
     .event-row:hover { transform: translateX(3px); box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
-    .event-row.green  { border-left-color: #27ae60; background: #f3fdf6; }
-    .event-row.blue   { border-left-color: #3498db; background: #f3f8fd; }
-    .event-row.red    { border-left-color: #e74c3c; background: #fdf5f5; }
-    .event-row.orange { border-left-color: #e67e22; background: #fef9f3; }
-    .event-row.purple { border-left-color: #9b59b6; background: #f8f3fd; }
-    .event-row.teal   { border-left-color: #1abc9c; background: #f0fdf9; }
+    .cat-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 8px; margin-bottom: 5px; letter-spacing: 0.03em; }
+    .cat-geo  { background: #f0dbd5; color: #8b4a38; }
+    .cat-fin  { background: #d5e3ef; color: #2c5d79; }
+    .cat-tech { background: #dfd9ef; color: #5c4a82; }
     .event-date { font-size: 0.8rem; font-weight: 700; color: #666; padding-top: 2px; }
     .event-name { font-weight: 700; font-size: 0.93rem; color: #1a1a2e; margin-bottom: 3px; }
     .event-desc { font-size: 0.81rem; color: #666; line-height: 1.55; }
@@ -149,7 +147,7 @@
   <p>2026年1月 — 3月｜VOO · QQQ · DIA · SOXX · IWM</p>
   <div class="nav-bar">
     <a href="index.html">📰 週報首頁</a>
-    <a href="timeline.html" class="active">📊 事件時間軸</a>
+    <a href="timeline.html" class="active">📊 全球事件整理</a>
   </div>
 </div>
 
@@ -207,15 +205,16 @@
 
   <!-- 時間軸（最新在最上） -->
   <div class="timeline-card">
-    <div class="section-title">🗓️ 重大事件時間軸　<small style="font-weight:400; font-size:0.82rem; color:#aaa;">最新在上</small></div>
+    <div class="section-title">🗓️ 全球事件整理</div>
     <div class="event-list">
 
       <div class="month-label" onclick="toggleMonth(this)"><span class="toggle-icon">▾</span>📅 2026年3月</div>
       <div class="month-group">
 
-      <div class="event-row red" id="evt-oil">
+      <div class="event-row" id="evt-oil">
         <div class="event-date">3/9–3/13</div>
         <div class="event-content">
+          <div><span class="cat-tag cat-geo">地緣政治</span></div>
           <div class="event-name">🔥 美伊衝突第二週：油價史詩飆漲 +35%</div>
           <div class="event-desc">美軍空襲伊朗哈爾克島石油設施，伊朗宣布禁止盟友船隻通行霍爾木茲海峽。WTI 週衝 ~$94，單週漲幅 +35% 為 1983 年以來最大。S&P 500 連續第三週下跌，Nikkei 225 單日暴跌 -5.2%，GDC 2026 在舊金山同期舉行。</div>
         </div>
@@ -227,9 +226,10 @@
         </div>
       </div>
 
-      <div class="event-row red">
+      <div class="event-row">
         <div class="event-date">3/6</div>
         <div class="event-content">
+          <div><span class="cat-tag cat-fin">財經</span></div>
           <div class="event-name">📊 2月非農就業爆冷（-9.2 萬人）</div>
           <div class="event-desc">遠遜預期 +5.9 萬人，為近年最差。醫療 -28K、製造 -12K、聯邦政府 -10K。工資年增 3.8% 仍高於預期，Fed 陷「停滯性通脹」兩難，降息預期後移至 7 月。</div>
         </div>
@@ -240,9 +240,10 @@
         </div>
       </div>
 
-      <div class="event-row orange" id="evt-iran">
+      <div class="event-row" id="evt-iran">
         <div class="event-date">3/1–3/2</div>
         <div class="event-content">
+          <div><span class="cat-tag cat-geo">地緣政治</span></div>
           <div class="event-name">⚔️ 美伊衝突爆發（美以聯合打擊伊朗核設施）</div>
           <div class="event-desc">週末美以對伊朗核設施發動打擊，週一亞盤全球風險資產重新定價。Brent 原油單日 +6.7%、WTI +6.3%，週累計 +23%。防禦股大漲（Northrop +6%），航空股重挫（American -4.2%）。MWC Barcelona 同期展覽。</div>
         </div>
@@ -259,9 +260,10 @@
       <div class="month-label" style="margin-top:24px;" onclick="toggleMonth(this)"><span class="toggle-icon">▾</span>📅 2026年2月</div>
       <div class="month-group">
 
-      <div class="event-row purple" id="evt-crash">
+      <div class="event-row" id="evt-crash">
         <div class="event-date">2/23–2/28</div>
         <div class="event-content">
+          <div><span class="cat-tag cat-fin">財經</span></div>
           <div class="event-name">📉 2月月底科技大崩盤（Magnificent Seven 月跌 -7.3%）</div>
           <div class="event-desc">AI 估值泡沫論 + 通脹頑固 + 關稅不確定性三重壓力。Mag7 月跌 -7.3%，納斯達克 100 創 2025/3 以來最大月跌。防禦型板塊逆勢漲 +1%，市場板塊輪動明顯。MWC 巴塞隆納新聞日 2/28 揭幕，CP+ 2026 橫濱同期開展。</div>
         </div>
@@ -272,9 +274,10 @@
         </div>
       </div>
 
-      <div class="event-row green" id="evt-nvda">
+      <div class="event-row" id="evt-nvda">
         <div class="event-date">2/19</div>
         <div class="event-content">
+          <div><span class="cat-tag cat-tech">科技</span></div>
           <div class="event-name">🟢 Nvidia Q4 財報大超預期（但利多出盡）</div>
           <div class="event-desc">EPS $1.62（+82% YoY）、營收 $681 億（+73.2%），Q1 指引 $780 億全超預期。然而「利多出盡」，NVDA 盤後跌逾 5%。AI 資本支出「何時回本」質疑成焦點，法院同期裁定川普部分關稅違憲。</div>
         </div>
@@ -285,9 +288,10 @@
         </div>
       </div>
 
-      <div class="event-row blue">
+      <div class="event-row">
         <div class="event-date">2/12</div>
         <div class="event-content">
+          <div><span class="cat-tag cat-fin">財經</span></div>
           <div class="event-name">📊 2月 CPI 公布：符合預期但降息空間收窄</div>
           <div class="event-desc">月增 0.3%、年增 2.4%，核心 CPI 月增 0.2%，與預期一致。但油價持高，6 月降息機率從 56% 驟降至 23%，市場重新定價「higher for longer」。</div>
         </div>
@@ -298,9 +302,10 @@
         </div>
       </div>
 
-      <div class="event-row red" id="evt-ai">
+      <div class="event-row" id="evt-ai">
         <div class="event-date">2/3–2/7</div>
         <div class="event-content">
+          <div><span class="cat-tag cat-tech">科技</span></div>
           <div class="event-name">🤖 AI 代理衝擊 SaaS 生態（首波科技崩跌）</div>
           <div class="event-desc">Anthropic 等 AI 代理工具快速擴張，引發對 SaaS 商業模式的根本質疑。軟體板塊單日跌幅 -6%，道瓊一度急挫 600 點，軟體股單日蒸發 $2,850 億市值。保證金債務達 $1.23 兆歷史新高，黃金、白銀逆勢走強。</div>
         </div>
@@ -317,9 +322,10 @@
       <div class="month-label" style="margin-top:24px;" onclick="toggleMonth(this)"><span class="toggle-icon">▾</span>📅 2026年1月</div>
       <div class="month-group">
 
-      <div class="event-row blue">
+      <div class="event-row">
         <div class="event-date">1/20–1/28</div>
         <div class="event-content">
+          <div><span class="cat-tag cat-fin">財經</span></div>
           <div class="event-name">📈 市場創 52 週高點（S&P 500 1月漲 +1.4%）</div>
           <div class="event-desc">1 月整體表現強勁，VOO（對應 S&P 500）於 1/28 觸及 52 週高點。AI 資本支出話題、強勁企業獲利支撐估值，市場情緒樂觀，「1 月指標」顯示全年看多。</div>
         </div>
@@ -329,9 +335,10 @@
         </div>
       </div>
 
-      <div class="event-row teal" id="evt-ces">
+      <div class="event-row" id="evt-ces">
         <div class="event-date">1/7–1/10</div>
         <div class="event-content">
+          <div><span class="cat-tag cat-tech">科技</span></div>
           <div class="event-name">🖥️ CES 2026（消費電子展，拉斯維加斯）</div>
           <div class="event-desc">NVIDIA Jensen Huang 發布 Blackwell Ultra 架構，AI PC、AI 機器人、智慧駕駛全面爆發。半導體、AI 相關股受消息面推升，SOXX 週間領漲，為 1 月行情最大催化劑。</div>
         </div>
@@ -342,9 +349,10 @@
         </div>
       </div>
 
-      <div class="event-row green">
+      <div class="event-row">
         <div class="event-date">1/2</div>
         <div class="event-content">
+          <div><span class="cat-tag cat-fin">財經</span></div>
           <div class="event-name">🎉 2026 年開市：美股延續強勢</div>
           <div class="event-desc">美股以強勁姿態迎接 2026 年，S&P 500 首個交易日（1/2）再創高點。市場延續 2025 年 AI 投資熱潮，各大指數均站在歷史高位附近。本頁面以 2026 年 1 月 1 日為基準（= 100）。</div>
         </div>
