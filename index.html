@@ -104,7 +104,7 @@
       outline: none;
       transition: border-color 0.2s;
     }
-    .search-box:focus { border-color: #0f3460; }
+    .search-box:focus { border-color: #1e3460; }
     .filter-btn {
       padding: 7px 14px;
       border-radius: 8px;
@@ -117,9 +117,9 @@
       white-space: nowrap;
     }
     .filter-btn.active, .filter-btn:hover {
-      background: #0f3460;
+      background: #1e3460;
       color: white;
-      border-color: #0f3460;
+      border-color: #1e3460;
     }
     .filter-btn.cat-地緣政治.active  { background: #c0392b; border-color: #c0392b; }
     .filter-btn.cat-AI科技.active    { background: #8e44ad; border-color: #8e44ad; }
@@ -144,7 +144,7 @@
       overflow: hidden;
       margin-bottom: 24px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      border: 2px solid #0f3460;
+      border: 2px solid #1e3460;
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
       text-decoration: none;
@@ -153,7 +153,7 @@
     }
     .latest-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
     .latest-card .card-top {
-      background: linear-gradient(135deg, #0f3460, #1a5276);
+      background: linear-gradient(135deg, #2c3e6e, #1e3460);
       padding: 20px 24px;
       color: white;
       display: flex;
@@ -191,7 +191,7 @@
     .keywords-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
     .kw {
       background: #eaf0fb;
-      color: #1a5276;
+      color: #2c3e6e;
       border-radius: 12px;
       padding: 3px 10px;
       font-size: 0.78rem;
@@ -212,7 +212,7 @@
     .cat-badge.地緣政治 { background: #fdecea; color: #c0392b; }
     .cat-badge.AI科技   { background: #f3e9fd; color: #7d3c98; }
     .cat-badge.科技展覽 { background: #e9f7ef; color: #1e8449; }
-    .cat-badge.財經總覽 { background: #eaf4fb; color: #1a5276; }
+    .cat-badge.財經總覽 { background: #eaf4fb; color: #2c3e6e; }
 
     /* History grid */
     .history-grid {
@@ -246,7 +246,7 @@
       cursor: pointer;
       transition: background 0.15s;
     }
-    .history-card .hkw span:hover { background: #dde8f5; color: #1a5276; }
+    .history-card .hkw span:hover { background: #dde8f5; color: #2c3e6e; }
     .history-card .hmetrics { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
     .history-card .hm {
       font-size: 0.78rem;
@@ -274,7 +274,7 @@
       margin-top: 40px;
     }
     .footer a { color: #aaa; text-decoration: none; }
-    .footer a:hover { color: #0f3460; }
+    .footer a:hover { color: #1e3460; }
 
     /* ── 手機版響應式（iPhone 13 = 390px） ── */
     /* ── Quote Game ── */
@@ -285,6 +285,10 @@
       border-bottom: 2px solid #dde1e7;
       display: flex; align-items: center; gap: 6px;
     }
+    .filter-row-label {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: #bbb; margin-bottom: 7px;
+    }
     .quote-filter {
       display: flex; gap: 7px; margin-bottom: 12px; flex-wrap: wrap;
     }
@@ -292,7 +296,7 @@
       padding: 5px 14px; border-radius: 30px;
       border: 1.5px solid #dde1e7; background: white;
       font-size: 0.78rem; font-weight: 500; color: #666;
-      cursor: pointer; transition: all 0.2s;
+      cursor: pointer; transition: all 0.2s; flex-shrink: 0;
     }
     .quote-filter-btn.active { background: #586D80; color: white; border-color: #586D80; }
     .quote-filter-btn:hover:not(.active) { border-color: #aaa; color: #333; }
@@ -335,6 +339,17 @@
     @media (max-width: 560px) {
       .quote-card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 14px; }
       .draw-btn { width: 100%; text-align: center; }
+      /* 作者篩選按鈕橫向滑動，避免多行擁擠 */
+      .quote-filter {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 6px;
+        scrollbar-width: none;
+        margin-right: -14px; /* 延伸到邊緣 */
+        padding-right: 14px;
+      }
+      .quote-filter::-webkit-scrollbar { display: none; }
     }
 
     @media (max-width: 600px) {
@@ -400,6 +415,7 @@
   <!-- ══ 投資金句抽抽樂 ══ -->
   <div class="quote-section">
     <div class="quote-section-title">🎲 投資金句抽抽樂</div>
+    <div class="filter-row-label">依作者篩選</div>
     <div class="quote-filter">
       <button class="quote-filter-btn active" data-who="all" onclick="setQuoteFilter(this)">全部</button>
       <button class="quote-filter-btn" data-who="buffett" onclick="setQuoteFilter(this)">巴菲特</button>
@@ -412,7 +428,7 @@
     </div>
     <div class="quote-card">
       <div class="quote-body">
-        <div class="quote-text" id="quoteText"><span class="quote-placeholder">點右側按鈕，抽一句投資金句</span></div>
+        <div class="quote-text" id="quoteText"><span class="quote-placeholder">點「抽一句」，隨機抽一句投資金句</span></div>
         <div class="quote-author" id="quoteAuthor"></div>
       </div>
       <button class="draw-btn" onclick="drawQuote()">🎲 抽一句</button>
@@ -422,6 +438,7 @@
 
   <!-- Toolbar -->
   <div class="toolbar">
+    <div style="width:100%; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#bbb; margin-bottom:2px;">週報分類篩選</div>
     <button class="filter-btn active" onclick="filterByCategory('all', this)">全部</button>
     <button class="filter-btn cat-財經總覽" onclick="filterByCategory('財經總覽', this)">📊 財經總覽</button>
     <button class="filter-btn cat-AI科技"   onclick="filterByCategory('AI科技', this)">🤖 AI科技</button>

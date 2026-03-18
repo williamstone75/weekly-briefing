@@ -29,7 +29,7 @@
 
     /* Chart */
     .chart-card { background: white; border-radius: 14px; padding: 24px 24px 16px; margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-    .chart-title { font-size: 1.05rem; font-weight: 700; color: #0f3460; }
+    .chart-title { font-size: 1.05rem; font-weight: 700; color: #1e3460; }
     .chart-subtitle { font-size: 0.8rem; color: #999; margin: 4px 0 18px; }
     .chart-wrap { position: relative; height: 380px; }
     .band-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 12px; padding-top: 10px; border-top: 1px solid #f0f2f5; }
@@ -38,7 +38,7 @@
 
     /* Timeline */
     .timeline-card { background: white; border-radius: 14px; padding: 24px; margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-    .section-title { font-size: 1.05rem; font-weight: 700; color: #0f3460; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e8ecf0; }
+    .section-title { font-size: 1.05rem; font-weight: 700; color: #1e3460; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e8ecf0; }
     .month-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin: 20px 0 10px; cursor: pointer; display: flex; align-items: center; gap: 8px; user-select: none; padding: 6px 10px; border-radius: 8px; transition: background 0.15s; }
     .month-label:hover { background: #f5f5f5; }
     .month-label:first-child { margin-top: 0; }
@@ -61,7 +61,7 @@
     .imp-r { background: #fdecea; color: #c0392b; }
     .imp-g { background: #eafaf1; color: #1e8449; }
     .imp-o { background: #fef9e7; color: #d35400; }
-    .imp-b { background: #ebf5fb; color: #1a5276; }
+    .imp-b { background: #ebf5fb; color: #2c3e6e; }
     .imp-gray { background: #f5f5f5; color: #666; }
 
     /* Table */
@@ -635,7 +635,7 @@
     const btn = document.getElementById('toggleMarkersBtn');
     btn.textContent = showMarkers ? '🔖 隱藏事件標記' : '🔖 顯示事件標記';
     btn.style.background = showMarkers ? '#f5f7fa' : '#e8f4fd';
-    btn.style.color = showMarkers ? '#666' : '#0f3460';
+    btn.style.color = showMarkers ? '#666' : '#1e3460';
     chart.draw();
   }
 
@@ -716,5 +716,22 @@
   }
 </script>
 <p style="font-size:0.75rem; color:#bbb; text-align:center; padding: 24px 16px 32px; line-height:1.6;">本網站內容僅供個人學習與資訊參考，不構成任何投資建議或買賣邀約。投資涉及風險，過去績效不代表未來表現，請自行判斷並承擔投資決策責任。</p>
+
+<!-- 回頂部按鈕 -->
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到頂部"
+  style="display:none; position:fixed; bottom:28px; right:22px; z-index:999;
+    width:44px; height:44px; border-radius:50%; border:none;
+    background: linear-gradient(135deg, #2c3e6e, #1e3460);
+    color:white; font-size:1.2rem; cursor:pointer;
+    box-shadow: 0 4px 14px rgba(44,62,110,0.35);
+    transition: opacity 0.25s, transform 0.2s; line-height:1;">▲</button>
+<script>
+  const btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    btn.style.display = window.scrollY > 320 ? 'flex' : 'none';
+    btn.style.alignItems = 'center';
+    btn.style.justifyContent = 'center';
+  });
+</script>
 </body>
 </html>
