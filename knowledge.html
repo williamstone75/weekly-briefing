@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📚 精選財商影片｜全球財經週報</title>
+  <meta name="description" content="Stone 精選的投資與財商觀念影片，幫助你建立正確的財富思維與市場判斷力。">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="📚 精選財商影片｜全球財經週報">
+  <meta property="og:description" content="Stone 精選投資與財商觀念影片，建立你的財富思維框架。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://williamstone75.github.io/weekly-briefing/knowledge.html">
+  <meta property="og:locale" content="zh_TW">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="📚 精選財商影片｜全球財經週報">
+  <meta name="twitter:description" content="Stone 精選投資與財商觀念影片，建立你的財富思維框架。">
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ED1LC863H4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ED1LC863H4');
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: white;
+      padding: 48px 32px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, transparent 60%);
+    }
+    .header h1 { font-size: 2.6rem; letter-spacing: 0.05em; margin-bottom: 6px; position: relative; }
+    .header .subtitle { font-size: 0.8rem; opacity: 0.45; position: relative; margin-bottom: 4px; letter-spacing: 0.03em; }
+    .header p { font-size: 0.95rem; opacity: 0.65; position: relative; }
+
+    /* ── Nav Bar ── */
+    .nav-bar {
+      display: flex; gap: 14px; justify-content: center;
+      margin-top: 20px; flex-wrap: wrap; position: relative;
+    }
+    .nav-bar a {
+      color: rgba(255,255,255,0.7); text-decoration: none;
+      font-size: 1rem; font-weight: 500;
+      padding: 10px 28px; border-radius: 30px;
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      transition: all 0.2s; letter-spacing: 0.02em;
+    }
+    .nav-bar a.active {
+      background: rgba(255,255,255,0.25); color: white;
+      font-weight: 700; border-color: rgba(255,255,255,0.4);
+    }
+    .nav-bar a:hover {
+      background: rgba(255,255,255,0.2); color: white;
+      border-color: rgba(255,255,255,0.35);
+    }
+
+    /* ── Layout ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    /* ── Toolbar ── */
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .filter-btn {
+      padding: 9px 22px;
+      border-radius: 30px;
+      border: 1.5px solid #dde1e7;
+      background: white;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: #555;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .filter-btn:hover { border-color: #aaa; color: #333; }
+    .filter-btn.active { color: white; border-color: transparent; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+    .filter-btn[data-cat="全部"].active                { background: #0f3460; }
+    .filter-btn.cat-投資觀念.active { background: #2471a3; }
+    .filter-btn.cat-經濟分析.active { background: #1e8449; }
+    .filter-btn.cat-思維框架.active { background: #7d3c98; }
+    .filter-btn.cat-市場解讀.active { background: #9a7d0a; }
+    .result-count { font-size: 0.78rem; color: #999; margin-left: auto; white-space: nowrap; }
+
+    /* ── Video Grid (YouTube style) ── */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    @media (max-width: 900px) {
+      .video-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    }
+    @media (max-width: 560px) {
+      .video-grid { grid-template-columns: 1fr; gap: 14px; }
+    }
+
+    /* ── Video Card ── */
+    .video-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .video-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+    }
+    .video-card.hidden { display: none; }
+
+    /* ── Thumbnail / Player area ── */
+    .thumb-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      background: #111;
+      overflow: hidden;
+    }
+    .thumb-wrap img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: opacity 0.2s;
+    }
+    .thumb-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    /* Play button overlay */
+    .play-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.15);
+      transition: background 0.2s;
+    }
+    .play-overlay:hover { background: rgba(0,0,0,0.28); }
+    .play-btn {
+      width: 56px; height: 56px;
+      background: rgba(255,0,0,0.88);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.15s, background 0.15s;
+    }
+    .play-overlay:hover .play-btn { transform: scale(1.1); background: #ff0000; }
+    .play-btn svg { width: 26px; height: 26px; fill: white; margin-left: 3px; }
+
+    /* Duration badge */
+    .duration-badge {
+      position: absolute;
+      bottom: 8px; right: 8px;
+      background: rgba(0,0,0,0.75);
+      color: white;
+      font-size: 0.72rem;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Card Info ── */
+    .card-info { padding: 14px 16px 16px; }
+
+    .card-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 8px; }
+    .cat-tag {
+      font-size: 0.68rem; font-weight: 600;
+      padding: 2px 8px; border-radius: 20px;
+      letter-spacing: 0.03em;
+    }
+    .cat-投資觀念 { background: #e8f4f8; color: #2471a3; border: 1px solid #aed6f1; }
+    .cat-經濟分析 { background: #eafaf1; color: #1e8449; border: 1px solid #a9dfbf; }
+    .cat-思維框架 { background: #f5eef8; color: #7d3c98; border: 1px solid #d2b4de; }
+    .cat-市場解讀 { background: #fef9e7; color: #9a7d0a; border: 1px solid #f9e79f; }
+
+    .video-title {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      line-height: 1.4;
+      margin-bottom: 5px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .video-channel {
+      font-size: 0.78rem;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    /* ── Intro Banner ── */
+    .intro-banner {
+      background: rgba(238,235,231,0.5);
+      border: 1px solid #d5d1cb;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 22px;
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* ── Empty state ── */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: #aaa;
+      font-size: 0.95rem;
+      display: none;
+    }
+
+    /* ── Disclaimer ── */
+    .disclaimer-text {
+      font-size: 0.75rem;
+      color: #bbb;
+      text-align: center;
+      margin-top: 40px;
+      line-height: 1.6;
+      padding: 0 12px;
+    }
+
+    @media (max-width: 600px) {
+      .header h1 { font-size: 1.9rem; }
+      .header { padding: 32px 20px 28px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ══ HEADER ══ -->
+<div class="header">
+  <div class="subtitle">Powered by Stone &amp; AI</div>
+  <h1>📰 全球財經週報</h1>
+  <p>精選財商影片，建立你的財富思維框架</p>
+  <nav class="nav-bar">
+    <a href="index.html">🏠 首頁</a>
+    <a href="timeline.html">📊 全球事件整理</a>
+    <a href="knowledge.html" class="active">📚 精選財商影片</a>
+  </nav>
+</div>
+
+<!-- ══ MAIN ══ -->
+<div class="container">
+
+  <div class="intro-banner">
+    💡 Stone 精選的財商觀念影片。不追熱點、不講明牌——只分享能幫助你建立投資思維與判斷力的好內容。
+  </div>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <button class="filter-btn active" data-cat="全部" onclick="setFilter(this)">全部</button>
+    <button class="filter-btn cat-投資觀念" data-cat="投資觀念" onclick="setFilter(this)">投資觀念</button>
+    <button class="filter-btn cat-經濟分析" data-cat="經濟分析" onclick="setFilter(this)">經濟分析</button>
+    <button class="filter-btn cat-思維框架" data-cat="思維框架" onclick="setFilter(this)">思維框架</button>
+    <button class="filter-btn cat-市場解讀" data-cat="市場解讀" onclick="setFilter(this)">市場解讀</button>
+    <span class="result-count" id="resultCount"></span>
+  </div>
+
+  <!-- Video Grid -->
+  <div class="video-grid" id="videoGrid">
+
+    <!-- ── Card 1 ── -->
+    <div class="video-card" data-cats="經濟分析,思維框架">
+      <div class="thumb-wrap" id="thumb-iGz2uWl-kGc">
+        <img src="https://img.youtube.com/vi/iGz2uWl-kGc/hqdefault.jpg" alt="影片縮圖" loading="lazy">
+        <div class="play-overlay" onclick="playVideo('iGz2uWl-kGc')">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="card-info">
+        <div class="card-tags">
+          <span class="cat-tag cat-經濟分析">經濟分析</span>
+          <span class="cat-tag cat-思維框架">思維框架</span>
+        </div>
+        <div class="video-title">一口氣了解美聯儲｜全球權力最大的金融機構</div>
+      </div>
+    </div>
+
+    <!-- ── Card 2 ── -->
+    <div class="video-card" data-cats="投資觀念,思維框架">
+      <div class="thumb-wrap" id="thumb-Voezvjo1xWw">
+        <img src="https://img.youtube.com/vi/Voezvjo1xWw/hqdefault.jpg" alt="影片縮圖" loading="lazy">
+        <div class="play-overlay" onclick="playVideo('Voezvjo1xWw')">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="card-info">
+        <div class="card-tags">
+          <span class="cat-tag cat-投資觀念">投資觀念</span>
+          <span class="cat-tag cat-思維框架">思維框架</span>
+        </div>
+        <div class="video-title">EP216｜每個月只存 3000，要怎麼翻身？ft. Will 黃士豪</div>
+      </div>
+    </div>
+
+    <!-- ── Card 3 ── -->
+    <div class="video-card" data-cats="投資觀念,市場解讀">
+      <div class="thumb-wrap" id="thumb-f7fZoGXD_nE">
+        <img src="https://img.youtube.com/vi/f7fZoGXD_nE/hqdefault.jpg" alt="影片縮圖" loading="lazy">
+        <div class="play-overlay" onclick="playVideo('f7fZoGXD_nE')">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="card-info">
+        <div class="card-tags">
+          <span class="cat-tag cat-投資觀念">投資觀念</span>
+          <span class="cat-tag cat-市場解讀">市場解讀</span>
+        </div>
+        <div class="video-title">原來這樣就能變有錢？從消費、保險到投資的富人思維，白手起家的關鍵！</div>
+      </div>
+    </div>
+
+  </div><!-- /video-grid -->
+
+  <div class="empty-state" id="emptyState">😕 找不到符合條件的影片</div>
+
+  <p class="disclaimer-text">
+    本頁面影片內容來自 YouTube，版權歸原創作者所有。<br>
+    本站不構成任何投資建議，所有資訊僅供個人參考，投資人應自行評估風險並對投資決策負責。<br>
+    Powered by Stone &amp; AI
+  </p>
+
+</div><!-- /container -->
+
+<script>
+  let currentCat = '全部';
+
+  function playVideo(videoId) {
+    const wrap = document.getElementById('thumb-' + videoId);
+    if (!wrap) return;
+    // Remove thumbnail and play overlay, insert iframe
+    wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    // GA4 event
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'video_play', { video_id: videoId });
+    }
+  }
+
+  function setFilter(btn) {
+    currentCat = btn.dataset.cat;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterVideos();
+  }
+
+  function filterVideos() {
+    const cards = document.querySelectorAll('.video-card');
+    let visible = 0;
+
+    cards.forEach(card => {
+      const cats = card.dataset.cats || '';
+      const show = currentCat === '全部' || cats.includes(currentCat);
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+
+    document.getElementById('resultCount').textContent = visible + ' 支影片';
+    document.getElementById('emptyState').style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  // Init count
+  filterVideos();
+</script>
+
+</body>
+</html>
