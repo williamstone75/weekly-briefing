@@ -70,7 +70,11 @@
       border: 1.5px solid rgba(255,255,255,0.55);
       transition: all 0.2s; letter-spacing: 0.02em;
     }
-    .nav-bar-break { width: 100%; height: 0; }
+    /* 桌機橫向排列，手機才換行 */
+    .nav-bar-break { display: none; }
+    @media (max-width: 560px) {
+      .nav-bar-break { display: block; width: 100%; height: 0; }
+    }
     .nav-bar a.active {
       background: rgba(255,255,255,0.85); color: #1a2a36;
       font-weight: 700; border-color: rgba(255,255,255,0.95);

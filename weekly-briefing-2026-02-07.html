@@ -14,7 +14,11 @@
     .nav-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
     .nav-bar a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.92rem; font-weight: 500; padding: 8px 22px; border-radius: 20px; background: rgba(255,255,255,0.18); border: 1.5px solid rgba(255,255,255,0.45); transition: all 0.2s; white-space: nowrap; }
     .nav-bar a:hover { background: rgba(255,255,255,0.32); color: white; }
-    .nav-bar-break { width: 100%; height: 0; }
+    /* 桌機橫向排列，手機才換行 */
+    .nav-bar-break { display: none; }
+    @media (max-width: 560px) {
+      .nav-bar-break { display: block; width: 100%; height: 0; }
+    }
     .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 4px 14px; font-size: 0.82rem; margin-top: 12px; }
     .container { max-width: 880px; margin: 0 auto; padding: 28px 20px 60px; }
     .section { background: white; border-radius: 14px; padding: 28px; margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
