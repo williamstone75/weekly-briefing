@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📚 精選財商影片｜全球財經週報</title>
-  <meta name="description" content="Stone 精選的投資與財商觀念影片，幫助你建立正確的財富思維與市場判斷力。">
+  <title>📚 我的觀念養成｜全球財經週報</title>
+  <meta name="description" content="Stone 精選的投資觀念影片與財商資源，幫助你建立正確的財富思維與市場判斷力。">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="📚 精選財商影片｜全球財經週報">
-  <meta property="og:description" content="Stone 精選投資與財商觀念影片，建立你的財富思維框架。">
+  <meta property="og:title" content="📚 我的觀念養成｜全球財經週報">
+  <meta property="og:description" content="Stone 精選投資觀念影片與財商資源，建立你的財富思維框架。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://williamstone75.github.io/weekly-briefing/knowledge.html">
   <meta property="og:locale" content="zh_TW">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="📚 精選財商影片｜全球財經週報">
-  <meta name="twitter:description" content="Stone 精選投資與財商觀念影片，建立你的財富思維框架。">
+  <meta name="twitter:title" content="📚 我的觀念養成｜全球財經週報">
+  <meta name="twitter:description" content="Stone 精選投資觀念影片與財商資源，建立你的財富思維框架。">
 
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ED1LC863H4"></script>
@@ -32,14 +32,14 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
-      background: #f0f2f5;
-      color: #1a1a2e;
+      background: #f5f5f5;
+      color: #3a3530;
       min-height: 100vh;
     }
 
-    /* ── Header ── */
+    /* ── Header（莫蘭迪霧霾藍）── */
     .header {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      background: linear-gradient(135deg, #2c3e6e 0%, #1e3460 50%, #162a54 100%);
       color: white;
       padding: 48px 32px 40px;
       text-align: center;
@@ -51,11 +51,11 @@
       position: absolute;
       top: -50%; left: -50%;
       width: 200%; height: 200%;
-      background: radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, transparent 60%);
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.06) 0%, transparent 60%);
     }
-    .header h1 { font-size: 2.6rem; letter-spacing: 0.05em; margin-bottom: 6px; position: relative; }
-    .header .subtitle { font-size: 0.8rem; opacity: 0.45; position: relative; margin-bottom: 4px; letter-spacing: 0.03em; }
-    .header p { font-size: 0.95rem; opacity: 0.65; position: relative; }
+    .header h1 { font-size: 2.6rem; letter-spacing: 0.05em; margin-bottom: 6px; position: relative; color: white; }
+    .header .subtitle { font-size: 0.8rem; opacity: 0.5; color: white; position: relative; margin-bottom: 4px; letter-spacing: 0.03em; }
+    .header p { font-size: 0.95rem; opacity: 0.65; color: white; position: relative; }
 
     /* ── Nav Bar ── */
     .nav-bar {
@@ -63,20 +63,20 @@
       margin-top: 20px; flex-wrap: wrap; position: relative;
     }
     .nav-bar a {
-      color: rgba(255,255,255,0.7); text-decoration: none;
+      color: rgba(255,255,255,0.75); text-decoration: none;
       font-size: 1rem; font-weight: 500;
       padding: 10px 28px; border-radius: 30px;
-      background: rgba(255,255,255,0.1);
-      border: 1.5px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.32);
+      border: 1.5px solid rgba(255,255,255,0.55);
       transition: all 0.2s; letter-spacing: 0.02em;
     }
     .nav-bar a.active {
-      background: rgba(255,255,255,0.25); color: white;
-      font-weight: 700; border-color: rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.68); color: white;
+      font-weight: 700; border-color: rgba(255,255,255,0.85);
     }
     .nav-bar a:hover {
-      background: rgba(255,255,255,0.2); color: white;
-      border-color: rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.52); color: white;
+      border-color: rgba(255,255,255,0.72);
     }
 
     /* ── Layout ── */
@@ -105,11 +105,11 @@
     }
     .filter-btn:hover { border-color: #aaa; color: #333; }
     .filter-btn.active { color: white; border-color: transparent; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
-    .filter-btn[data-cat="全部"].active                { background: #0f3460; }
-    .filter-btn.cat-投資觀念.active { background: #2471a3; }
-    .filter-btn.cat-經濟分析.active { background: #1e8449; }
-    .filter-btn.cat-思維框架.active { background: #7d3c98; }
-    .filter-btn.cat-市場解讀.active { background: #9a7d0a; }
+    .filter-btn[data-cat="全部"].active  { background: #8E9BAE; }
+    .filter-btn.cat-投資觀念.active      { background: #99B9C6; }
+    .filter-btn.cat-經濟分析.active      { background: #586D80; }
+    .filter-btn.cat-思維框架.active      { background: #BFC2CB; color: #3a4a56; }
+    .filter-btn.cat-市場解讀.active      { background: #B59E8C; }
     .result-count { font-size: 0.78rem; color: #999; margin-left: auto; white-space: nowrap; }
 
     /* ── Video Grid (YouTube style) ── */
@@ -259,6 +259,127 @@
       padding: 0 12px;
     }
 
+    /* ── Quote Game ── */
+    .quote-section {
+      margin-bottom: 36px;
+    }
+    .quote-section .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #dde1e7;
+    }
+    .quote-filter {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .quote-filter-btn {
+      padding: 6px 18px;
+      border-radius: 30px;
+      border: 1.5px solid #dde1e7;
+      background: white;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .quote-filter-btn.active { background: #586D80; color: white; border-color: #586D80; }
+    .quote-filter-btn:hover:not(.active) { border-color: #aaa; color: #333; }
+
+    .quote-card {
+      background: rgba(238, 235, 231, 0.7);
+      border: 1px solid #d5d1cb;
+      border-left: 4px solid #a8a09a;
+      border-radius: 12px;
+      padding: 20px 24px 18px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .quote-body {
+      flex: 1;
+      min-width: 0;
+    }
+    .quote-text {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #1a1a2e;
+      line-height: 1.75;
+      opacity: 1;
+      transition: opacity 0.25s ease;
+      font-style: italic;
+    }
+    .quote-text.fade { opacity: 0; }
+    .quote-placeholder {
+      font-size: 0.9rem;
+      color: #999;
+      font-style: normal;
+    }
+    .quote-author {
+      font-size: 0.78rem;
+      color: #888;
+      margin-top: 8px;
+      transition: opacity 0.25s ease;
+    }
+    .quote-author.fade { opacity: 0; }
+    .quote-author span {
+      display: inline-block;
+      background: rgba(26,26,46,0.08);
+      border-radius: 20px;
+      padding: 2px 10px;
+      margin-left: 5px;
+      font-size: 0.72rem;
+      color: #555;
+    }
+    .draw-btn {
+      flex-shrink: 0;
+      padding: 14px 32px;
+      background: #586D80;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+      box-shadow: 0 3px 12px rgba(88,109,128,0.35);
+      letter-spacing: 0.03em;
+    }
+    .draw-btn:hover {
+      background: #4a5d70;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(88,109,128,0.45);
+    }
+    .draw-btn:active { transform: translateY(0); box-shadow: none; }
+    .quote-count {
+      font-size: 0.7rem;
+      color: #bbb;
+      width: 100%;
+      margin-top: -4px;
+      padding-left: 2px;
+    }
+    @media (max-width: 560px) {
+      .quote-card { flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px; }
+      .draw-btn { width: 100%; text-align: center; }
+    }
+
+    /* Section divider */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #dde1e7;
+    }
+
     @media (max-width: 600px) {
       .header h1 { font-size: 1.9rem; }
       .header { padding: 32px 20px 28px; }
@@ -272,11 +393,11 @@
 <div class="header">
   <div class="subtitle">Powered by Stone &amp; AI</div>
   <h1>📰 全球財經週報</h1>
-  <p>精選財商影片，建立你的財富思維框架</p>
+  <p>觀念養成，建立你的財富思維框架</p>
   <nav class="nav-bar">
     <a href="index.html">🏠 首頁</a>
     <a href="timeline.html">📊 全球事件整理</a>
-    <a href="knowledge.html" class="active">📚 精選財商影片</a>
+    <a href="knowledge.html" class="active">📚 我的觀念養成</a>
   </nav>
 </div>
 
@@ -286,6 +407,27 @@
   <div class="intro-banner">
     💡 Stone 精選的財商觀念影片。不追熱點、不講明牌——只分享能幫助你建立投資思維與判斷力的好內容。
   </div>
+
+  <!-- ══ 投資金句抽抽樂 ══ -->
+  <div class="quote-section">
+    <div class="section-title">🎲 投資金句抽抽樂</div>
+    <div class="quote-filter">
+      <button class="quote-filter-btn active" data-who="all" onclick="setQuoteFilter(this)">全部</button>
+      <button class="quote-filter-btn" data-who="buffett" onclick="setQuoteFilter(this)">巴菲特</button>
+      <button class="quote-filter-btn" data-who="munger" onclick="setQuoteFilter(this)">查理・蒙格</button>
+    </div>
+    <div class="quote-card">
+      <div class="quote-body">
+        <div class="quote-text" id="quoteText"><span class="quote-placeholder">點右側按鈕，抽一句投資金句</span></div>
+        <div class="quote-author" id="quoteAuthor"></div>
+      </div>
+      <button class="draw-btn" onclick="drawQuote()">🎲 抽一句</button>
+      <div class="quote-count" id="quoteCount"></div>
+    </div>
+  </div>
+
+  <!-- 精選影片標題 -->
+  <div class="section-title">📺 精選影片</div>
 
   <!-- Toolbar -->
   <div class="toolbar">
@@ -370,6 +512,80 @@
 </div><!-- /container -->
 
 <script>
+  // ── 投資金句資料庫 ──
+  const quotes = [
+    { text: '別人恐懼時我貪婪，別人貪婪時我恐懼。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '投資的第一條守則是不要虧錢；第二條守則是永遠不要忘記第一條。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '如果你不願意持有一支股票十年，就不要持有它十分鐘。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '價格是你付出的，價值是你得到的。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '股市是把錢從沒耐心的人，轉移到有耐心的人手中的機制。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '風險來自於你不知道自己在做什麼。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '當潮水退去，才知道誰在裸泳。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '時間是優秀企業的朋友，是平庸企業的敵人。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '我寧願以合理的價格買入一家優秀的公司，也不要以優秀的價格買入一家平庸的公司。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '不管多麼美好的事業，它的股價也有可能貴到不值得買入。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '反過來想，永遠要反過來想。', author: '查理・蒙格', who: 'munger' },
+    { text: '每天睡覺前，你要比早上醒來時更聰明一點點。', author: '查理・蒙格', who: 'munger' },
+    { text: '想要得到某樣東西，最好的方式是讓自己配得上它。', author: '查理・蒙格', who: 'munger' },
+    { text: '所有聰明的投資，本質上都是價值投資——你要得到的比你付出的多。', author: '查理・蒙格', who: 'munger' },
+    { text: '告訴我動機，我就告訴你結果。', author: '查理・蒙格', who: 'munger' },
+    { text: '避免做蠢事，比找到天才更重要。', author: '查理・蒙格', who: 'munger' },
+    { text: '如果你只是比別人更有耐心、更有紀律，你就已經贏了大多數人。', author: '查理・蒙格', who: 'munger' },
+    { text: '魚與熊掌不可兼得——在投資中，你必須忍受波動，才能換來長期回報。', author: '查理・蒙格', who: 'munger' },
+  ];
+
+  let currentWho = 'all';
+  let lastIndex = -1;
+
+  function setQuoteFilter(btn) {
+    currentWho = btn.dataset.who;
+    document.querySelectorAll('.quote-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    updateQuoteCount();
+  }
+
+  function getFilteredQuotes() {
+    return currentWho === 'all' ? quotes : quotes.filter(q => q.who === currentWho);
+  }
+
+  function updateQuoteCount() {
+    const pool = getFilteredQuotes();
+    document.getElementById('quoteCount').textContent = '共 ' + pool.length + ' 句';
+  }
+
+  function drawQuote() {
+    const pool = getFilteredQuotes();
+    if (pool.length === 0) return;
+
+    const textEl = document.getElementById('quoteText');
+    const authorEl = document.getElementById('quoteAuthor');
+
+    // fade out
+    textEl.classList.add('fade');
+    authorEl.classList.add('fade');
+
+    setTimeout(() => {
+      let idx;
+      do { idx = Math.floor(Math.random() * pool.length); } while (idx === lastIndex && pool.length > 1);
+      lastIndex = idx;
+      const q = pool[idx];
+
+      textEl.textContent = '「' + q.text + '」';
+      const tag = q.who === 'buffett' ? '巴菲特' : '查理・蒙格';
+      authorEl.innerHTML = '— ' + q.author + ' <span>' + tag + '</span>';
+
+      // fade in
+      textEl.classList.remove('fade');
+      authorEl.classList.remove('fade');
+    }, 300);
+
+    updateQuoteCount();
+  }
+
+  // init count
+  updateQuoteCount();
+
+  // ── Video filter ──
   let currentCat = '全部';
 
   function playVideo(videoId) {
