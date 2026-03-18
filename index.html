@@ -4,16 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>📰 全球財經 × 展覽週報｜歷史彙整</title>
+  <meta name="description" content="每週五更新的全球財經 × 重大展覽週報，涵蓋美股、ETF、地緣政治、科技展覽等重點事件，提供投資人完整的市場脈絡彙整。">
+
+  <!-- Open Graph (Line / Threads / Facebook 分享預覽) -->
+  <meta property="og:title" content="📰 全球財經 × 重大展覽週報">
+  <meta property="og:description" content="每週五更新｜美股 · ETF · 地緣政治 · 科技展覽 · AI產業 · 一站掌握全球市場脈絡">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://williamstone75.github.io/weekly-briefing/">
+  <meta property="og:locale" content="zh_TW">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="📰 全球財經 × 重大展覽週報">
+  <meta name="twitter:description" content="每週五更新｜美股 · ETF · 地緣政治 · 科技展覽 · 一站掌握全球市場脈絡">
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    .disclaimer-bar {
-      background: #fdf6e3;
-      border-bottom: 1px solid #f0d98b;
-      color: #7d6608;
-      font-size: 0.78rem;
+    .disclaimer-text {
+      font-size: 0.75rem;
+      color: #bbb;
       text-align: center;
-      padding: 7px 20px;
-      line-height: 1.5;
+      margin-top: 20px;
+      line-height: 1.6;
+      padding: 0 12px;
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
@@ -38,7 +51,8 @@
       width: 200%; height: 200%;
       background: radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, transparent 60%);
     }
-    .header h1 { font-size: 2rem; letter-spacing: 0.05em; margin-bottom: 8px; position: relative; }
+    .header h1 { font-size: 2.6rem; letter-spacing: 0.05em; margin-bottom: 6px; position: relative; }
+    .header .subtitle { font-size: 0.8rem; opacity: 0.45; position: relative; margin-bottom: 4px; letter-spacing: 0.03em; }
     .header p { font-size: 0.95rem; opacity: 0.65; position: relative; }
     .nav-bar { display: flex; gap: 14px; justify-content: center; margin-top: 20px; flex-wrap: wrap; position: relative; }
     .nav-bar a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 1rem; font-weight: 500; padding: 10px 28px; border-radius: 30px; background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.15); transition: all 0.2s; letter-spacing: 0.02em; }
@@ -47,9 +61,10 @@
     .header-meta {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 16px;
       margin-top: 20px;
       position: relative;
+      flex-wrap: wrap;
     }
     .header-stat {
       background: rgba(255,255,255,0.1);
@@ -60,6 +75,8 @@
     }
     .header-stat .num { font-size: 1.4rem; font-weight: 700; }
     .header-stat .lbl { font-size: 0.72rem; opacity: 0.7; margin-top: 2px; }
+    .header-stat.next-update { background: rgba(39,174,96,0.2); border-color: rgba(39,174,96,0.4); }
+    .header-stat.next-update .num { color: #7defa1; font-size: 1.4rem; }
 
     /* Layout */
     .container { max-width: 960px; margin: 0 auto; padding: 32px 20px 60px; }
@@ -72,7 +89,7 @@
       margin-bottom: 24px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       display: flex;
-      gap: 12px;
+      gap: 10px;
       align-items: center;
       flex-wrap: wrap;
     }
@@ -89,20 +106,26 @@
     }
     .search-box:focus { border-color: #0f3460; }
     .filter-btn {
-      padding: 8px 16px;
+      padding: 7px 14px;
       border-radius: 8px;
       border: 1px solid #dde1e7;
       background: white;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: #555;
       cursor: pointer;
       transition: all 0.2s;
+      white-space: nowrap;
     }
     .filter-btn.active, .filter-btn:hover {
       background: #0f3460;
       color: white;
       border-color: #0f3460;
     }
+    .filter-btn.cat-地緣政治.active  { background: #c0392b; border-color: #c0392b; }
+    .filter-btn.cat-AI科技.active    { background: #8e44ad; border-color: #8e44ad; }
+    .filter-btn.cat-科技展覽.active  { background: #27ae60; border-color: #27ae60; }
+    .filter-btn.cat-財經總覽.active  { background: #2980b9; border-color: #2980b9; }
+    .toolbar-divider { width: 1px; height: 24px; background: #e0e4e8; flex-shrink: 0; }
 
     /* Section title */
     .section-title {
@@ -143,6 +166,7 @@
       padding: 4px 12px;
       font-size: 0.75rem;
       border: 1px solid rgba(255,255,255,0.3);
+      white-space: nowrap;
     }
     .latest-card .card-body { padding: 20px 24px; }
     .latest-card .date { font-size: 0.82rem; color: #888; margin-bottom: 6px; }
@@ -171,7 +195,24 @@
       border-radius: 12px;
       padding: 3px 10px;
       font-size: 0.78rem;
+      cursor: pointer;
+      transition: background 0.15s;
     }
+    .kw:hover { background: #d0e4f7; }
+
+    /* Category badge */
+    .cat-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 8px;
+      margin-bottom: 6px;
+    }
+    .cat-badge.地緣政治 { background: #fdecea; color: #c0392b; }
+    .cat-badge.AI科技   { background: #f3e9fd; color: #7d3c98; }
+    .cat-badge.科技展覽 { background: #e9f7ef; color: #1e8449; }
+    .cat-badge.財經總覽 { background: #eaf4fb; color: #1a5276; }
 
     /* History grid */
     .history-grid {
@@ -193,7 +234,7 @@
       border: 1px solid #eee;
     }
     .history-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
-    .history-card .hdate { font-size: 0.78rem; color: #999; margin-bottom: 6px; }
+    .history-card .hdate { font-size: 0.78rem; color: #999; margin-bottom: 4px; }
     .history-card .htitle { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
     .history-card .hkw { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
     .history-card .hkw span {
@@ -202,7 +243,10 @@
       border-radius: 10px;
       padding: 2px 8px;
       font-size: 0.72rem;
+      cursor: pointer;
+      transition: background 0.15s;
     }
+    .history-card .hkw span:hover { background: #dde8f5; color: #1a5276; }
     .history-card .hmetrics { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
     .history-card .hm {
       font-size: 0.78rem;
@@ -229,21 +273,25 @@
       color: #bbb;
       margin-top: 40px;
     }
+    .footer a { color: #aaa; text-decoration: none; }
+    .footer a:hover { color: #0f3460; }
 
     /* ── 手機版響應式（iPhone 13 = 390px） ── */
     @media (max-width: 600px) {
       .header { padding: 28px 16px 24px; }
-      .header h1 { font-size: 1.35rem; letter-spacing: 0.02em; }
+      .header h1 { font-size: 1.6rem; letter-spacing: 0.02em; }
       .header p { font-size: 0.85rem; }
-      .header-meta { gap: 10px; margin-top: 14px; }
+      .header-meta { gap: 8px; margin-top: 14px; }
       .header-stat { padding: 8px 12px; }
       .header-stat .num { font-size: 1.1rem; }
       .header-stat .lbl { font-size: 0.67rem; }
+      .header-stat.next-update .num { font-size: 0.85rem; }
       .nav-bar { gap: 10px; margin-top: 14px; }
       .nav-bar a { font-size: 0.88rem; padding: 8px 18px; }
       .container { padding: 18px 14px 48px; }
       .toolbar { padding: 12px 14px; gap: 8px; }
       .search-box { min-width: 100%; font-size: 0.85rem; }
+      .toolbar-divider { display: none; }
       .latest-card .card-top { padding: 14px 16px; flex-direction: column; align-items: flex-start; gap: 8px; }
       .latest-card .card-body { padding: 14px 16px; }
       .latest-card .title { font-size: 1rem; }
@@ -255,25 +303,21 @@
 </head>
 <body>
 
-<div class="disclaimer-bar">
-  ⚠️ 本網站內容僅供個人學習與資訊參考，不構成任何投資建議或買賣邀約。投資涉及風險，過去績效不代表未來表現，請自行判斷並承擔投資決策責任。
-</div>
-
 <div class="header">
-  <h1>📰 全球財經 × 重大展覽週報</h1>
-  <p>每週五自動更新 · 歷史彙整存檔</p>
+  <h1>📰 全球財經週報</h1>
+  <div class="subtitle">Powered by William Stone &amp; AI</div>
   <div class="header-meta">
     <div class="header-stat">
-      <div class="num" id="total-count">1</div>
+      <div class="num" id="total-count">—</div>
       <div class="lbl">週報總數</div>
     </div>
     <div class="header-stat">
-      <div class="num">每週五</div>
-      <div class="lbl">自動更新時間</div>
+      <div class="num">2026</div>
+      <div class="lbl">年份</div>
     </div>
-    <div class="header-stat">
-      <div class="num">19:00</div>
-      <div class="lbl">產出時間</div>
+    <div class="header-stat next-update">
+      <div class="num" id="next-update-date">—</div>
+      <div class="lbl">⏰ 下次更新</div>
     </div>
   </div>
   <nav class="nav-bar">
@@ -287,9 +331,13 @@
 
   <!-- Toolbar -->
   <div class="toolbar">
-    <input class="search-box" type="text" placeholder="🔍 搜尋關鍵字（如：黃金、非農、GTC…）" oninput="filterCards(this.value)" />
-    <button class="filter-btn active" onclick="filterByYear('all', this)">全部</button>
-    <button class="filter-btn" onclick="filterByYear('2026', this)">2026</button>
+    <input class="search-box" id="search-input" type="text" placeholder="🔍 搜尋關鍵字（如：黃金、NVIDIA、DeepSeek…）" oninput="filterCards(this.value)" />
+    <div class="toolbar-divider"></div>
+    <button class="filter-btn active" onclick="filterByCategory('all', this)">全部</button>
+    <button class="filter-btn cat-財經總覽" onclick="filterByCategory('財經總覽', this)">📊 財經總覽</button>
+    <button class="filter-btn cat-AI科技"   onclick="filterByCategory('AI科技', this)">🤖 AI科技</button>
+    <button class="filter-btn cat-地緣政治" onclick="filterByCategory('地緣政治', this)">⚔️ 地緣政治</button>
+    <button class="filter-btn cat-科技展覽" onclick="filterByCategory('科技展覽', this)">🖥️ 科技展覽</button>
   </div>
 
   <!-- 最新週報 -->
@@ -298,10 +346,10 @@
   <a class="latest-card" href="weekly-briefing-2026-03-13.html" target="_blank" id="latest-card">
     <div class="card-top">
       <div>
-        <div style="font-size:0.75rem; opacity:0.7; margin-bottom:4px;">最新週報</div>
+        <div style="font-size:0.75rem; opacity:0.7; margin-bottom:4px;">最新週報｜發布：2026/3/14</div>
         <div style="font-size:1.1rem; font-weight:700;">2026年3月9日－3月13日</div>
       </div>
-      <div class="badge">第 1 期</div>
+      <div class="badge" id="latest-badge">—</div>
     </div>
     <div class="card-body">
       <div class="summary">美伊衝突進入第二週，霍爾木茲海峽近乎封鎖，原油創史上最大單週漲幅 +35%，美股三大指數連二週下跌，聯準會降息預期大幅後移。GDC 2026 於舊金山登場，Kojima 久違5年主題演講。</div>
@@ -313,18 +361,19 @@
         <div class="metric"><div class="label">美元 DXY</div><div class="val">99.9</div></div>
       </div>
       <div class="keywords-row">
-        <span class="kw">美伊衝突</span>
-        <span class="kw">霍爾木茲海峽</span>
-        <span class="kw">原油史詩飆漲</span>
-        <span class="kw">非農爆冷</span>
-        <span class="kw">GDC 2026</span>
-        <span class="kw">FOMC</span>
+        <span style="font-size:0.78rem; color:#999; align-self:center; margin-right:2px;">延伸閱讀建議：</span>
+        <span class="kw" onclick="searchKeyword(event,'美伊衝突')">美伊衝突</span>
+        <span class="kw" onclick="searchKeyword(event,'霍爾木茲海峽')">霍爾木茲海峽</span>
+        <span class="kw" onclick="searchKeyword(event,'原油')">原油史詩飆漲</span>
+        <span class="kw" onclick="searchKeyword(event,'非農')">非農爆冷</span>
+        <span class="kw" onclick="searchKeyword(event,'GDC')">GDC 2026</span>
+        <span class="kw" onclick="searchKeyword(event,'FOMC')">FOMC</span>
       </div>
     </div>
   </a>
 
   <!-- 歷史週報 -->
-  <div class="section-title" style="margin-top:32px;">🗂 歷史週報</div>
+  <div class="section-title" style="margin-top:32px;" id="history-title">🗂 歷史週報</div>
 
   <div class="history-grid" id="history-grid">
     <!-- 歷史週報卡片由 JS 動態渲染 -->
@@ -335,19 +384,21 @@
   </div>
 
   <div class="footer">
-    <p>📅 自動化週報系統 · 每週五晚上 7:00 自動產出</p>
-    <p style="margin-top:6px;">資料來源：CNBC · Bloomberg · Reuters · World Gold Council</p>
+    <p>資料來源：CNBC · Bloomberg · Reuters · World Gold Council</p>
   </div>
+  <p class="disclaimer-text">本網站內容僅供個人學習與資訊參考，不構成任何投資建議或買賣邀約。投資涉及風險，過去績效不代表未來表現，請自行判斷並承擔投資決策責任。</p>
 </div>
 
 <script>
-  // 歷史週報資料庫（每週自動新增一筆）
+  // ── 週報資料庫 ──────────────────────────────────────────
+  // category 可以是：財經總覽 / AI科技 / 地緣政治 / 科技展覽
   const reports = [
     {
       date: "2026-03-13",
       label: "2026年3月9日－3月13日",
       file: "weekly-briefing-2026-03-13.html",
       summary: "美伊衝突第二週，原油史詩飆漲，美股連跌",
+      category: "地緣政治",
       keywords: ["美伊衝突", "原油飆漲", "非農爆冷", "GDC 2026", "FOMC"],
       metrics: [
         { label: "S&P 500", val: "▼ -1.99%", type: "red" },
@@ -360,6 +411,7 @@
       label: "2026年3月2日－3月7日",
       file: "weekly-briefing-2026-03-07.html",
       summary: "美伊衝突爆發第一週，非農-9.2萬爆冷，油價單週飆23%",
+      category: "地緣政治",
       keywords: ["美伊衝突爆發", "非農-9.2萬", "油價+23%", "MWC巴塞隆納", "CONEXPO 2026"],
       metrics: [
         { label: "S&P 500", val: "▼ -2.0%", type: "red" },
@@ -372,6 +424,7 @@
       label: "2026年2月23日－2月28日",
       file: "weekly-briefing-2026-02-28.html",
       summary: "2月科技股大崩，Magnificent Seven月跌7.3%，板塊輪動防禦股逆勢走強",
+      category: "財經總覽",
       keywords: ["科技股崩跌", "Magnificent Seven", "AI估值泡沫", "板塊輪動", "CP+ 2026", "MWC新聞日"],
       metrics: [
         { label: "S&P 500", val: "▼ -0.8%", type: "red" },
@@ -384,6 +437,7 @@
       label: "2026年2月16日－2月21日",
       file: "weekly-briefing-2026-02-21.html",
       summary: "Nvidia財報大超預期卻利多出盡跌5%，法院裁定川普關稅違憲，納斯達克止跌",
+      category: "AI科技",
       keywords: ["Nvidia財報", "利多出盡", "關稅違憲", "納斯達克止跌", "AI資本支出", "縮短交易週"],
       metrics: [
         { label: "S&P 500", val: "▲ +1.1%", type: "green" },
@@ -396,6 +450,7 @@
       label: "2026年2月9日－2月14日",
       file: "weekly-briefing-2026-02-14.html",
       summary: "CPI符合預期但油價壓抑降息空間，6月降息機率從56%驟降至23%",
+      category: "財經總覽",
       keywords: ["CPI符合預期", "降息後退", "higher for longer", "DeepSeek新模型", "Nvidia財報倒數"],
       metrics: [
         { label: "S&P 500", val: "▲ +0.05%", type: "green" },
@@ -408,6 +463,7 @@
       label: "2026年2月2日－2月7日",
       file: "weekly-briefing-2026-02-07.html",
       summary: "AI代理衝擊SaaS生態，軟體股單日蒸發2850億美元，黃金白銀逆勢漲6-7%",
+      category: "AI科技",
       keywords: ["AI代理衝擊", "SaaS崩跌", "黃金避險", "保證金債務新高", "Kevin Warsh提名"],
       metrics: [
         { label: "S&P 500", val: "▼ 震盪", type: "red" },
@@ -420,6 +476,7 @@
       label: "2026年1月26日－1月30日",
       file: "weekly-briefing-2026-01-30.html",
       summary: "DeepSeek R1 震撼登場，NVDA單日暴跌-17%創史上最大單日市值損失；Meta財報大超預期，Mag7財報季收官",
+      category: "AI科技",
       keywords: ["DeepSeek衝擊", "NVDA -17%", "Meta財報超預期", "日銀升息", "AI估值重估", "Mag7財報"],
       metrics: [
         { label: "QQQ", val: "▼ -1.6%", type: "red" },
@@ -432,6 +489,7 @@
       label: "2026年1月19日－1月23日",
       file: "weekly-briefing-2026-01-23.html",
       summary: "台積電法說Q4 EPS創歷史新高，2025全年營收年增39.7%；Netflix訂閱淨增1900萬大超預期，SOXX攀上月內高點104.2",
+      category: "AI科技",
       keywords: ["台積電法說超預期", "SOXX月內高點", "Netflix訂閱爆增", "WEF達沃斯", "MLK Day休市", "科技財報季"],
       metrics: [
         { label: "SOXX", val: "▲ +0.4%（月高）", type: "green" },
@@ -444,6 +502,7 @@
       label: "2026年1月12日－1月16日",
       file: "weekly-briefing-2026-01-16.html",
       summary: "Q4 2025 財報季開跑，JPM EPS大超預期+19.4%；12月CPI年增2.9%符合預期，核心CPI略低預期帶動降息預期回溫",
+      category: "財經總覽",
       keywords: ["Q4財報季", "CPI 2.9%", "JPM超預期", "降息預期回溫", "台積電法說", "SOXX連漲", "NRF 2026"],
       metrics: [
         { label: "S&P 500", val: "▲ +0.4%", type: "green" },
@@ -456,6 +515,7 @@
       label: "2026年1月2日－1月9日",
       file: "weekly-briefing-2026-01-09.html",
       summary: "CES 2026 登場，NVIDIA Jensen Huang發表Blackwell Ultra架構，AI PC元年宣言；SOXX單週領漲+3.2%，為1月最大單週漲幅",
+      category: "科技展覽",
       keywords: ["CES 2026", "NVIDIA Blackwell Ultra", "AI PC", "AI機器人", "SOXX +3.2%", "1月效應", "費半領漲"],
       metrics: [
         { label: "SOXX", val: "▲ +3.2%", type: "green" },
@@ -466,57 +526,87 @@
     // 未來每週自動在此新增一筆
   ];
 
+  // ── 點擊關鍵字標籤 ──────────────────────────────────────
+  function searchKeyword(e, keyword) {
+    e.preventDefault();
+    e.stopPropagation();
+    const input = document.getElementById('search-input');
+    input.value = keyword;
+    filterCards(keyword);
+    // 重置分類按鈕
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.filter-btn').classList.add('active');
+    // 滾動到搜尋欄
+    input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // ── 計算下次更新日（下一個週六） ───────────────────────
+  function getNextSaturday() {
+    const now = new Date();
+    const day = now.getDay(); // 0=Sun, 6=Sat
+    const daysUntil = day === 6 ? 7 : (6 - day);
+    const next = new Date(now);
+    next.setDate(now.getDate() + daysUntil);
+    return `${next.getMonth() + 1}/${next.getDate()}（六）`;
+  }
+
+  // ── 渲染歷史卡片 ────────────────────────────────────────
+  let currentCategory = 'all';
+  let currentQuery = '';
+
   function renderHistory() {
     const grid = document.getElementById('history-grid');
-    const filtered = reports.slice(1); // 排除最新（已在上方顯示）
+    const filtered = reports.slice(1).filter(r => {
+      const catOk = currentCategory === 'all' || r.category === currentCategory;
+      const q = currentQuery.toLowerCase();
+      const textOk = !q || (r.keywords.join(' ') + r.label + r.summary).toLowerCase().includes(q);
+      return catOk && textOk;
+    });
+
     if (filtered.length === 0) {
-      grid.innerHTML = '<div style="color:#bbb; font-size:0.88rem; padding:20px 0;">目前只有一期週報，下週五新增後將顯示於此。</div>';
-      return;
+      grid.innerHTML = '';
+      document.getElementById('empty-state').style.display = 'block';
+    } else {
+      document.getElementById('empty-state').style.display = 'none';
+      grid.innerHTML = filtered.map(r => `
+        <a class="history-card" href="${r.file}" target="_blank" data-keywords="${r.keywords.join(' ')} ${r.label}" data-category="${r.category}">
+          <div class="cat-badge ${r.category}">${r.category}</div>
+          <div class="hdate">${r.label}</div>
+          <div class="htitle">${r.summary}</div>
+          <div class="hmetrics">
+            ${r.metrics.map(m => `<span class="hm ${m.type}">${m.label} ${m.val}</span>`).join('')}
+          </div>
+          <div class="hkw">
+            ${r.keywords.map(k => `<span onclick="searchKeyword(event,'${k}')">${k}</span>`).join('')}
+          </div>
+        </a>
+      `).join('');
     }
-    grid.innerHTML = filtered.map(r => `
-      <a class="history-card" href="${r.file}" target="_blank" data-keywords="${r.keywords.join(' ')} ${r.label}">
-        <div class="hdate">${r.label}</div>
-        <div class="htitle">${r.summary}</div>
-        <div class="hmetrics">
-          ${r.metrics.map(m => `<span class="hm ${m.type}">${m.label} ${m.val}</span>`).join('')}
-        </div>
-        <div class="hkw">
-          ${r.keywords.map(k => `<span>${k}</span>`).join('')}
-        </div>
-      </a>
-    `).join('');
+
+    // 最新卡片的可見性
+    const latest = document.getElementById('latest-card');
+    const latestCatOk = currentCategory === 'all' || reports[0].category === currentCategory;
+    const q = currentQuery.toLowerCase();
+    const latestTextOk = !q || (reports[0].keywords.join(' ') + reports[0].label + reports[0].summary).toLowerCase().includes(q);
+    latest.style.display = (latestCatOk && latestTextOk) ? 'block' : 'none';
   }
 
   function filterCards(query) {
-    const q = query.toLowerCase();
-    const latest = document.getElementById('latest-card');
-    const cards = document.querySelectorAll('.history-card');
-    let visible = 0;
-
-    // 過濾最新卡片
-    const latestText = latest.textContent.toLowerCase();
-    latest.style.display = !q || latestText.includes(q) ? 'block' : 'none';
-    if (!q || latestText.includes(q)) visible++;
-
-    // 過濾歷史卡片
-    cards.forEach(card => {
-      const text = card.dataset.keywords.toLowerCase() + card.textContent.toLowerCase();
-      const show = !q || text.includes(q);
-      card.style.display = show ? 'block' : 'none';
-      if (show) visible++;
-    });
-
-    document.getElementById('empty-state').style.display = visible === 0 ? 'block' : 'none';
+    currentQuery = query;
+    renderHistory();
   }
 
-  function filterByYear(year, btn) {
+  function filterByCategory(cat, btn) {
+    currentCategory = cat;
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    // 可擴充年份過濾邏輯
+    renderHistory();
   }
 
-  // 初始化
+  // ── 初始化 ──────────────────────────────────────────────
   document.getElementById('total-count').textContent = reports.length;
+  document.getElementById('latest-badge').textContent = `第 ${reports.length} 期`;
+  document.getElementById('next-update-date').textContent = getNextSaturday();
   renderHistory();
 </script>
 </body>
