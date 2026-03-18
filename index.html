@@ -277,6 +277,66 @@
     .footer a:hover { color: #0f3460; }
 
     /* ── 手機版響應式（iPhone 13 = 390px） ── */
+    /* ── Quote Game ── */
+    .quote-section { margin-bottom: 28px; }
+    .quote-section-title {
+      font-size: 1rem; font-weight: 700; color: #2c3e50;
+      margin-bottom: 12px; padding-bottom: 8px;
+      border-bottom: 2px solid #dde1e7;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .quote-filter {
+      display: flex; gap: 7px; margin-bottom: 12px; flex-wrap: wrap;
+    }
+    .quote-filter-btn {
+      padding: 5px 14px; border-radius: 30px;
+      border: 1.5px solid #dde1e7; background: white;
+      font-size: 0.78rem; font-weight: 500; color: #666;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .quote-filter-btn.active { background: #586D80; color: white; border-color: #586D80; }
+    .quote-filter-btn:hover:not(.active) { border-color: #aaa; color: #333; }
+    .quote-card {
+      background: rgba(238,235,231,0.7);
+      border: 1px solid #d5d1cb;
+      border-left: 4px solid #8E9BAE;
+      border-radius: 12px;
+      padding: 18px 22px 16px;
+      display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+    }
+    .quote-body { flex: 1; min-width: 0; }
+    .quote-text {
+      font-size: 0.97rem; font-weight: 500; color: #1a1a2e;
+      line-height: 1.75; font-style: italic;
+      opacity: 1; transition: opacity 0.25s ease;
+    }
+    .quote-text.fade { opacity: 0; }
+    .quote-placeholder { font-size: 0.88rem; color: #aaa; font-style: normal; }
+    .quote-author {
+      font-size: 0.75rem; color: #888; margin-top: 6px;
+      transition: opacity 0.25s ease;
+    }
+    .quote-author.fade { opacity: 0; }
+    .quote-author span {
+      display: inline-block; background: rgba(26,26,46,0.08);
+      border-radius: 20px; padding: 2px 9px; margin-left: 4px;
+      font-size: 0.7rem; color: #555;
+    }
+    .draw-btn {
+      flex-shrink: 0; padding: 12px 28px;
+      background: #586D80; border: none; border-radius: 30px;
+      color: white; font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; transition: all 0.2s; white-space: nowrap;
+      box-shadow: 0 3px 10px rgba(88,109,128,0.3);
+    }
+    .draw-btn:hover { background: #4a5d70; transform: translateY(-2px); box-shadow: 0 5px 14px rgba(88,109,128,0.4); }
+    .draw-btn:active { transform: translateY(0); }
+    .quote-count { font-size: 0.68rem; color: #bbb; width: 100%; margin-top: -4px; }
+    @media (max-width: 560px) {
+      .quote-card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 14px; }
+      .draw-btn { width: 100%; text-align: center; }
+    }
+
     @media (max-width: 600px) {
       .header { padding: 28px 16px 24px; }
       .header h1 { font-size: 1.6rem; letter-spacing: 0.02em; }
@@ -337,10 +397,31 @@
 
 <div class="container">
 
+  <!-- ══ 投資金句抽抽樂 ══ -->
+  <div class="quote-section">
+    <div class="quote-section-title">🎲 投資金句抽抽樂</div>
+    <div class="quote-filter">
+      <button class="quote-filter-btn active" data-who="all" onclick="setQuoteFilter(this)">全部</button>
+      <button class="quote-filter-btn" data-who="buffett" onclick="setQuoteFilter(this)">巴菲特</button>
+      <button class="quote-filter-btn" data-who="munger" onclick="setQuoteFilter(this)">查理・蒙格</button>
+      <button class="quote-filter-btn" data-who="kostolany" onclick="setQuoteFilter(this)">科斯托蘭尼</button>
+      <button class="quote-filter-btn" data-who="dalio" onclick="setQuoteFilter(this)">雷・達里歐</button>
+      <button class="quote-filter-btn" data-who="lynch" onclick="setQuoteFilter(this)">彼得・林區</button>
+      <button class="quote-filter-btn" data-who="graham" onclick="setQuoteFilter(this)">班傑明・葛拉漢</button>
+      <button class="quote-filter-btn" data-who="marks" onclick="setQuoteFilter(this)">霍華德・馬克斯</button>
+    </div>
+    <div class="quote-card">
+      <div class="quote-body">
+        <div class="quote-text" id="quoteText"><span class="quote-placeholder">點右側按鈕，抽一句投資金句</span></div>
+        <div class="quote-author" id="quoteAuthor"></div>
+      </div>
+      <button class="draw-btn" onclick="drawQuote()">🎲 抽一句</button>
+      <div class="quote-count" id="quoteCount"></div>
+    </div>
+  </div>
+
   <!-- Toolbar -->
   <div class="toolbar">
-    <input class="search-box" id="search-input" type="text" placeholder="🔍 搜尋關鍵字（如：黃金、NVIDIA、DeepSeek…）" oninput="filterCards(this.value)" />
-    <div class="toolbar-divider"></div>
     <button class="filter-btn active" onclick="filterByCategory('all', this)">全部</button>
     <button class="filter-btn cat-財經總覽" onclick="filterByCategory('財經總覽', this)">📊 財經總覽</button>
     <button class="filter-btn cat-AI科技"   onclick="filterByCategory('AI科技', this)">🤖 AI科技</button>
@@ -610,6 +691,101 @@
     btn.classList.add('active');
     renderHistory();
   }
+
+  // ── 投資金句抽抽樂 ──────────────────────────────────────
+  const quotes = [
+    { text: '別人恐懼時我貪婪，別人貪婪時我恐懼。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '投資的第一條守則是不要虧錢；第二條守則是永遠不要忘記第一條。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '如果你不願意持有一支股票十年，就不要持有它十分鐘。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '價格是你付出的，價值是你得到的。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '股市是把錢從沒耐心的人，轉移到有耐心的人手中的機制。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '風險來自於你不知道自己在做什麼。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '當潮水退去，才知道誰在裸泳。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '時間是優秀企業的朋友，是平庸企業的敵人。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '我寧願以合理的價格買入一家優秀的公司，也不要以優秀的價格買入一家平庸的公司。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '不管多麼美好的事業，它的股價也有可能貴到不值得買入。', author: '華倫・巴菲特', who: 'buffett' },
+    { text: '反過來想，永遠要反過來想。', author: '查理・蒙格', who: 'munger' },
+    { text: '每天睡覺前，你要比早上醒來時更聰明一點點。', author: '查理・蒙格', who: 'munger' },
+    { text: '想要得到某樣東西，最好的方式是讓自己配得上它。', author: '查理・蒙格', who: 'munger' },
+    { text: '所有聰明的投資，本質上都是價值投資——你要得到的比你付出的多。', author: '查理・蒙格', who: 'munger' },
+    { text: '告訴我動機，我就告訴你結果。', author: '查理・蒙格', who: 'munger' },
+    { text: '避免做蠢事，比找到天才更重要。', author: '查理・蒙格', who: 'munger' },
+    { text: '如果你只是比別人更有耐心、更有紀律，你就已經贏了大多數人。', author: '查理・蒙格', who: 'munger' },
+    { text: '魚與熊掌不可兼得——在投資中，你必須忍受波動，才能換來長期回報。', author: '查理・蒙格', who: 'munger' },
+    { text: '買股票，然後吃安眠藥——睡醒之後，你就是有錢人了。', author: '安德烈・科斯托蘭尼', who: 'kostolany' },
+    { text: '在股票市場上，多數人總是錯的。', author: '安德烈・科斯托蘭尼', who: 'kostolany' },
+    { text: '如果你神經緊張，就不適合投機。', author: '安德烈・科斯托蘭尼', who: 'kostolany' },
+    { text: '所有股市行情，最終取決於兩件事：流動性與心理。', author: '安德烈・科斯托蘭尼', who: 'kostolany' },
+    { text: '在股市上，對的人和來得早的人一樣，都必須等待。', author: '安德烈・科斯托蘭尼', who: 'kostolany' },
+    { text: '思考者是少數，正因如此，市場大多數時候是錯的。', author: '安德烈・科斯托蘭尼', who: 'kostolany' },
+    { text: '股票不只是一張紙，它代表著一家真實企業的一部分。', author: '安德烈・科斯托蘭尼', who: 'kostolany' },
+    { text: '有錢才可以投機；沒錢，絕對不能投機。', author: '安德烈・科斯托蘭尼', who: 'kostolany' },
+    { text: '痛苦加上反省，等於進步。', author: '雷・達里歐', who: 'dalio' },
+    { text: '多元分散是投資的聖杯——它能讓你在不降低預期報酬的情況下，大幅降低風險。', author: '雷・達里歐', who: 'dalio' },
+    { text: '我最大的錯誤，是沒有正視自己可能是錯的。', author: '雷・達里歐', who: 'dalio' },
+    { text: '不要把今天的好運，誤以為是自己的能力。', author: '雷・達里歐', who: 'dalio' },
+    { text: '極度開放的心態，是成功投資者最重要的特質。', author: '雷・達里歐', who: 'dalio' },
+    { text: '你所擁有的，只是你過去所做決策的總和。', author: '雷・達里歐', who: 'dalio' },
+    { text: '現金是垃圾——長期持有現金，是最確定的財富損耗方式。', author: '雷・達里歐', who: 'dalio' },
+    { text: '了解經濟機器的運作，比猜測下一個漲跌更有價值。', author: '雷・達里歐', who: 'dalio' },
+    { text: '投資你所了解的東西。', author: '彼得・林區', who: 'lynch' },
+    { text: '賣掉一支好股票去補一支壞股票，就像砍掉花朵去澆灌雜草。', author: '彼得・林區', who: 'lynch' },
+    { text: '股票不知道你擁有它——你的焦慮，市場感覺不到。', author: '彼得・林區', who: 'lynch' },
+    { text: '只要做好功課，散戶也能打敗機構投資人。', author: '彼得・林區', who: 'lynch' },
+    { text: '在股市裡，最危險的一句話是：「這次不一樣。」', author: '彼得・林區', who: 'lynch' },
+    { text: '翻十倍股之前，必須先翻兩倍。持有的勇氣，比選股的眼光更重要。', author: '彼得・林區', who: 'lynch' },
+    { text: '沒有人能準確預測利率，也沒有人能準確預測經濟走向——與其預測，不如準備。', author: '彼得・林區', who: 'lynch' },
+    { text: '如果你不研究任何公司，你在股市的成功率，跟撲克牌玩家蒙眼出牌一樣。', author: '彼得・林區', who: 'lynch' },
+    { text: '股票市場短期是投票機，長期是體重計。', author: '班傑明・葛拉漢', who: 'graham' },
+    { text: '安全邊際，是投資最核心的概念。', author: '班傑明・葛拉漢', who: 'graham' },
+    { text: '市場先生每天都會來敲你的門，報出買賣價格——但你沒有義務接受。', author: '班傑明・葛拉漢', who: 'graham' },
+    { text: '聰明的投資者是現實主義者，他向樂觀者賣出，向悲觀者買入。', author: '班傑明・葛拉漢', who: 'graham' },
+    { text: '投資的本質，是在充分分析後，確保本金安全並獲得滿意回報。其餘的，是投機。', author: '班傑明・葛拉漢', who: 'graham' },
+    { text: '真正的投資者很少被迫賣出，時間永遠是他的朋友。', author: '班傑明・葛拉漢', who: 'graham' },
+    { text: '市場的短期波動是噪音，長期的企業價值才是真相。', author: '班傑明・葛拉漢', who: 'graham' },
+    { text: '股價下跌不代表虧損，只有賣出才是真正的虧損。', author: '班傑明・葛拉漢', who: 'graham' },
+    { text: '出色的投資不在於買好東西，而是買得好。', author: '霍華德・馬克斯', who: 'marks' },
+    { text: '第一層思維說：這是好公司，買入。第二層思維說：人人都知道這是好公司，所以股價早已反映了。', author: '霍華德・馬克斯', who: 'marks' },
+    { text: '你無法預測，但你可以做好準備。', author: '霍華德・馬克斯', who: 'marks' },
+    { text: '當每個人都相信某件事沒有風險時，風險其實最高。', author: '霍華德・馬克斯', who: 'marks' },
+    { text: '市場的鐘擺永遠在擺動，從一個極端盪向另一個極端，鮮少停在中間。', author: '霍華德・馬克斯', who: 'marks' },
+    { text: '投資最重要的事，是理解風險，而不是迴避風險。', author: '霍華德・馬克斯', who: 'marks' },
+    { text: '在別人恐懼時買入，需要的不是勇氣，而是紀律與分析。', author: '霍華德・馬克斯', who: 'marks' },
+    { text: '風險控制，是優秀投資者與普通投資者之間最大的差距。', author: '霍華德・馬克斯', who: 'marks' },
+  ];
+  const tagMap = { buffett:'巴菲特', munger:'查理・蒙格', kostolany:'科斯托蘭尼', dalio:'雷・達里歐', lynch:'彼得・林區', graham:'班傑明・葛拉漢', marks:'霍華德・馬克斯' };
+  let currentWho = 'all', lastQuoteIdx = -1;
+
+  function setQuoteFilter(btn) {
+    currentWho = btn.dataset.who;
+    document.querySelectorAll('.quote-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    updateQuoteCount();
+  }
+  function getFilteredQuotes() {
+    return currentWho === 'all' ? quotes : quotes.filter(q => q.who === currentWho);
+  }
+  function updateQuoteCount() {
+    document.getElementById('quoteCount').textContent = '共 ' + getFilteredQuotes().length + ' 句';
+  }
+  function drawQuote() {
+    const pool = getFilteredQuotes();
+    if (!pool.length) return;
+    const textEl = document.getElementById('quoteText');
+    const authorEl = document.getElementById('quoteAuthor');
+    textEl.classList.add('fade'); authorEl.classList.add('fade');
+    setTimeout(() => {
+      let idx;
+      do { idx = Math.floor(Math.random() * pool.length); } while (idx === lastQuoteIdx && pool.length > 1);
+      lastQuoteIdx = idx;
+      const q = pool[idx];
+      textEl.textContent = '「' + q.text + '」';
+      authorEl.innerHTML = '— ' + q.author + ' <span>' + (tagMap[q.who] || q.who) + '</span>';
+      textEl.classList.remove('fade'); authorEl.classList.remove('fade');
+    }, 280);
+    updateQuoteCount();
+  }
+  updateQuoteCount();
 
   // ── 初始化 ──────────────────────────────────────────────
   document.getElementById('total-count').textContent = reports.length;

@@ -408,24 +408,6 @@
     💡 Stone 精選的財商觀念影片。不追熱點、不講明牌——只分享能幫助你建立投資思維與判斷力的好內容。
   </div>
 
-  <!-- ══ 投資金句抽抽樂 ══ -->
-  <div class="quote-section">
-    <div class="section-title">🎲 投資金句抽抽樂</div>
-    <div class="quote-filter">
-      <button class="quote-filter-btn active" data-who="all" onclick="setQuoteFilter(this)">全部</button>
-      <button class="quote-filter-btn" data-who="buffett" onclick="setQuoteFilter(this)">巴菲特</button>
-      <button class="quote-filter-btn" data-who="munger" onclick="setQuoteFilter(this)">查理・蒙格</button>
-    </div>
-    <div class="quote-card">
-      <div class="quote-body">
-        <div class="quote-text" id="quoteText"><span class="quote-placeholder">點右側按鈕，抽一句投資金句</span></div>
-        <div class="quote-author" id="quoteAuthor"></div>
-      </div>
-      <button class="draw-btn" onclick="drawQuote()">🎲 抽一句</button>
-      <div class="quote-count" id="quoteCount"></div>
-    </div>
-  </div>
-
   <!-- 精選影片標題 -->
   <div class="section-title">📺 精選影片</div>
 
@@ -512,79 +494,6 @@
 </div><!-- /container -->
 
 <script>
-  // ── 投資金句資料庫 ──
-  const quotes = [
-    { text: '別人恐懼時我貪婪，別人貪婪時我恐懼。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '投資的第一條守則是不要虧錢；第二條守則是永遠不要忘記第一條。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '如果你不願意持有一支股票十年，就不要持有它十分鐘。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '價格是你付出的，價值是你得到的。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '股市是把錢從沒耐心的人，轉移到有耐心的人手中的機制。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '風險來自於你不知道自己在做什麼。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '當潮水退去，才知道誰在裸泳。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '時間是優秀企業的朋友，是平庸企業的敵人。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '我寧願以合理的價格買入一家優秀的公司，也不要以優秀的價格買入一家平庸的公司。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '不管多麼美好的事業，它的股價也有可能貴到不值得買入。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '反過來想，永遠要反過來想。', author: '查理・蒙格', who: 'munger' },
-    { text: '每天睡覺前，你要比早上醒來時更聰明一點點。', author: '查理・蒙格', who: 'munger' },
-    { text: '想要得到某樣東西，最好的方式是讓自己配得上它。', author: '查理・蒙格', who: 'munger' },
-    { text: '所有聰明的投資，本質上都是價值投資——你要得到的比你付出的多。', author: '查理・蒙格', who: 'munger' },
-    { text: '告訴我動機，我就告訴你結果。', author: '查理・蒙格', who: 'munger' },
-    { text: '避免做蠢事，比找到天才更重要。', author: '查理・蒙格', who: 'munger' },
-    { text: '如果你只是比別人更有耐心、更有紀律，你就已經贏了大多數人。', author: '查理・蒙格', who: 'munger' },
-    { text: '魚與熊掌不可兼得——在投資中，你必須忍受波動，才能換來長期回報。', author: '查理・蒙格', who: 'munger' },
-  ];
-
-  let currentWho = 'all';
-  let lastIndex = -1;
-
-  function setQuoteFilter(btn) {
-    currentWho = btn.dataset.who;
-    document.querySelectorAll('.quote-filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    updateQuoteCount();
-  }
-
-  function getFilteredQuotes() {
-    return currentWho === 'all' ? quotes : quotes.filter(q => q.who === currentWho);
-  }
-
-  function updateQuoteCount() {
-    const pool = getFilteredQuotes();
-    document.getElementById('quoteCount').textContent = '共 ' + pool.length + ' 句';
-  }
-
-  function drawQuote() {
-    const pool = getFilteredQuotes();
-    if (pool.length === 0) return;
-
-    const textEl = document.getElementById('quoteText');
-    const authorEl = document.getElementById('quoteAuthor');
-
-    // fade out
-    textEl.classList.add('fade');
-    authorEl.classList.add('fade');
-
-    setTimeout(() => {
-      let idx;
-      do { idx = Math.floor(Math.random() * pool.length); } while (idx === lastIndex && pool.length > 1);
-      lastIndex = idx;
-      const q = pool[idx];
-
-      textEl.textContent = '「' + q.text + '」';
-      const tag = q.who === 'buffett' ? '巴菲特' : '查理・蒙格';
-      authorEl.innerHTML = '— ' + q.author + ' <span>' + tag + '</span>';
-
-      // fade in
-      textEl.classList.remove('fade');
-      authorEl.classList.remove('fade');
-    }, 300);
-
-    updateQuoteCount();
-  }
-
-  // init count
-  updateQuoteCount();
-
   // ── Video filter ──
   let currentCat = '全部';
 
