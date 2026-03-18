@@ -56,7 +56,7 @@
     .header p { font-size: 0.95rem; opacity: 0.65; position: relative; }
     .nav-bar { display: flex; gap: 14px; justify-content: center; margin-top: 20px; flex-wrap: wrap; position: relative; }
     .nav-bar a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 1rem; font-weight: 500; padding: 10px 28px; border-radius: 30px; background: rgba(255,255,255,0.32); border: 1.5px solid rgba(255,255,255,0.55); transition: all 0.2s; letter-spacing: 0.02em; }
-    .nav-bar a.active { background: rgba(255,255,255,0.68); color: white; font-weight: 700; border-color: rgba(255,255,255,0.85); }
+    .nav-bar a.active { background: rgba(255,255,255,0.85); color: #1a2a36; font-weight: 700; border-color: rgba(255,255,255,0.95); }
     .nav-bar a:hover { background: rgba(255,255,255,0.52); color: white; border-color: rgba(255,255,255,0.72); }
     .header-meta {
       display: flex;
@@ -285,6 +285,22 @@
       border-bottom: 2px solid #dde1e7;
       display: flex; align-items: center; gap: 6px;
     }
+    /* 金句篩選橫滑外層 + 右側漸層提示 */
+    .quote-filter-wrap {
+      position: relative;
+    }
+    .quote-filter-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 48px; height: calc(100% - 6px);
+      background: linear-gradient(to right, transparent, #f5f5f5);
+      pointer-events: none;
+      border-radius: 0 30px 30px 0;
+    }
+    @media (min-width: 561px) {
+      .quote-filter-wrap::after { display: none; }
+    }
     .filter-row-label {
       font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
       letter-spacing: 0.08em; color: #bbb; margin-bottom: 7px;
@@ -373,6 +389,9 @@
       .latest-card .summary { font-size: 0.83rem; }
       .metric { padding: 7px 10px; }
       .history-grid { grid-template-columns: 1fr; gap: 12px; }
+      /* 加大手機觸控點擊區 */
+      .filter-btn { padding: 10px 16px; font-size: 0.82rem; min-height: 40px; }
+      .quote-filter-btn { padding: 9px 16px; font-size: 0.8rem; min-height: 40px; }
     }
   </style>
   <!-- Google Analytics GA4 -->
@@ -416,6 +435,7 @@
   <div class="quote-section">
     <div class="quote-section-title">🎲 投資金句抽抽樂</div>
     <div class="filter-row-label">依作者篩選</div>
+    <div class="quote-filter-wrap">
     <div class="quote-filter">
       <button class="quote-filter-btn active" data-who="all" onclick="setQuoteFilter(this)">全部</button>
       <button class="quote-filter-btn" data-who="buffett" onclick="setQuoteFilter(this)">巴菲特</button>
@@ -426,6 +446,7 @@
       <button class="quote-filter-btn" data-who="graham" onclick="setQuoteFilter(this)">班傑明・葛拉漢</button>
       <button class="quote-filter-btn" data-who="marks" onclick="setQuoteFilter(this)">霍華德・馬克斯</button>
     </div>
+    </div><!-- /.quote-filter-wrap -->
     <div class="quote-card">
       <div class="quote-body">
         <div class="quote-text" id="quoteText"><span class="quote-placeholder">點「抽一句」，隨機抽一句投資金句</span></div>
