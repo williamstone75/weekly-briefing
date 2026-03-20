@@ -690,7 +690,8 @@
   function getNextSaturday() {
     const now = new Date();
     const day = now.getDay(); // 0=Sun, 6=Sat
-    const daysUntil = day === 6 ? 7 : (6 - day);
+    // 週五（5）或週六（6）時，顯示「下週六」而非「明天/今天」
+    const daysUntil = day >= 5 ? (6 - day + 7) : (6 - day);
     const next = new Date(now);
     next.setDate(now.getDate() + daysUntil);
     return `${next.getMonth() + 1}/${next.getDate()}（六）`;
