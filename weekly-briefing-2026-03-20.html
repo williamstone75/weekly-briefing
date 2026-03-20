@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📰 全球財經週報｜2026年3月16日－3月20日</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
+      line-height: 1.7;
+    }
+    .header {
+      background: linear-gradient(135deg, #2c3e6e 0%, #1e3460 50%, #162a54 100%);
+      color: white;
+      padding: 40px 32px 32px;
+      text-align: center;
+    }
+    .header h1 { font-size: 1.8rem; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .header p { font-size: 1rem; opacity: 0.75; }
+    /* ── Nav Bar ── */
+    .nav-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
+    .nav-bar a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.92rem; font-weight: 500; padding: 8px 22px; border-radius: 20px; background: rgba(255,255,255,0.18); border: 1.5px solid rgba(255,255,255,0.45); transition: all 0.2s; white-space: nowrap; }
+    .nav-bar a:hover { background: rgba(255,255,255,0.32); color: white; }
+    .nav-bar-break { display: none; }
+    @media (max-width: 560px) {
+      .nav-bar-break { display: block; width: 100%; height: 0; }
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.82rem;
+      margin-top: 12px;
+    }
+    .container { max-width: 880px; margin: 0 auto; padding: 28px 20px 60px; }
+    .section {
+      background: white;
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .section h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1e3460;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e8ecf0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #333;
+      margin: 20px 0 10px;
+    }
+    .overview-box {
+      background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+      border-left: 4px solid #f39c12;
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+    th {
+      background: #f5f7fa;
+      color: #555;
+      font-weight: 600;
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 2px solid #e0e4e8;
+    }
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #f0f2f5;
+      vertical-align: middle;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #fafbfc; }
+    .up { color: #27ae60; font-weight: 700; }
+    .down { color: #e74c3c; font-weight: 700; }
+    .neutral { color: #7f8c8d; }
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin: 2px;
+    }
+    .tag-red { background: #fdecea; color: #c0392b; }
+    .tag-green { background: #eafaf1; color: #1e8449; }
+    .tag-blue { background: #ebf5fb; color: #2c3e6e; }
+    .tag-orange { background: #fef9e7; color: #d35400; }
+    .tag-purple { background: #f5eef8; color: #6c3483; }
+    .info-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .info-card {
+      flex: 1;
+      min-width: 140px;
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 14px 16px;
+      border: 1px solid #e8ecf0;
+    }
+    .info-card .label { font-size: 0.75rem; color: #888; margin-bottom: 4px; }
+    .info-card .value { font-size: 1.1rem; font-weight: 700; color: #1a1a2e; }
+    .info-card .change { font-size: 0.82rem; margin-top: 2px; }
+    .geo-item {
+      background: #f8fafc;
+      border-left: 3px solid #3498db;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      margin-bottom: 10px;
+      font-size: 0.92rem;
+    }
+    .geo-item strong { color: #2c3e6e; }
+    .expo-grid { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+    .expo-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 14px 16px;
+      border: 1px solid #e8ecf0;
+    }
+    .expo-dot { font-size: 1.3rem; margin-top: 2px; flex-shrink: 0; }
+    .expo-content { flex: 1; }
+    .expo-name { font-weight: 700; font-size: 0.95rem; color: #1a1a2e; }
+    .expo-meta { font-size: 0.82rem; color: #666; margin-top: 3px; }
+    .expo-link { font-size: 0.82rem; margin-top: 4px; }
+    .expo-link a { color: #2980b9; text-decoration: none; }
+    .expo-link a:hover { text-decoration: underline; }
+    .highlight-box {
+      background: #eafaf1;
+      border: 1px solid #a9dfbf;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      color: #1e8449;
+    }
+    .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .keyword {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+    }
+    .sources { margin-top: 12px; font-size: 0.82rem; color: #888; }
+    .sources a { color: #2980b9; text-decoration: none; margin-right: 8px; }
+    .star { color: #f1c40f; }
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #aaa;
+      margin: 18px 0 8px;
+    }
+
+    /* ── 手機版響應式 ── */
+    @media (max-width: 600px) {
+      .header { padding: 24px 16px 20px; }
+      .header h1 { font-size: 1.25rem; letter-spacing: 0.02em; }
+      .header p { font-size: 0.85rem; }
+      .nav-bar { gap: 8px; margin-top: 14px; }
+      .nav-bar a { font-size: 0.85rem; padding: 8px 16px; }
+      .container { padding: 16px 12px 48px; }
+      .section { padding: 16px 14px; }
+      .section h2 { font-size: 1rem; }
+      .section h3 { font-size: 0.93rem; }
+      .overview-box { font-size: 0.88rem; padding: 12px 14px; }
+      .section { overflow-x: auto; }
+      table { font-size: 0.8rem; min-width: 480px; }
+      th, td { padding: 7px 9px; }
+      .info-card { min-width: 120px; }
+      .info-card .value { font-size: 0.95rem; }
+      .tag { font-size: 0.72rem; padding: 2px 8px; }
+    }
+  </style>
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ED1LC863H4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ED1LC863H4');
+  </script>
+</head>
+<body>
+
+<div class="header">
+  <h1><a href="index.html" style="color:inherit; text-decoration:none;">📰 全球財經週報</a></h1>
+  <p>2026年3月16日（週一）— 3月20日（週五）</p>
+
+  <div class="nav-bar">
+    <a href="index.html">📰 週報首頁</a>
+    <div class="nav-bar-break"></div>
+    <a href="timeline.html">📊 全球事件整理</a>
+    <a href="knowledge.html">📚 石府商學院</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 一、市場總覽 -->
+  <div class="section">
+    <h2>一、本週市場總覽</h2>
+    <div class="overview-box">
+      本週全球市場焦點集中於<strong>FOMC 3/18利率決議</strong>與<strong>持續升溫的美以對伊朗戰爭</strong>。聯準會維持利率不變（3.5–3.75%）並釋出鷹派訊號，點陣圖下修2026年降息次數至僅剩一次；布倫特原油在破百後維持高位震盪，通脹疑慮持續壓制風險胃納。美股三大指數<strong>連續第三週下跌</strong>，Nvidia GTC 2026 AI盛會成為本週少數亮點，科技股相對抗跌。黃金在美元走強與油價通脹雙重壓力下連二週收黑。
+    </div>
+  </div>
+
+  <!-- 二、各市場表現 -->
+  <div class="section">
+    <h2>二、各市場表現</h2>
+
+    <h3>📈 美股</h3>
+    <table>
+      <tr><th>指數</th><th>本週漲跌</th><th>收盤點位</th></tr>
+      <tr><td>S&P 500</td><td class="down">▼ 約 -1.5%</td><td>~6,600</td></tr>
+      <tr><td>道瓊工業</td><td class="down">▼ 跌幅較大</td><td>~46,500</td></tr>
+      <tr><td>納斯達克</td><td class="down">▼ 相對抗跌</td><td>~22,200</td></tr>
+    </table>
+    <div style="margin-top:12px; font-size:0.9rem; color:#555;">
+      週一（3/16）市場出現技術性反彈（S&P 500 +1.01%、道瓊 +0.83%、納指 +1.22%），但3/18 FOMC決議後鷹派訊號擾動市場，股市跌回低點。S&P 500 已連第三週收跌，道瓊與中型股指數跌幅更大；AI晶片龍頭<strong>Nvidia</strong> 藉 GTC 盛況小漲逾1%，是本週難得亮點。中國股市小幅收平，年初至今相對強韌。
+    </div>
+
+    <div class="section-label" style="margin-top:20px;">黃金 · 原油 · 美元</div>
+    <div class="info-row">
+      <div class="info-card">
+        <div class="label">🥇 黃金（現貨）</div>
+        <div class="value">~$5,080</div>
+        <div class="change down">▼ 週跌約 -1.5%（連二週跌）</div>
+      </div>
+      <div class="info-card">
+        <div class="label">🛢️ 原油（布倫特）</div>
+        <div class="value">$102 /桶</div>
+        <div class="change neutral">▶ 維持百元高位震盪</div>
+      </div>
+      <div class="info-card">
+        <div class="label">💵 美元指數（DXY）</div>
+        <div class="value">~100.2</div>
+        <div class="change up">▲ 近四個月高位</div>
+      </div>
+    </div>
+
+    <div class="geo-item" style="margin-top:14px; border-left-color:#e67e22;">
+      🛢️ <strong>原油關鍵數字</strong>：布倫特原油 3/16 報 <strong>$102.14/桶</strong>，WTI 維持 $97–99 水準；上週單週 +35% 史詩飆漲後，本週進入高位盤整。IEA 宣布釋放 4 億桶戰略儲備（美國貢獻 1.72 億桶）暫時抑制漲勢，但霍爾木茲海峽通航仍近乎停滯，根本供給問題未解。
+    </div>
+
+    <h3 style="margin-top:20px;">🏦 聯準會動態（FOMC 3/18）</h3>
+    <div style="font-size:0.9rem; color:#555; line-height:1.8;">
+      聯準會以 <strong>11：1</strong> 的票數維持基準利率 <strong>3.5%–3.75%</strong> 不變，唯一反對票為 Governor Stephen Miran（主張降25bp）。點陣圖（SEP）顯示：
+      <ul style="margin: 10px 0 10px 20px; font-size:0.9rem; color:#555;">
+        <li>2026年預計<strong>僅降息一次</strong>（前次12月點陣圖原為兩次）</li>
+        <li>核心 PCE 預測上修，反映中東油價衝擊</li>
+        <li>Fed 主席 Powell 強調中東局勢不確定性高，維持「數據依賴」立場</li>
+        <li>市場現定價全年<strong>至多一次</strong>降息（時間偏向12月）</li>
+      </ul>
+      Powell 任期將於 <strong>5/15/2026</strong> 屆滿；繼任者 Kevin Warsh 被認為更傾向降息，引發市場對政策延續性的想像。
+    </div>
+  </div>
+
+  <!-- 三、地緣政治 -->
+  <div class="section">
+    <h2>三、地緣政治與宏觀事件</h2>
+
+    <div class="geo-item">
+      <strong>⚔️ 美以對伊朗戰爭（第三週）</strong><br>
+      美以聯軍空襲持續針對伊朗能源與核基礎設施；伊朗升級攻擊波斯灣能源設施，霍爾木茲海峽通行量較衝突前暴跌逾 <strong>70%</strong>。全球每日約 20% 原油與同比例 LNG 正常途經此處。航空公司繞道，航班時間與燃油成本大增；卡達氦氣供應（佔全球 1/3）受阻，威脅半導體與醫療影像設備供應鏈。
+    </div>
+    <div class="geo-item" style="border-left-color:#e74c3c;">
+      <strong>📊 FOMC 3/18 決議後市場反應</strong><br>
+      Fed 鷹派態度明確，美股在決議公布後跌至當週低點。核心 PCE 約 <strong>3.1%</strong>（仍高於 2% 目標），2月 CPI 年增 <strong>2.4%</strong>（3/11公布）。滯脹恐慌（高通脹 + 弱成長）情緒主導市場，令風險資產普遍承壓。
+    </div>
+    <div class="geo-item" style="border-left-color:#9b59b6;">
+      <strong>🌏 亞洲與新興市場衝擊</strong><br>
+      印度因高度依賴中東原油，盧比承壓、通脹升溫；日本年初至今 Nikkei 225 +6.8% 領漲全球，但油價上行對製造業成本構成威脅。英國 FTSE 100（+3.9%）、加拿大 TSX（+3.7%）相對亮眼；印度 BSE SENSEX（-11.4%）全球表現最差。
+    </div>
+    <div class="geo-item" style="border-left-color:#27ae60;">
+      <strong>🤖 Nvidia GTC 2026（3/16–19，聖荷西）</strong><br>
+      年度 AI 科技盛會如期舉行，Nvidia 股價在機構重申買進後上漲逾 1%。華爾街分析師強調即便地緣風險持續，AI 資本支出動能短期不變，Nvidia 對大盤有一定支撐效果。Meta 同期傳出將裁員逾 20% 消息，股價反漲逾 2%。
+    </div>
+  </div>
+
+  <!-- 四、下週預告 -->
+  <div class="section">
+    <h2>四、下週重要事件預告（3/23–3/27）</h2>
+    <table>
+      <tr><th>日期</th><th>事件</th><th>重要程度</th></tr>
+      <tr>
+        <td>3/24（二）</td>
+        <td><strong>德國、歐元區、英國、美國 PMI 初值</strong></td>
+        <td><span class="star">★★★★</span></td>
+      </tr>
+      <tr>
+        <td>3/24（二）</td>
+        <td>紐西蘭儲備銀行總裁 Anna Breman 演講</td>
+        <td><span class="star">★★</span></td>
+      </tr>
+      <tr>
+        <td>3/25（三）</td>
+        <td><strong>英國 2月 CPI 數據</strong></td>
+        <td><span class="star">★★★</span></td>
+      </tr>
+      <tr>
+        <td>3/25（三）</td>
+        <td>澳洲 2月 CPI 數據</td>
+        <td><span class="star">★★★</span></td>
+      </tr>
+      <tr>
+        <td>3/27（五）</td>
+        <td>歐洲夏令時間調整（影響交易時區）</td>
+        <td><span class="star">★</span></td>
+      </tr>
+      <tr>
+        <td>全週</td>
+        <td>中東局勢最新發展 · 油價走勢觀察</td>
+        <td><span class="star">★★★★★</span></td>
+      </tr>
+    </table>
+    <div style="margin-top:12px; font-size:0.85rem; color:#888;">
+      ⚡ 本週為3月最後完整交易週，PMI 數據將揭示在油價衝擊下各主要經濟體景氣動能是否持續走弱，為判斷滯脹情境的重要先行指標。
+    </div>
+  </div>
+
+  <!-- 五、展覽動態 -->
+  <div class="section">
+    <h2>五、重大展覽動態</h2>
+
+    <div class="section-label">🔵 近期結束（可回顧）</div>
+    <div class="expo-grid">
+      <div class="expo-item">
+        <div class="expo-dot">🔵</div>
+        <div class="expo-content">
+          <div class="expo-name">GDC 2026（遊戲開發者大會）</div>
+          <div class="expo-meta">📅 3/9–13　📍 美國舊金山 Moscone Center　🏷 電玩 / 遊戲開發</div>
+        </div>
+      </div>
+      <div class="expo-item">
+        <div class="expo-dot">🔵</div>
+        <div class="expo-content">
+          <div class="expo-name">Global Electronics Association Expo</div>
+          <div class="expo-meta">📅 3/13–19　📍 美國加州 Anaheim　🏷 電子製造 / PCB / OEM</div>
+        </div>
+      </div>
+      <div class="expo-item">
+        <div class="expo-dot">🔵</div>
+        <div class="expo-content">
+          <div class="expo-name">Seafood Expo North America</div>
+          <div class="expo-meta">📅 3/15–17　📍 美國波士頓　🏷 水產 / 食品貿易</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:18px;">🟢 本週進行中（3/16–3/20）</div>
+    <div class="expo-grid">
+      <div class="expo-item" style="border: 1px solid #a9dfbf;">
+        <div class="expo-dot">🟢</div>
+        <div class="expo-content">
+          <div class="expo-name">NVIDIA GTC 2026（GPU Technology Conference）</div>
+          <div class="expo-meta">📅 3/16–19　📍 美國加州 聖荷西 McEnery Convention Center　🏷 AI / 半導體 / 深度學習</div>
+          <div class="expo-link"><a href="https://www.nvidia.com/gtc/" target="_blank">📎 官方網站</a></div>
+          <div class="highlight-box">
+            🎯 本屆亮點：Jensen Huang 主題演講聚焦 Blackwell 架構最新進展與 AI 工廠佈局；機構分析師在大會期間密集重申買進評等，Nvidia 股價本週逆勢上漲。即便中東地緣風險高漲，AI 資本支出動能確認未降溫。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:18px;">🟡 即將到來（未來 4 週）</div>
+    <div class="expo-grid">
+      <div class="expo-item">
+        <div class="expo-dot">🟡</div>
+        <div class="expo-content">
+          <div class="expo-name">Global Pet Expo 2026</div>
+          <div class="expo-meta">📅 3/25–27　📍 美國佛羅里達　🏷 寵物產業 / 消費品</div>
+        </div>
+      </div>
+      <div class="expo-item">
+        <div class="expo-dot">🟡</div>
+        <div class="expo-content">
+          <div class="expo-name">Gulf Bar Show 2026</div>
+          <div class="expo-meta">📅 3/30–31　📍 阿聯酋 杜拜　🏷 餐飲 / 酒吧飲料（MENA區域首屆）</div>
+        </div>
+      </div>
+      <div class="expo-item">
+        <div class="expo-dot">🟡</div>
+        <div class="expo-content">
+          <div class="expo-name">IFE 2026（International Food and Drink Exhibition）</div>
+          <div class="expo-meta">📅 3/30–4/1　📍 英國 倫敦 ExCeL　🏷 食品飲料（英國最大）</div>
+        </div>
+      </div>
+      <div class="expo-item">
+        <div class="expo-dot">🟡</div>
+        <div class="expo-content">
+          <div class="expo-name">New York International Auto Show</div>
+          <div class="expo-meta">📅 4/3　📍 美國紐約 Javits Center　🏷 汽車 / EV / 科技</div>
+        </div>
+      </div>
+      <div class="expo-item">
+        <div class="expo-dot">🟡</div>
+        <div class="expo-content">
+          <div class="expo-name">Canton Fair Phase 1（廣交會第一期）</div>
+          <div class="expo-meta">📅 4/15–19　📍 中國廣州　🏷 電子 / 機械 / 新能源 / 汽車</div>
+        </div>
+      </div>
+      <div class="expo-item">
+        <div class="expo-dot">🟡</div>
+        <div class="expo-content">
+          <div class="expo-name">NAB Show 2026</div>
+          <div class="expo-meta">📅 4/18–22　📍 美國拉斯維加斯 LVCC　🏷 媒體 / 娛樂科技 / 廣播</div>
+          <div class="expo-link"><a href="https://www.nabshow.com/" target="_blank">📎 官方網站</a></div>
+        </div>
+      </div>
+      <div class="expo-item">
+        <div class="expo-dot">🟡</div>
+        <div class="expo-content">
+          <div class="expo-name">Hannover Messe 2026</div>
+          <div class="expo-meta">📅 4/20–24　📍 德國漢諾威　🏷 工業自動化 / 製造 / 能源</div>
+          <div class="expo-link"><a href="https://www.hannovermesse.de/" target="_blank">📎 官方網站</a></div>
+        </div>
+      </div>
+      <div class="expo-item">
+        <div class="expo-dot">🟡</div>
+        <div class="expo-content">
+          <div class="expo-name">Beijing Auto Show 2026（北京車展 / Auto China）</div>
+          <div class="expo-meta">📅 4/24–5/3　📍 中國北京 CIEC　🏷 汽車 / EV / 智能車（全球最大車市）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 六、延伸閱讀關鍵字 -->
+  <div class="section">
+    <h2>六、延伸閱讀關鍵字</h2>
+    <div class="keywords">
+      <span class="keyword">FOMC鷹派</span>
+      <span class="keyword">油價破百</span>
+      <span class="keyword">美伊戰爭</span>
+      <span class="keyword">GTC 2026</span>
+      <span class="keyword">美元走強</span>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="section" style="background:#f8fafc;">
+    <h2>📎 資料來源</h2>
+    <div class="sources">
+      <a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260318a.htm" target="_blank">Fed FOMC 聲明 3/18</a>
+      <a href="https://www.cnbc.com/2026/03/18/fed-interest-rate-decision-march-2026.html" target="_blank">CNBC: Fed 決議</a>
+      <a href="https://www.bloomberg.com/news/articles/2026-03-16/gold-steady-as-dollar-eases-and-traders-weigh-oil-supply-crunch" target="_blank">Bloomberg: 黃金 & 原油</a>
+      <a href="https://www.cnbc.com/2026/03/13/stock-market-next-week-outlook-for-march-16-20-2026.html" target="_blank">CNBC: 週展望</a>
+      <a href="https://2rsi.com/weekly-market-recap-march-16-2026/" target="_blank">RSI: 週回顧</a>
+      <a href="https://www.oxfordeconomics.com/iran-conflict-us-israel-iran-war-2026/" target="_blank">Oxford Economics: 伊朗衝突</a>
+      <a href="https://blog.kraken.com/economic-brief/march-18-2026" target="_blank">Kraken: FOMC 點陣圖分析</a>
+      <a href="https://www.forex.com/en-us/news-and-analysis/fed-dxy-oil-gold-equity-indices-bitcoin-weekly-technical-outlook-3-16-2026/" target="_blank">Forex.com: 技術分析</a>
+      <a href="https://www.nvidia.com/gtc/" target="_blank">NVIDIA GTC 2026</a>
+      <a href="https://www.litefinance.org/blog/analysts-opinions/weekly-economic-calendar-for-23032026-29032026/" target="_blank">LiteFinance: 下週行事曆</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- 返回首頁 CTA -->
+<div style="text-align:center; padding: 28px 20px 12px;">
+  <a href="index.html"
+     style="display:inline-flex; align-items:center; gap:8px;
+       background: linear-gradient(135deg, #2c3e6e, #1e3460);
+       color:white; text-decoration:none; font-size:0.95rem; font-weight:600;
+       padding: 13px 32px; border-radius: 30px;
+       box-shadow: 0 4px 14px rgba(44,62,110,0.3);
+       transition: transform 0.2s, box-shadow 0.2s;">
+    ← 返回週報首頁
+  </a>
+</div>
+</body>
+</html>
