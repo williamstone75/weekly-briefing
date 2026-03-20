@@ -188,9 +188,11 @@
       border-radius: 8px;
       padding: 8px 14px;
       font-size: 0.82rem;
+      white-space: nowrap;
+      min-width: 0;
     }
-    .metric .label { color: #888; font-size: 0.72rem; margin-bottom: 2px; }
-    .metric .val { font-weight: 700; }
+    .metric .label { color: #888; font-size: 0.72rem; margin-bottom: 2px; white-space: nowrap; }
+    .metric .val { font-weight: 700; white-space: nowrap; }
     .metric .val.down { color: #e74c3c; }
     .metric .val.up { color: #27ae60; }
     .keywords-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
@@ -487,7 +489,7 @@
     <div class="card-body">
       <div class="summary">美伊衝突第三週延燒，FOMC 3/18 鷹派決議維持利率不變，點陣圖下修2026年降息至僅一次，布倫特原油維持百元以上高位，美股三大指數連第三週下跌，Nvidia GTC 2026 為本週少數亮點。</div>
       <div class="metrics">
-        <div class="metric"><div class="label">S&P 500</div><div class="val down">▼ -1.5%</div></div>
+        <div class="metric"><div class="label">S&amp;P 500</div><div class="val down">▼ -1.5%</div></div>
         <div class="metric"><div class="label">布倫特油</div><div class="val down">$102/桶</div></div>
         <div class="metric"><div class="label">黃金</div><div class="val down">▼ -1.5%（週）</div></div>
         <div class="metric"><div class="label">美元 DXY</div><div class="val">~100.2</div></div>
