@@ -447,6 +447,136 @@
       .book-grid { grid-template-columns: 1fr; gap: 14px; }
     }
 
+    /* ── 最新入庫 ── */
+    .new-arrival-section {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.09);
+      border: 2px solid #1e3460;
+      margin-bottom: 28px;
+    }
+    .new-arrival-header {
+      background: linear-gradient(135deg, #2c3e6e, #1e3460);
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .new-arrival-header .badge-new {
+      background: #f39c12;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.06em;
+    }
+    .new-arrival-header .title-text {
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .new-arrival-header .date-text {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.75rem;
+      margin-left: auto;
+    }
+    .new-arrival-body {
+      display: flex;
+      gap: 0;
+      flex-direction: column;
+    }
+    @media (min-width: 760px) {
+      .new-arrival-body { flex-direction: row; }
+    }
+    .new-arrival-video {
+      flex: 1.2;
+      min-width: 0;
+    }
+    .new-arrival-video .thumb-wrap {
+      border-radius: 0;
+    }
+    .new-arrival-side {
+      flex: 1;
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 1px solid #f0f0f0;
+    }
+    @media (min-width: 760px) {
+      .new-arrival-side { border-top: none; border-left: 1px solid #f0f0f0; }
+    }
+    .new-arrival-video-title {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      line-height: 1.5;
+    }
+    .new-arrival-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    /* ── 金句抽籤（最新入庫版）── */
+    .arrival-quote-box {
+      background: #f8f7f5;
+      border: 1px solid #e5e1db;
+      border-left: 4px solid #586D80;
+      border-radius: 10px;
+      padding: 14px 16px;
+      flex: 1;
+    }
+    .arrival-quote-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+    .arrival-quote-text {
+      font-size: 0.93rem;
+      font-weight: 500;
+      color: #1a1a2e;
+      line-height: 1.75;
+      font-style: italic;
+      min-height: 48px;
+      transition: opacity 0.25s ease;
+    }
+    .arrival-quote-text.fade { opacity: 0; }
+    .arrival-quote-placeholder { color: #bbb; font-style: normal; font-size: 0.88rem; }
+    .arrival-draw-btn {
+      display: block;
+      width: 100%;
+      margin-top: 12px;
+      padding: 11px 0;
+      background: #586D80;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.03em;
+      box-shadow: 0 3px 10px rgba(88,109,128,0.3);
+    }
+    .arrival-draw-btn:hover {
+      background: #4a5d70;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 16px rgba(88,109,128,0.4);
+    }
+    .arrival-draw-btn:active { transform: translateY(0); box-shadow: none; }
+    .arrival-quote-count {
+      font-size: 0.68rem;
+      color: #bbb;
+      text-align: center;
+      margin-top: 6px;
+    }
+
     /* ── 最近更新 ── */
     .recent-section {
       background: white;
@@ -538,13 +668,57 @@
     💡 Stone 精選的財商觀念影片。不追熱點、不講明牌——只分享能幫助你建立投資思維與判斷力的好內容。
   </div>
 
+  <!-- ══ 最新入庫 ══ -->
+  <div class="new-arrival-section">
+    <div class="new-arrival-header">
+      <span class="badge-new">NEW</span>
+      <span class="title-text">🎬 最新入庫</span>
+      <span class="date-text">2026/3/20</span>
+    </div>
+    <div class="new-arrival-body">
+      <!-- 影片 -->
+      <div class="new-arrival-video">
+        <div class="thumb-wrap" id="thumb-qflWPnJVzDY">
+          <img src="https://img.youtube.com/vi/qflWPnJVzDY/hqdefault.jpg" alt="影片縮圖" loading="lazy">
+          <div class="play-overlay" onclick="playVideo('qflWPnJVzDY')">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 側邊資訊 + 金句抽籤 -->
+      <div class="new-arrival-side">
+        <div class="new-arrival-video-title">人生最大的陷阱是「設定目標」？頂尖玩家都在優化的事</div>
+        <div class="new-arrival-tags">
+          <span class="cat-tag cat-思維框架">思維框架</span>
+          <span class="cat-tag cat-投資觀念">投資觀念</span>
+        </div>
+        <!-- 金句抽籤 -->
+        <div class="arrival-quote-box">
+          <div class="arrival-quote-label">🎲 抽一句本片金句</div>
+          <div class="arrival-quote-text" id="arrivalQuoteText">
+            <span class="arrival-quote-placeholder">點下方按鈕，抽出一句影片觀點</span>
+          </div>
+        </div>
+        <button class="arrival-draw-btn" onclick="drawArrivalQuote()">✦ 抽一句</button>
+        <div class="arrival-quote-count" id="arrivalQuoteCount"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- ══ 最近更新 ══ -->
   <div class="recent-section">
     <div class="recent-header">
       <h3>🆕 最近更新</h3>
-      <span class="updated-date">更新於 2026/3/18</span>
+      <span class="updated-date">更新於 2026/3/20</span>
     </div>
     <div class="recent-list">
+      <a class="recent-item" href="#thumb-qflWPnJVzDY" onclick="event.preventDefault(); document.getElementById('thumb-qflWPnJVzDY').scrollIntoView({behavior:'smooth'});">
+        <span class="recent-type type-video">📺 影片</span>
+        <span class="recent-title">人生最大的陷阱是「設定目標」？頂尖玩家都在優化的事</span>
+        <span class="recent-date">2026/3/20</span>
+      </a>
       <a class="recent-item" href="#bookShelf">
         <span class="recent-type type-book">📖 書籍</span>
         <span class="recent-title">主力的思維 — cis</span>
@@ -554,11 +728,6 @@
         <span class="recent-type type-book">📖 書籍</span>
         <span class="recent-title">致富強心臟 — 吳紹綱</span>
         <span class="recent-date">2026/3/18</span>
-      </a>
-      <a class="recent-item" href="#videoGrid">
-        <span class="recent-type type-video">📺 影片</span>
-        <span class="recent-title">原來這樣就能變有錢？從消費、保險到投資</span>
-        <span class="recent-date">2026/2/1</span>
       </a>
     </div>
   </div>
@@ -636,6 +805,26 @@
       </div>
     </div>
 
+    <!-- ── Card 4（最新入庫）── -->
+    <div class="video-card" data-cats="思維框架,投資觀念" style="border:2px solid #f39c12; position:relative;">
+      <div style="position:absolute;top:8px;left:8px;z-index:2;background:#f39c12;color:white;font-size:0.65rem;font-weight:800;padding:2px 9px;border-radius:20px;letter-spacing:0.05em;">NEW</div>
+      <div class="thumb-wrap" id="thumb-qflWPnJVzDY-grid">
+        <img src="https://img.youtube.com/vi/qflWPnJVzDY/hqdefault.jpg" alt="影片縮圖" loading="lazy">
+        <div class="play-overlay" onclick="playVideo('qflWPnJVzDY-grid')">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="card-info">
+        <div class="card-tags">
+          <span class="cat-tag cat-思維框架">思維框架</span>
+          <span class="cat-tag cat-投資觀念">投資觀念</span>
+        </div>
+        <div class="video-title">人生最大的陷阱是「設定目標」？頂尖玩家都在優化的事</div>
+      </div>
+    </div>
+
   </div><!-- /video-grid -->
 
   <div class="empty-state" id="emptyState">😕 找不到符合條件的影片</div>
@@ -693,14 +882,46 @@
   // ── Video filter ──
   let currentCat = '全部';
 
+  // ── 最新入庫金句資料 ──────────────────────────────────
+  const arrivalQuotes = [
+    "人生最大的陷阱是設定目標，因為達成後容易讓人停滯不前。",
+    "真正的成功者如巴菲特，是專注於「過程」而非具體的終點。",
+    "保持零債務至關重要，因為債務會限制你冒險與學習的選擇權。",
+    "謙遜是終身學習的基石，要承認自己的知識會隨著時間而失效。",
+    "經常與年輕人相處，能讓你更早擁抱新科技並看見事物的本質。",
+    "如果你想成為頂尖玩家，就必須前往該領域最核心的舞台。",
+    "優先優化「機會」而非「薪資」，與聰明人共事能帶來源源不絕的動力。",
+    "追求工作與生活的「融合」而非「平衡」，讓熱情驅動日常行為。",
+    "不要低估自己的潛能，大腦在極端挑戰下能解鎖意想不到的韌性。",
+    "社會地位是人造的束縛，過度在意名聲會讓你失去對專業的專注。",
+    "想像力是自己最大的限制，半年後的你將擁有比現在更強大的解決能力。"
+  ];
+  let lastArrivalIdx = -1;
+
+  function drawArrivalQuote() {
+    const el = document.getElementById('arrivalQuoteText');
+    const countEl = document.getElementById('arrivalQuoteCount');
+    // 淡出
+    el.classList.add('fade');
+    setTimeout(() => {
+      let idx;
+      do { idx = Math.floor(Math.random() * arrivalQuotes.length); }
+      while (idx === lastArrivalIdx && arrivalQuotes.length > 1);
+      lastArrivalIdx = idx;
+      el.innerHTML = '「' + arrivalQuotes[idx] + '」';
+      countEl.textContent = (idx + 1) + ' / ' + arrivalQuotes.length + ' 句';
+      el.classList.remove('fade');
+    }, 220);
+  }
+
   function playVideo(videoId) {
+    // 最新入庫的 grid card 播放同一支影片
+    const realId = videoId === 'qflWPnJVzDY-grid' ? 'qflWPnJVzDY' : videoId;
     const wrap = document.getElementById('thumb-' + videoId);
     if (!wrap) return;
-    // Remove thumbnail and play overlay, insert iframe
-    wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-    // GA4 event
+    wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/' + realId + '?autoplay=1" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     if (typeof gtag !== 'undefined') {
-      gtag('event', 'video_play', { video_id: videoId });
+      gtag('event', 'video_play', { video_id: realId });
     }
   }
 
