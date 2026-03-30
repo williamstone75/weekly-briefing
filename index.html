@@ -478,30 +478,30 @@
   <!-- 最新週報 -->
   <div class="section-title">🆕 最新一期</div>
 
-  <a class="latest-card" href="weekly-briefing-2026-03-20.html" target="_blank" id="latest-card">
+  <a class="latest-card" href="weekly-briefing-2026-03-27.html" target="_blank" id="latest-card">
     <div class="card-top">
       <div>
-        <div style="font-size:0.75rem; opacity:0.7; margin-bottom:4px;">最新週報｜發布：2026/3/20</div>
-        <div style="font-size:1.1rem; font-weight:700;">2026年3月16日－3月20日</div>
+        <div style="font-size:0.75rem; opacity:0.7; margin-bottom:4px;">最新週報｜發布：2026/3/27</div>
+        <div style="font-size:1.1rem; font-weight:700;">2026年3月23日－3月27日</div>
       </div>
       <div class="badge" id="latest-badge">—</div>
     </div>
     <div class="card-body">
-      <div class="summary">美伊衝突第三週延燒，FOMC 3/18 鷹派決議維持利率不變，點陣圖下修2026年降息至僅一次，布倫特原油維持百元以上高位，美股三大指數連第三週下跌，Nvidia GTC 2026 為本週少數亮點。</div>
+      <div class="summary">黃金本週重挫逾13%，創1983年以來最大單週跌幅；布倫特原油週內高點觸及$119（伊朗攻擊油輪、伊拉克Force Majeure），美歐股市四週連跌，五大央行全線按兵，滯脹恐慌主導全球市場。</div>
       <div class="metrics">
-        <div class="metric"><div class="label">S&amp;P 500</div><div class="val down">▼ -1.5%</div></div>
-        <div class="metric"><div class="label">布倫特油</div><div class="val down">$102/桶</div></div>
-        <div class="metric"><div class="label">黃金</div><div class="val down">▼ -1.5%（週）</div></div>
-        <div class="metric"><div class="label">美元 DXY</div><div class="val">~100.2</div></div>
-        <div class="metric"><div class="label">FOMC</div><div class="val">按兵不動</div></div>
+        <div class="metric"><div class="label">S&amp;P 500</div><div class="val down">▼ -1.7%</div></div>
+        <div class="metric"><div class="label">布倫特油</div><div class="val down">▲ $119高點</div></div>
+        <div class="metric"><div class="label">黃金</div><div class="val down">▼ -13%（週）</div></div>
+        <div class="metric"><div class="label">EUR/USD</div><div class="val">1.1537</div></div>
+        <div class="metric"><div class="label">五大央行</div><div class="val">全線按兵</div></div>
       </div>
       <div class="keywords-row">
         <span style="font-size:0.78rem; color:#999; align-self:center; margin-right:2px;">延伸閱讀建議：</span>
-        <span class="kw" onclick="searchKeyword(event,'FOMC')">FOMC鷹派</span>
-        <span class="kw" onclick="searchKeyword(event,'油價')">油價破百</span>
-        <span class="kw" onclick="searchKeyword(event,'美伊')">美伊戰爭</span>
-        <span class="kw" onclick="searchKeyword(event,'GTC')">GTC 2026</span>
-        <span class="kw" onclick="searchKeyword(event,'美元')">美元走強</span>
+        <span class="kw" onclick="searchKeyword(event,'金崩')">金崩43年最大</span>
+        <span class="kw" onclick="searchKeyword(event,'油價')">油價飆升</span>
+        <span class="kw" onclick="searchKeyword(event,'伊朗')">伊朗油輪攻擊</span>
+        <span class="kw" onclick="searchKeyword(event,'央行')">五大央行按兵</span>
+        <span class="kw" onclick="searchKeyword(event,'滯脹')">滯脹恐慌</span>
       </div>
     </div>
   </a>
@@ -528,17 +528,45 @@
   // category 可以是：財經總覽 / AI科技 / 地緣政治 / 科技展覽
   const reports = [
     {
+      date: "2026-03-30",
+      label: "2026年3月30日－4月3日",
+      issue: 13,
+      file: "weekly-briefing-2026-03-30.html",
+      summary: "美股五週連跌，伊朗威脅封鎖霍爾木茲",
+      category: "地緣政治",
+      keywords: ["美股五週連跌", "霍爾木茲封鎖", "非農就業報告", "滯脹確立", "Q1財報季"],
+      metrics: [
+        { label: "S&P 500", val: "▼ -2.1%", type: "red" },
+        { label: "布倫特油", val: "$110–115", type: "orange" },
+        { label: "黃金", val: "▼ ~$4,450", type: "red" },
+      ]
+    },
+    {
+      date: "2026-03-27",
+      label: "2026年3月23日－3月27日",
+      issue: 12,
+      file: "weekly-briefing-2026-03-27.html",
+      summary: "金崩13%寫43年最大，布倫特觸$119",
+      category: "地緣政治",
+      keywords: ["金價崩跌", "油價飆升", "伊朗油輪攻擊", "五大央行按兵", "滯脹恐慌"],
+      metrics: [
+        { label: "S&P 500", val: "▼ -1.7%", type: "red" },
+        { label: "布倫特油", val: "▲ $119高點", type: "orange" },
+        { label: "黃金", val: "▼ -13%", type: "red" },
+      ]
+    },
+    {
       date: "2026-03-20",
       label: "2026年3月16日－3月20日",
       issue: 11,
       file: "weekly-briefing-2026-03-20.html",
-      summary: "Fed鷹派、四巫日+VIX飆至26.78，美股四連跌；WTI破112，黃金週崩9%",
+      summary: "Fed鷹派、油破百，美股三連跌",
       category: "地緣政治",
-      keywords: ["FOMC鷹派", "油價破百", "美伊戰爭", "GTC 2026", "四巫日", "VIX", "Micron財報"],
+      keywords: ["FOMC鷹派", "油價破百", "美伊戰爭", "GTC 2026", "美元走強"],
       metrics: [
-        { label: "S&P 500", val: "6,506 ▼-1.51%", type: "red" },
-        { label: "WTI原油", val: ">$112/桶", type: "orange" },
-        { label: "黃金", val: "▼ -9%（週）", type: "red" },
+        { label: "S&P 500", val: "▼ -1.5%", type: "red" },
+        { label: "布倫特油", val: "$102/桶", type: "orange" },
+        { label: "黃金", val: "▼ -1.5%", type: "red" },
       ]
     },
     {
