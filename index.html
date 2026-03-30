@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📰 全球財經 × 展覽週報｜歷史彙整</title>
-  <meta name="description" content="每週五更新的全球財經 × 重大展覽週報，涵蓋美股、ETF、地緣政治、科技展覽等重點事件，提供投資人完整的市場脈絡彙整。">
+  <title>ð° å¨çè²¡ç¶ Ã å±è¦½é±å ±ï½æ­·å²å½æ´</title>
+  <meta name="description" content="æ¯é±äºæ´æ°çå¨çè²¡ç¶ Ã éå¤§å±è¦½é±å ±ï¼æ¶µèç¾è¡ãETFãå°ç·£æ¿æ²»ãç§æå±è¦½ç­éé»äºä»¶ï¼æä¾æè³äººå®æ´çå¸å ´èçµ¡å½æ´ã">
 
-  <!-- Open Graph (Line / Threads / Facebook 分享預覽) -->
-  <meta property="og:title" content="📰 全球財經 × 重大展覽週報">
-  <meta property="og:description" content="每週五更新｜美股 · ETF · 地緣政治 · 科技展覽 · AI產業 · 一站掌握全球市場脈絡">
+  <!-- Open Graph (Line / Threads / Facebook åäº«é è¦½) -->
+  <meta property="og:title" content="ð° å¨çè²¡ç¶ Ã éå¤§å±è¦½é±å ±">
+  <meta property="og:description" content="æ¯é±äºæ´æ°ï½ç¾è¡ Â· ETF Â· å°ç·£æ¿æ²» Â· ç§æå±è¦½ Â· AIç¢æ¥­ Â· ä¸ç«ææ¡å¨çå¸å ´èçµ¡">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://williamstone75.github.io/weekly-briefing/">
   <meta property="og:locale" content="zh_TW">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="📰 全球財經 × 重大展覽週報">
-  <meta name="twitter:description" content="每週五更新｜美股 · ETF · 地緣政治 · 科技展覽 · 一站掌握全球市場脈絡">
+  <meta name="twitter:title" content="ð° å¨çè²¡ç¶ Ã éå¤§å±è¦½é±å ±">
+  <meta name="twitter:description" content="æ¯é±äºæ´æ°ï½ç¾è¡ Â· ETF Â· å°ç·£æ¿æ²» Â· ç§æå±è¦½ Â· ä¸ç«ææ¡å¨çå¸å ´èçµ¡">
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -56,7 +56,7 @@
     .header p { font-size: 0.95rem; opacity: 0.65; position: relative; }
     .nav-bar { display: flex; gap: 14px; justify-content: center; margin-top: 20px; flex-wrap: wrap; position: relative; }
     .nav-bar a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 1rem; font-weight: 500; padding: 10px 28px; border-radius: 30px; background: rgba(255,255,255,0.32); border: 1.5px solid rgba(255,255,255,0.55); transition: all 0.2s; letter-spacing: 0.02em; }
-    /* 桌機橫向排列，手機才換行 */
+    /* æ¡æ©æ©«åæåï¼ææ©ææè¡ */
     .nav-bar-break { display: none; }
     @media (max-width: 560px) {
       .nav-bar-break { display: block; width: 100%; height: 0; }
@@ -126,10 +126,10 @@
       color: white;
       border-color: #1e3460;
     }
-    .filter-btn.cat-地緣政治.active  { background: #c0392b; border-color: #c0392b; }
-    .filter-btn.cat-AI科技.active    { background: #8e44ad; border-color: #8e44ad; }
-    .filter-btn.cat-科技展覽.active  { background: #27ae60; border-color: #27ae60; }
-    .filter-btn.cat-財經總覽.active  { background: #2980b9; border-color: #2980b9; }
+    .filter-btn.cat-å°ç·£æ¿æ²».active  { background: #c0392b; border-color: #c0392b; }
+    .filter-btn.cat-AIç§æ.active    { background: #8e44ad; border-color: #8e44ad; }
+    .filter-btn.cat-ç§æå±è¦½.active  { background: #27ae60; border-color: #27ae60; }
+    .filter-btn.cat-è²¡ç¶ç¸½è¦½.active  { background: #2980b9; border-color: #2980b9; }
     .toolbar-divider { width: 1px; height: 24px; background: #e0e4e8; flex-shrink: 0; }
 
     /* Section title */
@@ -216,10 +216,10 @@
       border-radius: 8px;
       margin-bottom: 6px;
     }
-    .cat-badge.地緣政治 { background: #fdecea; color: #c0392b; }
-    .cat-badge.AI科技   { background: #f3e9fd; color: #7d3c98; }
-    .cat-badge.科技展覽 { background: #e9f7ef; color: #1e8449; }
-    .cat-badge.財經總覽 { background: #eaf4fb; color: #2c3e6e; }
+    .cat-badge.å°ç·£æ¿æ²» { background: #fdecea; color: #c0392b; }
+    .cat-badge.AIç§æ   { background: #f3e9fd; color: #7d3c98; }
+    .cat-badge.ç§æå±è¦½ { background: #e9f7ef; color: #1e8449; }
+    .cat-badge.è²¡ç¶ç¸½è¦½ { background: #eaf4fb; color: #2c3e6e; }
 
     /* History grid */
     .history-grid {
@@ -283,8 +283,8 @@
     .footer a { color: #aaa; text-decoration: none; }
     .footer a:hover { color: #1e3460; }
 
-    /* ── 手機版響應式（iPhone 13 = 390px） ── */
-    /* ── Quote Game ── */
+    /* ââ ææ©çé¿æå¼ï¼iPhone 13 = 390pxï¼ ââ */
+    /* ââ Quote Game ââ */
     .quote-section { margin-bottom: 28px; }
     .quote-section-title {
       font-size: 1rem; font-weight: 700; color: #2c3e50;
@@ -292,7 +292,7 @@
       border-bottom: 2px solid #dde1e7;
       display: flex; align-items: center; gap: 6px;
     }
-    /* 金句篩選橫滑外層 + 右側漸層提示 */
+    /* éå¥ç¯©é¸æ©«æ»å¤å±¤ + å³å´æ¼¸å±¤æç¤º */
     .quote-filter-wrap {
       position: relative;
     }
@@ -362,14 +362,14 @@
     @media (max-width: 560px) {
       .quote-card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 14px; }
       .draw-btn { width: 100%; text-align: center; }
-      /* 作者篩選按鈕橫向滑動，避免多行擁擠 */
+      /* ä½èç¯©é¸æéæ©«åæ»åï¼é¿åå¤è¡ææ  */
       .quote-filter {
         flex-wrap: nowrap;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         padding-bottom: 6px;
         scrollbar-width: none;
-        margin-right: -14px; /* 延伸到邊緣 */
+        margin-right: -14px; /* å»¶ä¼¸å°éç·£ */
         padding-right: 14px;
       }
       .quote-filter::-webkit-scrollbar { display: none; }
@@ -396,7 +396,7 @@
       .latest-card .summary { font-size: 0.83rem; }
       .metric { padding: 7px 10px; }
       .history-grid { grid-template-columns: 1fr; gap: 12px; }
-      /* 加大手機觸控點擊區 */
+      /* å å¤§ææ©è§¸æ§é»æå */
       .filter-btn { padding: 10px 16px; font-size: 0.82rem; min-height: 40px; }
       .quote-filter-btn { padding: 9px 16px; font-size: 0.8rem; min-height: 40px; }
     }
@@ -413,321 +413,302 @@
 <body>
 
 <div class="header">
-  <h1>📰 全球財經週報</h1>
+  <h1>ð° å¨çè²¡ç¶é±å ±</h1>
   <div class="subtitle">Powered by Stone &amp; AI</div>
   <div class="header-meta">
     <div class="header-stat">
-      <div class="num" id="total-count">—</div>
-      <div class="lbl">週報總數</div>
+      <div class="num" id="total-count">â</div>
+      <div class="lbl">é±å ±ç¸½æ¸</div>
     </div>
     <div class="header-stat">
       <div class="num">2026</div>
-      <div class="lbl">年份</div>
+      <div class="lbl">å¹´ä»½</div>
     </div>
     <div class="header-stat next-update">
-      <div class="num" id="next-update-date">—</div>
-      <div class="lbl">⏰ 下次更新</div>
+      <div class="num" id="next-update-date">â</div>
+      <div class="lbl">â° ä¸æ¬¡æ´æ°</div>
     </div>
   </div>
   <nav class="nav-bar">
-    <a href="index.html" class="active">📰 週報首頁</a>
+    <a href="index.html" class="active">ð° é±å ±é¦é </a>
     <div class="nav-bar-break"></div>
-    <a href="timeline.html">📊 全球事件整理</a>
-    <a href="knowledge.html">📚 石府商學院</a>
+    <a href="timeline.html">ð å¨çäºä»¶æ´ç</a>
+    <a href="knowledge.html">ð ç³åºåå­¸é¢</a>
   </nav>
 </div>
 
 <div class="container">
 
-  <!-- ══ 投資金句抽抽樂 ══ -->
+  <!-- ââ æè³éå¥æ½æ½æ¨ ââ -->
   <div class="quote-section">
-    <div class="quote-section-title">🎲 投資金句抽抽樂</div>
-    <div class="filter-row-label">依作者篩選</div>
+    <div class="quote-section-title">ð² æè³éå¥æ½æ½æ¨</div>
+    <div class="filter-row-label">ä¾ä½èç¯©é¸</div>
     <div class="quote-filter-wrap">
     <div class="quote-filter">
-      <button class="quote-filter-btn active" data-who="all" onclick="setQuoteFilter(this)">全部</button>
-      <button class="quote-filter-btn" data-who="buffett" onclick="setQuoteFilter(this)">巴菲特</button>
-      <button class="quote-filter-btn" data-who="munger" onclick="setQuoteFilter(this)">查理・蒙格</button>
-      <button class="quote-filter-btn" data-who="kostolany" onclick="setQuoteFilter(this)">科斯托蘭尼</button>
-      <button class="quote-filter-btn" data-who="dalio" onclick="setQuoteFilter(this)">雷・達里歐</button>
-      <button class="quote-filter-btn" data-who="lynch" onclick="setQuoteFilter(this)">彼得・林區</button>
-      <button class="quote-filter-btn" data-who="graham" onclick="setQuoteFilter(this)">班傑明・葛拉漢</button>
-      <button class="quote-filter-btn" data-who="marks" onclick="setQuoteFilter(this)">霍華德・馬克斯</button>
+      <button class="quote-filter-btn active" data-who="all" onclick="setQuoteFilter(this)">å¨é¨</button>
+      <button class="quote-filter-btn" data-who="buffett" onclick="setQuoteFilter(this)">å·´è²ç¹</button>
+      <button class="quote-filter-btn" data-who="munger" onclick="setQuoteFilter(this)">æ¥çã»èæ ¼</button>
+      <button class="quote-filter-btn" data-who="kostolany" onclick="setQuoteFilter(this)">ç§æ¯æè­å°¼</button>
+      <button class="quote-filter-btn" data-who="dalio" onclick="setQuoteFilter(this)">é·ã»ééæ­</button>
+      <button class="quote-filter-btn" data-who="lynch" onclick="setQuoteFilter(this)">å½¼å¾ã»æå</button>
+      <button class="quote-filter-btn" data-who="graham" onclick="setQuoteFilter(this)">ç­åæã»èææ¼¢</button>
+      <button class="quote-filter-btn" data-who="marks" onclick="setQuoteFilter(this)">éè¯å¾·ã»é¦¬åæ¯</button>
     </div>
     </div><!-- /.quote-filter-wrap -->
     <div class="quote-card">
       <div class="quote-body">
-        <div class="quote-text" id="quoteText"><span class="quote-placeholder">點「抽一句」，隨機抽一句投資金句</span></div>
+        <div class="quote-text" id="quoteText"><span class="quote-placeholder">é»ãæ½ä¸å¥ãï¼é¨æ©æ½ä¸å¥æè³éå¥</span></div>
         <div class="quote-author" id="quoteAuthor"></div>
       </div>
-      <button class="draw-btn" onclick="drawQuote()">🎲 抽一句</button>
+      <button class="draw-btn" onclick="drawQuote()">ð² æ½ä¸å¥</button>
       <div class="quote-count" id="quoteCount"></div>
     </div>
   </div>
 
   <!-- Toolbar -->
   <div class="toolbar">
-    <div style="width:100%; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#bbb; margin-bottom:2px;">週報分類篩選</div>
-    <button class="filter-btn active" onclick="filterByCategory('all', this)">全部</button>
-    <button class="filter-btn cat-財經總覽" onclick="filterByCategory('財經總覽', this)">📊 財經總覽</button>
-    <button class="filter-btn cat-AI科技"   onclick="filterByCategory('AI科技', this)">🤖 AI科技</button>
-    <button class="filter-btn cat-地緣政治" onclick="filterByCategory('地緣政治', this)">⚔️ 地緣政治</button>
-    <button class="filter-btn cat-科技展覽" onclick="filterByCategory('科技展覽', this)">🖥️ 科技展覽</button>
+    <div style="width:100%; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#bbb; margin-bottom:2px;">é±å ±åé¡ç¯©é¸</div>
+    <button class="filter-btn active" onclick="filterByCategory('all', this)">å¨é¨</button>
+    <button class="filter-btn cat-è²¡ç¶ç¸½è¦½" onclick="filterByCategory('è²¡ç¶ç¸½è¦½', this)">ð è²¡ç¶ç¸½è¦½</button>
+    <button class="filter-btn cat-AIç§æ"   onclick="filterByCategory('AIç§æ', this)">ð¤ AIç§æ</button>
+    <button class="filter-btn cat-å°ç·£æ¿æ²»" onclick="filterByCategory('å°ç·£æ¿æ²»', this)">âï¸ å°ç·£æ¿æ²»</button>
+    <button class="filter-btn cat-ç§æå±è¦½" onclick="filterByCategory('ç§æå±è¦½', this)">ð¥ï¸ ç§æå±è¦½</button>
   </div>
 
-  <!-- 最新週報 -->
-  <div class="section-title">🆕 最新一期</div>
+  <!-- ææ°é±å ± -->
+  <div class="section-title">ð ææ°ä¸æ</div>
 
-  <a class="latest-card" href="weekly-briefing-2026-03-27.html" target="_blank" id="latest-card">
+  <a class="latest-card" href="weekly-briefing-2026-03-30.html" target="_blank" id="latest-card">
     <div class="card-top">
       <div>
-        <div style="font-size:0.75rem; opacity:0.7; margin-bottom:4px;">最新週報｜發布：2026/3/27</div>
-        <div style="font-size:1.1rem; font-weight:700;">2026年3月23日－3月27日</div>
+        <div style="font-size:0.75rem; opacity:0.7; margin-bottom:4px;">ææ°é±å ±ï½ç¼å¸ï¼2026/3/30</div>
+        <div style="font-size:1.1rem; font-weight:700;">2026å¹´3æ30æ¥ï¼4æ3æ¥</div>
       </div>
-      <div class="badge" id="latest-badge">—</div>
+      <div class="badge" id="latest-badge">â</div>
     </div>
     <div class="card-body">
-      <div class="summary">黃金本週重挫逾13%，創1983年以來最大單週跌幅；布倫特原油週內高點觸及$119（伊朗攻擊油輪、伊拉克Force Majeure），美歐股市四週連跌，五大央行全線按兵，滯脹恐慌主導全球市場。</div>
-      <div class="metrics">
-        <div class="metric"><div class="label">S&amp;P 500</div><div class="val down">▼ -1.7%</div></div>
-        <div class="metric"><div class="label">布倫特油</div><div class="val down">▲ $119高點</div></div>
-        <div class="metric"><div class="label">黃金</div><div class="val down">▼ -13%（週）</div></div>
-        <div class="metric"><div class="label">EUR/USD</div><div class="val">1.1537</div></div>
-        <div class="metric"><div class="label">五大央行</div><div class="val">全線按兵</div></div>
-      </div>
+      <div class="summary">ç¾è¡äºé±é£è·ï¼ä¼æå¨èå°ééç¾æ¨è²</div>
+      <div class="metrics"><div class="metric"><div class="label">S&P 500</div><div class="val down">â¼ -2.1%</div></div><div class="metric"><div class="label">å¸å«ç¹æ²¹</div><div class="val">$110â115</div></div><div class="metric"><div class="label">é»é</div><div class="val down">â¼ ~$4,450</div></div></div>
       <div class="keywords-row">
-        <span style="font-size:0.78rem; color:#999; align-self:center; margin-right:2px;">延伸閱讀建議：</span>
-        <span class="kw" onclick="searchKeyword(event,'金崩')">金崩43年最大</span>
-        <span class="kw" onclick="searchKeyword(event,'油價')">油價飆升</span>
-        <span class="kw" onclick="searchKeyword(event,'伊朗')">伊朗油輪攻擊</span>
-        <span class="kw" onclick="searchKeyword(event,'央行')">五大央行按兵</span>
-        <span class="kw" onclick="searchKeyword(event,'滯脹')">滯脹恐慌</span>
+        <span style="font-size:0.78rem; color:#999; align-self:center; margin-right:2px;">å»¶ä¼¸é±è®å»ºè­°ï¼</span>
+        <span class="kw" onclick="searchKeyword(event,'éå´©')">éå´©43å¹´æå¤§</span>
+        <span class="kw" onclick="searchKeyword(event,'æ²¹å¹')">æ²¹å¹é£å</span>
+        <span class="kw" onclick="searchKeyword(event,'ä¼æ')">ä¼ææ²¹è¼ªæ»æ</span>
+        <span class="kw" onclick="searchKeyword(event,'å¤®è¡')">äºå¤§å¤®è¡æåµ</span>
+        <span class="kw" onclick="searchKeyword(event,'æ»¯è¹')">æ»¯è¹ææ</span>
       </div>
     </div>
   </a>
 
-  <!-- 歷史週報 -->
-  <div class="section-title" style="margin-top:32px;" id="history-title">🗂 歷史週報</div>
+  <!-- æ­·å²é±å ± -->
+  <div class="section-title" style="margin-top:32px;" id="history-title">ð æ­·å²é±å ±</div>
 
   <div class="history-grid" id="history-grid">
-    <!-- 歷史週報卡片由 JS 動態渲染 -->
+    <!-- æ­·å²é±å ±å¡çç± JS åææ¸²æ -->
   </div>
 
   <div class="empty" id="empty-state" style="display:none;">
-    找不到符合條件的週報，試試其他關鍵字？
+    æ¾ä¸å°ç¬¦åæ¢ä»¶çé±å ±ï¼è©¦è©¦å¶ä»ééµå­ï¼
   </div>
 
   <div class="footer">
-    <p>資料來源：CNBC · Bloomberg · Reuters · World Gold Council</p>
+    <p>è³æä¾æºï¼CNBC Â· Bloomberg Â· Reuters Â· World Gold Council</p>
   </div>
-  <p class="disclaimer-text">本網站內容僅供個人學習與資訊參考，不構成任何投資建議或買賣邀約。投資涉及風險，過去績效不代表未來表現，請自行判斷並承擔投資決策責任。</p>
+  <p class="disclaimer-text">æ¬ç¶²ç«å§å®¹åä¾åäººå­¸ç¿èè³è¨åèï¼ä¸æ§æä»»ä½æè³å»ºè­°æè²·è³£éç´ãæè³æ¶åé¢¨éªï¼éå»ç¸¾æä¸ä»£è¡¨æªä¾è¡¨ç¾ï¼è«èªè¡å¤æ·ä¸¦æ¿ææè³æ±ºç­è²¬ä»»ã</p>
 </div>
 
 <script>
-  // ── 週報資料庫 ──────────────────────────────────────────
-  // category 可以是：財經總覽 / AI科技 / 地緣政治 / 科技展覽
+  // ââ é±å ±è³æåº« ââââââââââââââââââââââââââââââââââââââââââ
+  // category å¯ä»¥æ¯ï¼è²¡ç¶ç¸½è¦½ / AIç§æ / å°ç·£æ¿æ²» / ç§æå±è¦½
   const reports = [
-    {
-      date: "2026-03-30",
-      label: "2026年3月30日－4月3日",
-      issue: 13,
-      file: "weekly-briefing-2026-03-30.html",
-      summary: "美股五週連跌，伊朗威脅封鎖霍爾木茲",
-      category: "地緣政治",
-      keywords: ["美股五週連跌", "霍爾木茲封鎖", "非農就業報告", "滯脹確立", "Q1財報季"],
-      metrics: [
-        { label: "S&P 500", val: "▼ -2.1%", type: "red" },
-        { label: "布倫特油", val: "$110–115", type: "orange" },
-        { label: "黃金", val: "▼ ~$4,450", type: "red" },
-      ]
-    },
+    
     {
       date: "2026-03-27",
-      label: "2026年3月23日－3月27日",
+      label: "2026å¹´3æ23æ¥ï¼3æ27æ¥",
       issue: 12,
       file: "weekly-briefing-2026-03-27.html",
-      summary: "金崩13%寫43年最大，布倫特觸$119",
-      category: "地緣政治",
-      keywords: ["金價崩跌", "油價飆升", "伊朗油輪攻擊", "五大央行按兵", "滯脹恐慌"],
+      summary: "éå´©13%å¯«43å¹´æå¤§ï¼å¸å«ç¹è§¸$119",
+      category: "å°ç·£æ¿æ²»",
+      keywords: ["éå¹å´©è·", "æ²¹å¹é£å", "ä¼ææ²¹è¼ªæ»æ", "äºå¤§å¤®è¡æåµ", "æ»¯è¹ææ"],
       metrics: [
-        { label: "S&P 500", val: "▼ -1.7%", type: "red" },
-        { label: "布倫特油", val: "▲ $119高點", type: "orange" },
-        { label: "黃金", val: "▼ -13%", type: "red" },
+        { label: "S&P 500", val: "â¼ -1.7%", type: "red" },
+        { label: "å¸å«ç¹æ²¹", val: "â² $119é«é»", type: "orange" },
+        { label: "é»é", val: "â¼ -13%", type: "red" },
       ]
     },
     {
       date: "2026-03-20",
-      label: "2026年3月16日－3月20日",
+      label: "2026å¹´3æ16æ¥ï¼3æ20æ¥",
       issue: 11,
       file: "weekly-briefing-2026-03-20.html",
-      summary: "Fed鷹派、油破百，美股三連跌",
-      category: "地緣政治",
-      keywords: ["FOMC鷹派", "油價破百", "美伊戰爭", "GTC 2026", "美元走強"],
+      summary: "Fedé·¹æ´¾ãæ²¹ç ´ç¾ï¼ç¾è¡ä¸é£è·",
+      category: "å°ç·£æ¿æ²»",
+      keywords: ["FOMCé·¹æ´¾", "æ²¹å¹ç ´ç¾", "ç¾ä¼æ°ç­", "GTC 2026", "ç¾åèµ°å¼·"],
       metrics: [
-        { label: "S&P 500", val: "▼ -1.5%", type: "red" },
-        { label: "布倫特油", val: "$102/桶", type: "orange" },
-        { label: "黃金", val: "▼ -1.5%", type: "red" },
+        { label: "S&P 500", val: "â¼ -1.5%", type: "red" },
+        { label: "å¸å«ç¹æ²¹", val: "$102/æ¡¶", type: "orange" },
+        { label: "é»é", val: "â¼ -1.5%", type: "red" },
       ]
     },
     {
       date: "2026-03-13",
-      label: "2026年3月9日－3月13日",
+      label: "2026å¹´3æ9æ¥ï¼3æ13æ¥",
       file: "weekly-briefing-2026-03-13.html",
-      summary: "美伊衝突第二週，原油史詩飆漲，美股連跌",
-      category: "地緣政治",
-      keywords: ["美伊衝突", "GDC 2026", "FOMC", "WTI原油"],
+      summary: "ç¾ä¼è¡çªç¬¬äºé±ï¼åæ²¹å²è©©é£æ¼²ï¼ç¾è¡é£è·",
+      category: "å°ç·£æ¿æ²»",
+      keywords: ["ç¾ä¼è¡çª", "GDC 2026", "FOMC", "WTIåæ²¹"],
       metrics: [
-        { label: "S&P 500", val: "▼ -1.99%", type: "red" },
-        { label: "原油", val: "▲ +35%", type: "orange" },
-        { label: "黃金", val: "▼ -2%", type: "red" },
+        { label: "S&P 500", val: "â¼ -1.99%", type: "red" },
+        { label: "åæ²¹", val: "â² +35%", type: "orange" },
+        { label: "é»é", val: "â¼ -2%", type: "red" },
       ]
     },
     {
       date: "2026-03-07",
-      label: "2026年3月2日－3月7日",
+      label: "2026å¹´3æ2æ¥ï¼3æ7æ¥",
       file: "weekly-briefing-2026-03-07.html",
-      summary: "美伊衝突爆發第一週，非農-9.2萬爆冷，油價單週飆23%",
-      category: "地緣政治",
-      keywords: ["美伊衝突", "MWC 2026", "CONEXPO 2026", "非農就業"],
+      summary: "ç¾ä¼è¡çªçç¼ç¬¬ä¸é±ï¼éè¾²-9.2è¬çå·ï¼æ²¹å¹å®é±é£23%",
+      category: "å°ç·£æ¿æ²»",
+      keywords: ["ç¾ä¼è¡çª", "MWC 2026", "CONEXPO 2026", "éè¾²å°±æ¥­"],
       metrics: [
-        { label: "S&P 500", val: "▼ -2.0%", type: "red" },
-        { label: "原油", val: "▲ +23%", type: "orange" },
-        { label: "黃金", val: "▲ +2%", type: "green" },
+        { label: "S&P 500", val: "â¼ -2.0%", type: "red" },
+        { label: "åæ²¹", val: "â² +23%", type: "orange" },
+        { label: "é»é", val: "â² +2%", type: "green" },
       ]
     },
     {
       date: "2026-02-28",
-      label: "2026年2月23日－2月28日",
+      label: "2026å¹´2æ23æ¥ï¼2æ28æ¥",
       file: "weekly-briefing-2026-02-28.html",
-      summary: "2月科技股大崩，Magnificent Seven月跌7.3%，板塊輪動防禦股逆勢走強",
-      category: "財經總覽",
+      summary: "2æç§æè¡å¤§å´©ï¼Magnificent Sevenæè·7.3%ï¼æ¿å¡è¼ªåé²ç¦¦è¡éå¢èµ°å¼·",
+      category: "è²¡ç¶ç¸½è¦½",
       keywords: ["Magnificent Seven", "CP+ 2026", "MWC 2026"],
       metrics: [
-        { label: "S&P 500", val: "▼ -0.8%", type: "red" },
-        { label: "納斯達克", val: "▼ -2.3%", type: "red" },
-        { label: "Mag7月跌", val: "▼ -7.3%", type: "red" },
+        { label: "S&P 500", val: "â¼ -0.8%", type: "red" },
+        { label: "ç´æ¯éå", val: "â¼ -2.3%", type: "red" },
+        { label: "Mag7æè·", val: "â¼ -7.3%", type: "red" },
       ]
     },
     {
       date: "2026-02-21",
-      label: "2026年2月16日－2月21日",
+      label: "2026å¹´2æ16æ¥ï¼2æ21æ¥",
       file: "weekly-briefing-2026-02-21.html",
-      summary: "Nvidia財報大超預期卻利多出盡跌5%，法院裁定川普關稅違憲，納斯達克止跌",
-      category: "AI科技",
-      keywords: ["NVIDIA", "川普關稅", "AI資本支出", "納斯達克"],
+      summary: "Nvidiaè²¡å ±å¤§è¶é æå»å©å¤åºç¡è·5%ï¼æ³é¢è£å®å·æ®éç¨éæ²ï¼ç´æ¯éåæ­¢è·",
+      category: "AIç§æ",
+      keywords: ["NVIDIA", "å·æ®éç¨", "AIè³æ¬æ¯åº", "ç´æ¯éå"],
       metrics: [
-        { label: "S&P 500", val: "▲ +1.1%", type: "green" },
-        { label: "納斯達克", val: "▲ +1.5%", type: "green" },
-        { label: "NVDA", val: "▼ -5%+", type: "red" },
+        { label: "S&P 500", val: "â² +1.1%", type: "green" },
+        { label: "ç´æ¯éå", val: "â² +1.5%", type: "green" },
+        { label: "NVDA", val: "â¼ -5%+", type: "red" },
       ]
     },
     {
       date: "2026-02-14",
-      label: "2026年2月9日－2月14日",
+      label: "2026å¹´2æ9æ¥ï¼2æ14æ¥",
       file: "weekly-briefing-2026-02-14.html",
-      summary: "CPI符合預期但油價壓抑降息空間，6月降息機率從56%驟降至23%",
-      category: "財經總覽",
+      summary: "CPIç¬¦åé æä½æ²¹å¹å£æéæ¯ç©ºéï¼6æéæ¯æ©çå¾56%é©éè³23%",
+      category: "è²¡ç¶ç¸½è¦½",
       keywords: ["CPI", "Higher for Longer", "DeepSeek", "NVIDIA"],
       metrics: [
-        { label: "S&P 500", val: "▲ +0.05%", type: "green" },
-        { label: "納斯達克", val: "▼ -0.22%", type: "red" },
-        { label: "6月降息率", val: "▼ 23%", type: "red" },
+        { label: "S&P 500", val: "â² +0.05%", type: "green" },
+        { label: "ç´æ¯éå", val: "â¼ -0.22%", type: "red" },
+        { label: "6æéæ¯ç", val: "â¼ 23%", type: "red" },
       ]
     },
     {
       date: "2026-02-07",
-      label: "2026年2月2日－2月7日",
+      label: "2026å¹´2æ2æ¥ï¼2æ7æ¥",
       file: "weekly-briefing-2026-02-07.html",
-      summary: "AI代理衝擊SaaS生態，軟體股單日蒸發2850億美元，黃金白銀逆勢漲6-7%",
-      category: "AI科技",
-      keywords: ["AI Agent", "SaaS", "黃金", "Kevin Warsh"],
+      summary: "AIä»£çè¡æSaaSçæï¼è»é«è¡å®æ¥è¸ç¼2850åç¾åï¼é»éç½ééå¢æ¼²6-7%",
+      category: "AIç§æ",
+      keywords: ["AI Agent", "SaaS", "é»é", "Kevin Warsh"],
       metrics: [
-        { label: "S&P 500", val: "▼ 震盪", type: "red" },
-        { label: "黃金", val: "▲ +6%", type: "green" },
-        { label: "軟體板塊", val: "▼ -6%", type: "red" },
+        { label: "S&P 500", val: "â¼ éçª", type: "red" },
+        { label: "é»é", val: "â² +6%", type: "green" },
+        { label: "è»é«æ¿å¡", val: "â¼ -6%", type: "red" },
       ]
     },
     {
       date: "2026-01-30",
-      label: "2026年1月26日－1月30日",
+      label: "2026å¹´1æ26æ¥ï¼1æ30æ¥",
       file: "weekly-briefing-2026-01-30.html",
-      summary: "DeepSeek R1 震撼登場，NVDA單日暴跌-17%創史上最大單日市值損失；Meta財報大超預期，Mag7財報季收官",
-      category: "AI科技",
-      keywords: ["DeepSeek", "NVIDIA", "Meta", "日銀升息", "Magnificent Seven"],
+      summary: "DeepSeek R1 éæ¼ç»å ´ï¼NVDAå®æ¥æ´è·-17%åµå²ä¸æå¤§å®æ¥å¸å¼æå¤±ï¼Metaè²¡å ±å¤§è¶é æï¼Mag7è²¡å ±å­£æ¶å®",
+      category: "AIç§æ",
+      keywords: ["DeepSeek", "NVIDIA", "Meta", "æ¥éåæ¯", "Magnificent Seven"],
       metrics: [
-        { label: "QQQ", val: "▼ -1.6%", type: "red" },
-        { label: "NVDA", val: "▼ -17%", type: "red" },
-        { label: "Meta", val: "▲ EPS超預期", type: "green" },
+        { label: "QQQ", val: "â¼ -1.6%", type: "red" },
+        { label: "NVDA", val: "â¼ -17%", type: "red" },
+        { label: "Meta", val: "â² EPSè¶é æ", type: "green" },
       ]
     },
     {
       date: "2026-01-23",
-      label: "2026年1月19日－1月23日",
+      label: "2026å¹´1æ19æ¥ï¼1æ23æ¥",
       file: "weekly-briefing-2026-01-23.html",
-      summary: "台積電法說Q4 EPS創歷史新高，2025全年營收年增39.7%；Netflix訂閱淨增1900萬大超預期，SOXX攀上月內高點104.2",
-      category: "AI科技",
-      keywords: ["台積電", "Netflix", "WEF達沃斯", "科技財報季"],
+      summary: "å°ç©é»æ³èªªQ4 EPSåµæ­·å²æ°é«ï¼2025å¨å¹´çæ¶å¹´å¢39.7%ï¼Netflixè¨é±æ·¨å¢1900è¬å¤§è¶é æï¼SOXXæä¸æå§é«é»104.2",
+      category: "AIç§æ",
+      keywords: ["å°ç©é»", "Netflix", "WEFéæ²æ¯", "ç§æè²¡å ±å­£"],
       metrics: [
-        { label: "SOXX", val: "▲ +0.4%（月高）", type: "green" },
-        { label: "TSMC Q4 EPS", val: "NT$14.45 超預期", type: "green" },
-        { label: "Netflix訂閱", val: "▲ 1900萬新增", type: "green" },
+        { label: "SOXX", val: "â² +0.4%ï¼æé«ï¼", type: "green" },
+        { label: "TSMC Q4 EPS", val: "NT$14.45 è¶é æ", type: "green" },
+        { label: "Netflixè¨é±", val: "â² 1900è¬æ°å¢", type: "green" },
       ]
     },
     {
       date: "2026-01-16",
-      label: "2026年1月12日－1月16日",
+      label: "2026å¹´1æ12æ¥ï¼1æ16æ¥",
       file: "weekly-briefing-2026-01-16.html",
-      summary: "Q4 2025 財報季開跑，JPM EPS大超預期+19.4%；12月CPI年增2.9%符合預期，核心CPI略低預期帶動降息預期回溫",
-      category: "財經總覽",
-      keywords: ["Q4財報季", "CPI", "JPMorgan", "台積電", "NRF 2026"],
+      summary: "Q4 2025 è²¡å ±å­£éè·ï¼JPM EPSå¤§è¶é æ+19.4%ï¼12æCPIå¹´å¢2.9%ç¬¦åé æï¼æ ¸å¿CPIç¥ä½é æå¸¶åéæ¯é æåæº«",
+      category: "è²¡ç¶ç¸½è¦½",
+      keywords: ["Q4è²¡å ±å­£", "CPI", "JPMorgan", "å°ç©é»", "NRF 2026"],
       metrics: [
-        { label: "S&P 500", val: "▲ +0.4%", type: "green" },
-        { label: "SOXX", val: "▲ +0.6%", type: "green" },
+        { label: "S&P 500", val: "â² +0.4%", type: "green" },
+        { label: "SOXX", val: "â² +0.6%", type: "green" },
         { label: "JPM EPS", val: "$4.81 vs $4.03", type: "green" },
       ]
     },
     {
       date: "2026-01-09",
-      label: "2026年1月2日－1月9日",
+      label: "2026å¹´1æ2æ¥ï¼1æ9æ¥",
       file: "weekly-briefing-2026-01-09.html",
-      summary: "CES 2026 登場，NVIDIA Jensen Huang發表Blackwell Ultra架構，AI PC元年宣言；SOXX單週領漲+3.2%，為1月最大單週漲幅",
-      category: "科技展覽",
-      keywords: ["CES 2026", "NVIDIA Blackwell Ultra", "AI PC", "AI機器人"],
+      summary: "CES 2026 ç»å ´ï¼NVIDIA Jensen Huangç¼è¡¨Blackwell Ultraæ¶æ§ï¼AI PCåå¹´å®£è¨ï¼SOXXå®é±é æ¼²+3.2%ï¼çº1ææå¤§å®é±æ¼²å¹",
+      category: "ç§æå±è¦½",
+      keywords: ["CES 2026", "NVIDIA Blackwell Ultra", "AI PC", "AIæ©å¨äºº"],
       metrics: [
-        { label: "SOXX", val: "▲ +3.2%", type: "green" },
-        { label: "QQQ", val: "▲ +1.8%", type: "green" },
-        { label: "S&P 500", val: "▲ +0.8%", type: "green" },
+        { label: "SOXX", val: "â² +3.2%", type: "green" },
+        { label: "QQQ", val: "â² +1.8%", type: "green" },
+        { label: "S&P 500", val: "â² +0.8%", type: "green" },
       ]
     }
-    // 未來每週自動在此新增一筆
+    // æªä¾æ¯é±èªåå¨æ­¤æ°å¢ä¸ç­
   ];
 
-  // ── 點擊關鍵字標籤 ──────────────────────────────────────
+  // ââ é»æééµå­æ¨ç±¤ ââââââââââââââââââââââââââââââââââââââ
   function searchKeyword(e, keyword) {
     e.preventDefault();
     e.stopPropagation();
     const input = document.getElementById('search-input');
     input.value = keyword;
     filterCards(keyword);
-    // 重置分類按鈕
+    // éç½®åé¡æé
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     document.querySelector('.filter-btn').classList.add('active');
-    // 滾動到搜尋欄
+    // æ»¾åå°æå°æ¬
     input.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
-  // ── 計算下次更新日（下一個週六） ───────────────────────
+  // ââ è¨ç®ä¸æ¬¡æ´æ°æ¥ï¼ä¸ä¸åé±å­ï¼ âââââââââââââââââââââââ
   function getNextSaturday() {
     const now = new Date();
     const day = now.getDay(); // 0=Sun, 6=Sat
-    // 週五（5）或週六（6）時，顯示「下週六」而非「明天/今天」
+    // é±äºï¼5ï¼æé±å­ï¼6ï¼æï¼é¡¯ç¤ºãä¸é±å­ãèéãæå¤©/ä»å¤©ã
     const daysUntil = day >= 5 ? (6 - day + 7) : (6 - day);
     const next = new Date(now);
     next.setDate(now.getDate() + daysUntil);
-    return `${next.getMonth() + 1}/${next.getDate()}（六）`;
+    return `${next.getMonth() + 1}/${next.getDate()}ï¼å­ï¼`;
   }
 
-  // ── 渲染歷史卡片 ────────────────────────────────────────
+  // ââ æ¸²ææ­·å²å¡ç ââââââââââââââââââââââââââââââââââââââââ
   let currentCategory = 'all';
   let currentQuery = '';
 
@@ -760,7 +741,7 @@
       `).join('');
     }
 
-    // 最新卡片的可見性
+    // ææ°å¡ççå¯è¦æ§
     const latest = document.getElementById('latest-card');
     const latestCatOk = currentCategory === 'all' || reports[0].category === currentCategory;
     const q = currentQuery.toLowerCase();
@@ -780,68 +761,68 @@
     renderHistory();
   }
 
-  // ── 投資金句抽抽樂 ──────────────────────────────────────
+  // ââ æè³éå¥æ½æ½æ¨ ââââââââââââââââââââââââââââââââââââââ
   const quotes = [
-    { text: '別人恐懼時我貪婪，別人貪婪時我恐懼。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '投資的第一條守則是不要虧錢；第二條守則是永遠不要忘記第一條。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '如果你不願意持有一支股票十年，就不要持有它十分鐘。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '價格是你付出的，價值是你得到的。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '股市是把錢從沒耐心的人，轉移到有耐心的人手中的機制。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '風險來自於你不知道自己在做什麼。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '當潮水退去，才知道誰在裸泳。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '時間是優秀企業的朋友，是平庸企業的敵人。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '我寧願以合理的價格買入一家優秀的公司，也不要以優秀的價格買入一家平庸的公司。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '不管多麼美好的事業，它的股價也有可能貴到不值得買入。', author: '華倫・巴菲特', who: 'buffett' },
-    { text: '反過來想，永遠要反過來想。', author: '查理・蒙格', who: 'munger' },
-    { text: '每天睡覺前，你要比早上醒來時更聰明一點點。', author: '查理・蒙格', who: 'munger' },
-    { text: '想要得到某樣東西，最好的方式是讓自己配得上它。', author: '查理・蒙格', who: 'munger' },
-    { text: '所有聰明的投資，本質上都是價值投資——你要得到的比你付出的多。', author: '查理・蒙格', who: 'munger' },
-    { text: '告訴我動機，我就告訴你結果。', author: '查理・蒙格', who: 'munger' },
-    { text: '避免做蠢事，比找到天才更重要。', author: '查理・蒙格', who: 'munger' },
-    { text: '如果你只是比別人更有耐心、更有紀律，你就已經贏了大多數人。', author: '查理・蒙格', who: 'munger' },
-    { text: '魚與熊掌不可兼得——在投資中，你必須忍受波動，才能換來長期回報。', author: '查理・蒙格', who: 'munger' },
-    { text: '買股票，然後吃安眠藥——睡醒之後，你就是有錢人了。', author: '安德烈・科斯托蘭尼', who: 'kostolany' },
-    { text: '在股票市場上，多數人總是錯的。', author: '安德烈・科斯托蘭尼', who: 'kostolany' },
-    { text: '如果你神經緊張，就不適合投機。', author: '安德烈・科斯托蘭尼', who: 'kostolany' },
-    { text: '所有股市行情，最終取決於兩件事：流動性與心理。', author: '安德烈・科斯托蘭尼', who: 'kostolany' },
-    { text: '在股市上，對的人和來得早的人一樣，都必須等待。', author: '安德烈・科斯托蘭尼', who: 'kostolany' },
-    { text: '思考者是少數，正因如此，市場大多數時候是錯的。', author: '安德烈・科斯托蘭尼', who: 'kostolany' },
-    { text: '股票不只是一張紙，它代表著一家真實企業的一部分。', author: '安德烈・科斯托蘭尼', who: 'kostolany' },
-    { text: '有錢才可以投機；沒錢，絕對不能投機。', author: '安德烈・科斯托蘭尼', who: 'kostolany' },
-    { text: '痛苦加上反省，等於進步。', author: '雷・達里歐', who: 'dalio' },
-    { text: '多元分散是投資的聖杯——它能讓你在不降低預期報酬的情況下，大幅降低風險。', author: '雷・達里歐', who: 'dalio' },
-    { text: '我最大的錯誤，是沒有正視自己可能是錯的。', author: '雷・達里歐', who: 'dalio' },
-    { text: '不要把今天的好運，誤以為是自己的能力。', author: '雷・達里歐', who: 'dalio' },
-    { text: '極度開放的心態，是成功投資者最重要的特質。', author: '雷・達里歐', who: 'dalio' },
-    { text: '你所擁有的，只是你過去所做決策的總和。', author: '雷・達里歐', who: 'dalio' },
-    { text: '現金是垃圾——長期持有現金，是最確定的財富損耗方式。', author: '雷・達里歐', who: 'dalio' },
-    { text: '了解經濟機器的運作，比猜測下一個漲跌更有價值。', author: '雷・達里歐', who: 'dalio' },
-    { text: '投資你所了解的東西。', author: '彼得・林區', who: 'lynch' },
-    { text: '賣掉一支好股票去補一支壞股票，就像砍掉花朵去澆灌雜草。', author: '彼得・林區', who: 'lynch' },
-    { text: '股票不知道你擁有它——你的焦慮，市場感覺不到。', author: '彼得・林區', who: 'lynch' },
-    { text: '只要做好功課，散戶也能打敗機構投資人。', author: '彼得・林區', who: 'lynch' },
-    { text: '在股市裡，最危險的一句話是：「這次不一樣。」', author: '彼得・林區', who: 'lynch' },
-    { text: '翻十倍股之前，必須先翻兩倍。持有的勇氣，比選股的眼光更重要。', author: '彼得・林區', who: 'lynch' },
-    { text: '沒有人能準確預測利率，也沒有人能準確預測經濟走向——與其預測，不如準備。', author: '彼得・林區', who: 'lynch' },
-    { text: '如果你不研究任何公司，你在股市的成功率，跟撲克牌玩家蒙眼出牌一樣。', author: '彼得・林區', who: 'lynch' },
-    { text: '股票市場短期是投票機，長期是體重計。', author: '班傑明・葛拉漢', who: 'graham' },
-    { text: '安全邊際，是投資最核心的概念。', author: '班傑明・葛拉漢', who: 'graham' },
-    { text: '市場先生每天都會來敲你的門，報出買賣價格——但你沒有義務接受。', author: '班傑明・葛拉漢', who: 'graham' },
-    { text: '聰明的投資者是現實主義者，他向樂觀者賣出，向悲觀者買入。', author: '班傑明・葛拉漢', who: 'graham' },
-    { text: '投資的本質，是在充分分析後，確保本金安全並獲得滿意回報。其餘的，是投機。', author: '班傑明・葛拉漢', who: 'graham' },
-    { text: '真正的投資者很少被迫賣出，時間永遠是他的朋友。', author: '班傑明・葛拉漢', who: 'graham' },
-    { text: '市場的短期波動是噪音，長期的企業價值才是真相。', author: '班傑明・葛拉漢', who: 'graham' },
-    { text: '股價下跌不代表虧損，只有賣出才是真正的虧損。', author: '班傑明・葛拉漢', who: 'graham' },
-    { text: '出色的投資不在於買好東西，而是買得好。', author: '霍華德・馬克斯', who: 'marks' },
-    { text: '第一層思維說：這是好公司，買入。第二層思維說：人人都知道這是好公司，所以股價早已反映了。', author: '霍華德・馬克斯', who: 'marks' },
-    { text: '你無法預測，但你可以做好準備。', author: '霍華德・馬克斯', who: 'marks' },
-    { text: '當每個人都相信某件事沒有風險時，風險其實最高。', author: '霍華德・馬克斯', who: 'marks' },
-    { text: '市場的鐘擺永遠在擺動，從一個極端盪向另一個極端，鮮少停在中間。', author: '霍華德・馬克斯', who: 'marks' },
-    { text: '投資最重要的事，是理解風險，而不是迴避風險。', author: '霍華德・馬克斯', who: 'marks' },
-    { text: '在別人恐懼時買入，需要的不是勇氣，而是紀律與分析。', author: '霍華德・馬克斯', who: 'marks' },
-    { text: '風險控制，是優秀投資者與普通投資者之間最大的差距。', author: '霍華德・馬克斯', who: 'marks' },
+    { text: 'å¥äººææ¼ææè²ªå©ªï¼å¥äººè²ªå©ªææææ¼ã', author: 'è¯å«ã»å·´è²ç¹', who: 'buffett' },
+    { text: 'æè³çç¬¬ä¸æ¢å®åæ¯ä¸è¦è§é¢ï¼ç¬¬äºæ¢å®åæ¯æ°¸é ä¸è¦å¿è¨ç¬¬ä¸æ¢ã', author: 'è¯å«ã»å·´è²ç¹', who: 'buffett' },
+    { text: 'å¦æä½ ä¸é¡æææä¸æ¯è¡ç¥¨åå¹´ï¼å°±ä¸è¦ææå®ååéã', author: 'è¯å«ã»å·´è²ç¹', who: 'buffett' },
+    { text: 'å¹æ ¼æ¯ä½ ä»åºçï¼å¹å¼æ¯ä½ å¾å°çã', author: 'è¯å«ã»å·´è²ç¹', who: 'buffett' },
+    { text: 'è¡å¸æ¯æé¢å¾æ²èå¿çäººï¼è½ç§»å°æèå¿çäººæä¸­çæ©å¶ã', author: 'è¯å«ã»å·´è²ç¹', who: 'buffett' },
+    { text: 'é¢¨éªä¾èªæ¼ä½ ä¸ç¥éèªå·±å¨åä»éº¼ã', author: 'è¯å«ã»å·´è²ç¹', who: 'buffett' },
+    { text: 'ç¶æ½®æ°´éå»ï¼æç¥éèª°å¨è£¸æ³³ã', author: 'è¯å«ã»å·´è²ç¹', who: 'buffett' },
+    { text: 'æéæ¯åªç§ä¼æ¥­çæåï¼æ¯å¹³åº¸ä¼æ¥­çæµäººã', author: 'è¯å«ã»å·´è²ç¹', who: 'buffett' },
+    { text: 'æå¯§é¡ä»¥åççå¹æ ¼è²·å¥ä¸å®¶åªç§çå¬å¸ï¼ä¹ä¸è¦ä»¥åªç§çå¹æ ¼è²·å¥ä¸å®¶å¹³åº¸çå¬å¸ã', author: 'è¯å«ã»å·´è²ç¹', who: 'buffett' },
+    { text: 'ä¸ç®¡å¤éº¼ç¾å¥½çäºæ¥­ï¼å®çè¡å¹ä¹æå¯è½è²´å°ä¸å¼å¾è²·å¥ã', author: 'è¯å«ã»å·´è²ç¹', who: 'buffett' },
+    { text: 'åéä¾æ³ï¼æ°¸é è¦åéä¾æ³ã', author: 'æ¥çã»èæ ¼', who: 'munger' },
+    { text: 'æ¯å¤©ç¡è¦ºåï¼ä½ è¦æ¯æ©ä¸éä¾ææ´è°æä¸é»é»ã', author: 'æ¥çã»èæ ¼', who: 'munger' },
+    { text: 'æ³è¦å¾å°ææ¨£æ±è¥¿ï¼æå¥½çæ¹å¼æ¯è®èªå·±éå¾ä¸å®ã', author: 'æ¥çã»èæ ¼', who: 'munger' },
+    { text: 'ææè°æçæè³ï¼æ¬è³ªä¸é½æ¯å¹å¼æè³ââä½ è¦å¾å°çæ¯ä½ ä»åºçå¤ã', author: 'æ¥çã»èæ ¼', who: 'munger' },
+    { text: 'åè¨´æåæ©ï¼æå°±åè¨´ä½ çµæã', author: 'æ¥çã»èæ ¼', who: 'munger' },
+    { text: 'é¿ååè ¢äºï¼æ¯æ¾å°å¤©ææ´éè¦ã', author: 'æ¥çã»èæ ¼', who: 'munger' },
+    { text: 'å¦æä½ åªæ¯æ¯å¥äººæ´æèå¿ãæ´æç´å¾ï¼ä½ å°±å·²ç¶è´äºå¤§å¤æ¸äººã', author: 'æ¥çã»èæ ¼', who: 'munger' },
+    { text: 'é­èçæä¸å¯å¼å¾ââå¨æè³ä¸­ï¼ä½ å¿é å¿åæ³¢åï¼æè½æä¾é·æåå ±ã', author: 'æ¥çã»èæ ¼', who: 'munger' },
+    { text: 'è²·è¡ç¥¨ï¼ç¶å¾åå®ç è¥ââç¡éä¹å¾ï¼ä½ å°±æ¯æé¢äººäºã', author: 'å®å¾·çã»ç§æ¯æè­å°¼', who: 'kostolany' },
+    { text: 'å¨è¡ç¥¨å¸å ´ä¸ï¼å¤æ¸äººç¸½æ¯é¯çã', author: 'å®å¾·çã»ç§æ¯æè­å°¼', who: 'kostolany' },
+    { text: 'å¦æä½ ç¥ç¶ç·å¼µï¼å°±ä¸é©åææ©ã', author: 'å®å¾·çã»ç§æ¯æè­å°¼', who: 'kostolany' },
+    { text: 'ææè¡å¸è¡æï¼æçµåæ±ºæ¼å©ä»¶äºï¼æµåæ§èå¿çã', author: 'å®å¾·çã»ç§æ¯æè­å°¼', who: 'kostolany' },
+    { text: 'å¨è¡å¸ä¸ï¼å°çäººåä¾å¾æ©çäººä¸æ¨£ï¼é½å¿é ç­å¾ã', author: 'å®å¾·çã»ç§æ¯æè­å°¼', who: 'kostolany' },
+    { text: 'æèèæ¯å°æ¸ï¼æ­£å å¦æ­¤ï¼å¸å ´å¤§å¤æ¸æåæ¯é¯çã', author: 'å®å¾·çã»ç§æ¯æè­å°¼', who: 'kostolany' },
+    { text: 'è¡ç¥¨ä¸åªæ¯ä¸å¼µç´ï¼å®ä»£è¡¨èä¸å®¶çå¯¦ä¼æ¥­çä¸é¨åã', author: 'å®å¾·çã»ç§æ¯æè­å°¼', who: 'kostolany' },
+    { text: 'æé¢æå¯ä»¥ææ©ï¼æ²é¢ï¼çµå°ä¸è½ææ©ã', author: 'å®å¾·çã»ç§æ¯æè­å°¼', who: 'kostolany' },
+    { text: 'çè¦å ä¸åçï¼ç­æ¼é²æ­¥ã', author: 'é·ã»ééæ­', who: 'dalio' },
+    { text: 'å¤ååæ£æ¯æè³çèæ¯ââå®è½è®ä½ å¨ä¸éä½é æå ±é¬çææ³ä¸ï¼å¤§å¹éä½é¢¨éªã', author: 'é·ã»ééæ­', who: 'dalio' },
+    { text: 'ææå¤§çé¯èª¤ï¼æ¯æ²ææ­£è¦èªå·±å¯è½æ¯é¯çã', author: 'é·ã»ééæ­', who: 'dalio' },
+    { text: 'ä¸è¦æä»å¤©çå¥½éï¼èª¤ä»¥çºæ¯èªå·±çè½åã', author: 'é·ã»ééæ­', who: 'dalio' },
+    { text: 'æ¥µåº¦éæ¾çå¿æï¼æ¯æåæè³èæéè¦çç¹è³ªã', author: 'é·ã»ééæ­', who: 'dalio' },
+    { text: 'ä½ æææçï¼åªæ¯ä½ éå»æåæ±ºç­çç¸½åã', author: 'é·ã»ééæ­', who: 'dalio' },
+    { text: 'ç¾éæ¯åå¾ââé·æææç¾éï¼æ¯æç¢ºå®çè²¡å¯æèæ¹å¼ã', author: 'é·ã»ééæ­', who: 'dalio' },
+    { text: 'äºè§£ç¶æ¿æ©å¨çéä½ï¼æ¯çæ¸¬ä¸ä¸åæ¼²è·æ´æå¹å¼ã', author: 'é·ã»ééæ­', who: 'dalio' },
+    { text: 'æè³ä½ æäºè§£çæ±è¥¿ã', author: 'å½¼å¾ã»æå', who: 'lynch' },
+    { text: 'è³£æä¸æ¯å¥½è¡ç¥¨å»è£ä¸æ¯å£è¡ç¥¨ï¼å°±åç æè±æµå»æ¾çéèã', author: 'å½¼å¾ã»æå', who: 'lynch' },
+    { text: 'è¡ç¥¨ä¸ç¥éä½ ææå®ââä½ çç¦æ®ï¼å¸å ´æè¦ºä¸å°ã', author: 'å½¼å¾ã»æå', who: 'lynch' },
+    { text: 'åªè¦åå¥½åèª²ï¼æ£æ¶ä¹è½æææ©æ§æè³äººã', author: 'å½¼å¾ã»æå', who: 'lynch' },
+    { text: 'å¨è¡å¸è£¡ï¼æå±éªçä¸å¥è©±æ¯ï¼ãéæ¬¡ä¸ä¸æ¨£ãã', author: 'å½¼å¾ã»æå', who: 'lynch' },
+    { text: 'ç¿»ååè¡ä¹åï¼å¿é åç¿»å©åãææçåæ°£ï¼æ¯é¸è¡çç¼åæ´éè¦ã', author: 'å½¼å¾ã»æå', who: 'lynch' },
+    { text: 'æ²æäººè½æºç¢ºé æ¸¬å©çï¼ä¹æ²æäººè½æºç¢ºé æ¸¬ç¶æ¿èµ°åââèå¶é æ¸¬ï¼ä¸å¦æºåã', author: 'å½¼å¾ã»æå', who: 'lynch' },
+    { text: 'å¦æä½ ä¸ç ç©¶ä»»ä½å¬å¸ï¼ä½ å¨è¡å¸çæåçï¼è·æ²åçç©å®¶èç¼åºçä¸æ¨£ã', author: 'å½¼å¾ã»æå', who: 'lynch' },
+    { text: 'è¡ç¥¨å¸å ´ç­ææ¯æç¥¨æ©ï¼é·ææ¯é«éè¨ã', author: 'ç­åæã»èææ¼¢', who: 'graham' },
+    { text: 'å®å¨ééï¼æ¯æè³ææ ¸å¿çæ¦å¿µã', author: 'ç­åæã»èææ¼¢', who: 'graham' },
+    { text: 'å¸å ´åçæ¯å¤©é½æä¾æ²ä½ çéï¼å ±åºè²·è³£å¹æ ¼ââä½ä½ æ²æç¾©åæ¥åã', author: 'ç­åæã»èææ¼¢', who: 'graham' },
+    { text: 'è°æçæè³èæ¯ç¾å¯¦ä¸»ç¾©èï¼ä»åæ¨è§èè³£åºï¼åæ²è§èè²·å¥ã', author: 'ç­åæã»èææ¼¢', who: 'graham' },
+    { text: 'æè³çæ¬è³ªï¼æ¯å¨åååæå¾ï¼ç¢ºä¿æ¬éå®å¨ä¸¦ç²å¾æ»¿æåå ±ãå¶é¤çï¼æ¯ææ©ã', author: 'ç­åæã»èææ¼¢', who: 'graham' },
+    { text: 'çæ­£çæè³èå¾å°è¢«è¿«è³£åºï¼æéæ°¸é æ¯ä»çæåã', author: 'ç­åæã»èææ¼¢', who: 'graham' },
+    { text: 'å¸å ´çç­ææ³¢åæ¯åªé³ï¼é·æçä¼æ¥­å¹å¼ææ¯çç¸ã', author: 'ç­åæã»èææ¼¢', who: 'graham' },
+    { text: 'è¡å¹ä¸è·ä¸ä»£è¡¨è§æï¼åªæè³£åºææ¯çæ­£çè§æã', author: 'ç­åæã»èææ¼¢', who: 'graham' },
+    { text: 'åºè²çæè³ä¸å¨æ¼è²·å¥½æ±è¥¿ï¼èæ¯è²·å¾å¥½ã', author: 'éè¯å¾·ã»é¦¬åæ¯', who: 'marks' },
+    { text: 'ç¬¬ä¸å±¤æç¶­èªªï¼éæ¯å¥½å¬å¸ï¼è²·å¥ãç¬¬äºå±¤æç¶­èªªï¼äººäººé½ç¥ééæ¯å¥½å¬å¸ï¼æä»¥è¡å¹æ©å·²åæ äºã', author: 'éè¯å¾·ã»é¦¬åæ¯', who: 'marks' },
+    { text: 'ä½ ç¡æ³é æ¸¬ï¼ä½ä½ å¯ä»¥åå¥½æºåã', author: 'éè¯å¾·ã»é¦¬åæ¯', who: 'marks' },
+    { text: 'ç¶æ¯åäººé½ç¸ä¿¡æä»¶äºæ²æé¢¨éªæï¼é¢¨éªå¶å¯¦æé«ã', author: 'éè¯å¾·ã»é¦¬åæ¯', who: 'marks' },
+    { text: 'å¸å ´çéæºæ°¸é å¨æºåï¼å¾ä¸åæ¥µç«¯çªåå¦ä¸åæ¥µç«¯ï¼é®®å°åå¨ä¸­éã', author: 'éè¯å¾·ã»é¦¬åæ¯', who: 'marks' },
+    { text: 'æè³æéè¦çäºï¼æ¯çè§£é¢¨éªï¼èä¸æ¯è¿´é¿é¢¨éªã', author: 'éè¯å¾·ã»é¦¬åæ¯', who: 'marks' },
+    { text: 'å¨å¥äººææ¼æè²·å¥ï¼éè¦çä¸æ¯åæ°£ï¼èæ¯ç´å¾èåæã', author: 'éè¯å¾·ã»é¦¬åæ¯', who: 'marks' },
+    { text: 'é¢¨éªæ§å¶ï¼æ¯åªç§æè³èèæ®éæè³èä¹éæå¤§çå·®è·ã', author: 'éè¯å¾·ã»é¦¬åæ¯', who: 'marks' },
   ];
-  const tagMap = { buffett:'巴菲特', munger:'查理・蒙格', kostolany:'科斯托蘭尼', dalio:'雷・達里歐', lynch:'彼得・林區', graham:'班傑明・葛拉漢', marks:'霍華德・馬克斯' };
+  const tagMap = { buffett:'å·´è²ç¹', munger:'æ¥çã»èæ ¼', kostolany:'ç§æ¯æè­å°¼', dalio:'é·ã»ééæ­', lynch:'å½¼å¾ã»æå', graham:'ç­åæã»èææ¼¢', marks:'éè¯å¾·ã»é¦¬åæ¯' };
   let currentWho = 'all', lastQuoteIdx = -1;
 
   function setQuoteFilter(btn) {
@@ -854,7 +835,7 @@
     return currentWho === 'all' ? quotes : quotes.filter(q => q.who === currentWho);
   }
   function updateQuoteCount() {
-    document.getElementById('quoteCount').textContent = '共 ' + getFilteredQuotes().length + ' 句';
+    document.getElementById('quoteCount').textContent = 'å± ' + getFilteredQuotes().length + ' å¥';
   }
   function drawQuote() {
     const pool = getFilteredQuotes();
@@ -867,17 +848,17 @@
       do { idx = Math.floor(Math.random() * pool.length); } while (idx === lastQuoteIdx && pool.length > 1);
       lastQuoteIdx = idx;
       const q = pool[idx];
-      textEl.textContent = '「' + q.text + '」';
-      authorEl.innerHTML = '— ' + q.author + ' <span>' + (tagMap[q.who] || q.who) + '</span>';
+      textEl.textContent = 'ã' + q.text + 'ã';
+      authorEl.innerHTML = 'â ' + q.author + ' <span>' + (tagMap[q.who] || q.who) + '</span>';
       textEl.classList.remove('fade'); authorEl.classList.remove('fade');
     }, 280);
     updateQuoteCount();
   }
   updateQuoteCount();
 
-  // ── 初始化 ──────────────────────────────────────────────
+  // ââ åå§å ââââââââââââââââââââââââââââââââââââââââââââââ
   document.getElementById('total-count').textContent = reports.length;
-  document.getElementById('latest-badge').textContent = `第 ${reports.length} 期`;
+  document.getElementById('latest-badge').textContent = `ç¬¬ ${reports.length} æ`;
   document.getElementById('next-update-date').textContent = getNextSaturday();
   renderHistory();
 </script>
