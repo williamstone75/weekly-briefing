@@ -478,24 +478,24 @@
   <!-- 最新週報 -->
   <div class="section-title">🆕 最新一期</div>
 
-  <a class="latest-card" href="weekly-briefing-2026-04-04.html" target="_blank" id="latest-card">
+  <a class="latest-card" href="weekly-briefing-2026-04-07.html" target="_blank" id="latest-card">
     <div class="card-top">
       <div>
-        <div style="font-size:0.75rem; opacity:0.7; margin-bottom:4px;">最新週報｜發布：2026/4/4</div>
-        <div style="font-size:1.1rem; font-weight:700;">2026年3月30日－4月4日</div>
+        <div style="font-size:0.75rem; opacity:0.7; margin-bottom:4px;">最新週報｜發布：2026/4/7</div>
+        <div style="font-size:1.1rem; font-weight:700;">2026年4月7日－4月11日</div>
       </div>
       <div class="badge" id="latest-badge">—</div>
     </div>
     <div class="card-body">
-      <div class="summary">伊戰後首週反彈 S&P +3.4%，SOXX死亡交叉確立，非農+178K大超預期</div>
-      <div class="metrics"><div class="metric"><div class="label">S&P 500</div><div class="val up">▲ +3.4%</div></div><div class="metric"><div class="label">SOXX</div><div class="val down">▼ 死亡交叉 $339</div></div><div class="metric"><div class="label">布倫特油</div><div class="val up">▲ ~$112</div></div></div>
+      <div class="summary">伊朗停火截止日倒數，CPI+FOMC紀要本週登場，Q1財報季開跑</div>
+      <div class="metrics"><div class="metric"><div class="label">S&P 500</div><div class="val up">▲ +0.44%</div></div><div class="metric"><div class="label">WTI 原油</div><div class="val" style="color:#ef9f27">~$109–115</div></div><div class="metric"><div class="label">黃金</div><div class="val" style="color:#ef9f27">~$4,675</div></div></div>
       <div class="keywords-row">
         <span style="font-size:0.78rem; color:#999; align-self:center; margin-right:2px;">延伸閱讀建議：</span>
-        <span class="kw" onclick="searchKeyword(event,'SOXX')">SOXX死亡交叉</span>
-        <span class="kw" onclick="searchKeyword(event,'非農')">非農+178K</span>
-        <span class="kw" onclick="searchKeyword(event,'霍爾木茲')">霍爾木茲談判</span>
-        <span class="kw" onclick="searchKeyword(event,'氦氣')">氦氣危機</span>
-        <span class="kw" onclick="searchKeyword(event,'伊朗')">伊戰第五週</span>
+        <span class="kw" onclick="searchKeyword(event,'伊朗')">伊朗停火截止日</span>
+        <span class="kw" onclick="searchKeyword(event,'CPI')">CPI 通膨</span>
+        <span class="kw" onclick="searchKeyword(event,'FOMC')">FOMC 紀要</span>
+        <span class="kw" onclick="searchKeyword(event,'財報')">Q1 財報季</span>
+        <span class="kw" onclick="searchKeyword(event,'JPMorgan')">JPMorgan EPS</span>
       </div>
     </div>
   </a>
@@ -521,6 +521,48 @@
   // ── 週報資料庫 ──────────────────────────────────────────
   // category 可以是：財經總覽 / AI科技 / 地緣政治 / 科技展覽
   const reports = [
+    {
+      date: "2026-04-07",
+      label: "2026年4月7日－4月11日",
+      issue: 15,
+      file: "weekly-briefing-2026-04-07.html",
+      summary: "伊朗停火截止日倒數，CPI+FOMC紀要，Q1財報季開跑",
+      category: "地緣政治",
+      keywords: ["伊朗停火截止日", "CPI通膨", "FOMC紀要", "Q1財報季", "JPMorgan"],
+      metrics: [
+        { label: "S&P 500", val: "▲ +0.44%", type: "green" },
+        { label: "WTI 原油", val: "~$109–115", type: "orange" },
+        { label: "黃金", val: "~$4,675", type: "orange" },
+      ]
+    },
+    {
+      date: "2026-04-04",
+      label: "2026年3月30日－4月4日",
+      issue: 14,
+      file: "weekly-briefing-2026-04-04.html",
+      summary: "伊戰後首週反彈 S&P +3.4%，SOXX死亡交叉，非農+178K",
+      category: "地緣政治",
+      keywords: ["伊戰首週反彈", "SOXX死亡交叉", "非農+178K", "霍爾木茲談判", "氦氣危機"],
+      metrics: [
+        { label: "S&P 500", val: "▲ +3.4%", type: "green" },
+        { label: "布倫特油", val: "▲ ~$112", type: "orange" },
+        { label: "黃金", val: "▲ +2.2%", type: "green" },
+      ]
+    },
+    {
+      date: "2026-03-30",
+      label: "2026年3月30日－4月3日",
+      issue: 13,
+      file: "weekly-briefing-2026-03-30.html",
+      summary: "美股五週連跌，伊朗威脅封鎖霍爾木茲",
+      category: "地緣政治",
+      keywords: ["美股五週連跌", "霍爾木茲封鎖", "非農就業報告", "滯脹確立", "Q1財報季"],
+      metrics: [
+        { label: "S&P 500", val: "▼ -2.1%", type: "red" },
+        { label: "布倫特油", val: "$110–115", type: "orange" },
+        { label: "黃金", val: "▼ ~$4,450", type: "red" },
+      ]
+    },
     {
       date: "2026-03-27",
       label: "2026年3月23日－3月27日",
