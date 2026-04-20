@@ -478,24 +478,24 @@
   <!-- 最新週報 -->
   <div class="section-title">🆕 最新一期</div>
 
-  <a class="latest-card" href="weekly-briefing-2026-04-07.html" target="_blank" id="latest-card">
+  <a class="latest-card" href="weekly-briefing-2026-04-18.html" target="_blank" id="latest-card">
     <div class="card-top">
       <div>
-        <div style="font-size:0.75rem; opacity:0.7; margin-bottom:4px;">最新週報｜發布：2026/4/7</div>
-        <div style="font-size:1.1rem; font-weight:700;">2026年4月7日－4月11日</div>
+        <div style="font-size:0.75rem; opacity:0.7; margin-bottom:4px;">最新週報｜發布：2026/4/20</div>
+        <div style="font-size:1.1rem; font-weight:700;">2026年4月14日－4月18日</div>
       </div>
       <div class="badge" id="latest-badge">—</div>
     </div>
     <div class="card-body">
-      <div class="summary">伊朗停火截止日倒數，CPI+FOMC紀要本週登場，Q1財報季開跑</div>
-      <div class="metrics"><div class="metric"><div class="label">S&P 500</div><div class="val up">▲ +0.44%</div></div><div class="metric"><div class="label">WTI 原油</div><div class="val" style="color:#ef9f27">~$109–115</div></div><div class="metric"><div class="label">黃金</div><div class="val" style="color:#ef9f27">~$4,675</div></div></div>
+      <div class="summary">霍爾木茲宣布開放→油崩10%+→S&P 500、Nasdaq雙創歷史新高；台積電Q1 EPS+55.7%卻股價跌3.1%；MAGS月漲+10%距高僅4%；停火4/21到期是下週最大風險</div>
+      <div class="metrics"><div class="metric"><div class="label">S&P 500</div><div class="val up">▲ +4.54%｜歷史新高</div></div><div class="metric"><div class="label">MAGS 七巨頭</div><div class="val up">$66.35｜月+10%</div></div><div class="metric"><div class="label">黃金 COMEX</div><div class="val" style="color:#ef9f27">$4,880｜連四週漲</div></div></div>
       <div class="keywords-row">
         <span style="font-size:0.78rem; color:#999; align-self:center; margin-right:2px;">延伸閱讀建議：</span>
-        <span class="kw" onclick="searchKeyword(event,'伊朗')">伊朗停火截止日</span>
-        <span class="kw" onclick="searchKeyword(event,'CPI')">CPI 通膨</span>
-        <span class="kw" onclick="searchKeyword(event,'FOMC')">FOMC 紀要</span>
-        <span class="kw" onclick="searchKeyword(event,'財報')">Q1 財報季</span>
-        <span class="kw" onclick="searchKeyword(event,'JPMorgan')">JPMorgan EPS</span>
+        <span class="kw" onclick="searchKeyword(event,'霍爾木茲')">霍爾木茲開放</span>
+        <span class="kw" onclick="searchKeyword(event,'台積電')">台積電 Q1 財報</span>
+        <span class="kw" onclick="searchKeyword(event,'MAGS')">MAGS 七巨頭</span>
+        <span class="kw" onclick="searchKeyword(event,'停火')">停火到期 4/21</span>
+        <span class="kw" onclick="searchKeyword(event,'ASML')">ASML 指引上調</span>
       </div>
     </div>
   </a>
@@ -521,6 +521,21 @@
   // ── 週報資料庫 ──────────────────────────────────────────
   // category 可以是：財經總覽 / AI科技 / 地緣政治 / 科技展覽
   const reports = [
+    {
+      date: "2026-04-18",
+      label: "2026年4月14日－4月18日",
+      issue: 17,
+      file: "weekly-briefing-2026-04-18.html",
+      summary: "霍爾木茲宣布開放→油崩10%+→S&P 500、Nasdaq雙創歷史新高；台積電Q1 EPS+55.7%卻股價跌3.1%；MAGS月漲+10%距高僅4%；停火4/21到期是下週最大風險",
+      category: "地緣政治",
+      keywords: ["霍爾木茲開放", "S&P歷史新高", "台積電Q1財報", "MAGS七巨頭", "ASML指引上調", "停火到期4/21", "SOXX13連漲"],
+      metrics: [
+        { label: "S&P 500", val: "▲ +4.54%｜歷史新高", type: "green" },
+        { label: "MAGS", val: "▲ +10.3% 月", type: "green" },
+        { label: "布倫特原油", val: "▼ ~-6%", type: "red" },
+        { label: "黃金 COMEX", val: "$4,880", type: "orange" },
+      ]
+    },
     {
       date: "2026-04-11",
       label: "2026年4月7日－4月11日（週末終版）",

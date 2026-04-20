@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>石府商學院｜全球財經週報 第17期｜2026-04-14 ~ 04-18</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d2e;
+    --border: #2a2d3e;
+    --text: #e8eaf0;
+    --muted: #8b90a8;
+    --accent: #4f8ef7;
+    --red: #e24b4a;
+    --green: #1d9e75;
+    --gold: #ef9f27;
+    --amber: #ba7517;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .site-header {
+    background: linear-gradient(135deg, #141728 0%, #1e2240 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 32px 20px;
+  }
+  .site-header .logo { font-size: 13px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+  .site-header h1 { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .site-header .meta { font-size: 13px; color: var(--muted); }
+  .site-header .meta span { margin-right: 16px; }
+  .site-header .meta .issue { color: var(--gold); font-weight: 600; }
+
+  nav {
+    background: #13162a;
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  nav a {
+    display: block;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--muted);
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+  }
+  nav a:hover { color: var(--text); text-decoration: none; border-bottom-color: var(--accent); }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 32px 24px; }
+
+  .section { margin-bottom: 48px; }
+  .section-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    border-left: 3px solid var(--accent);
+    padding-left: 12px;
+    margin-bottom: 20px;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .stat-card .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .stat-card .value { font-size: 20px; font-weight: 700; color: var(--text); }
+  .stat-card .change { font-size: 12px; margin-top: 4px; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .neutral { color: var(--muted); }
+
+  .summary-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    line-height: 1.8;
+    color: #c8ccda;
+  }
+  .summary-box strong { color: var(--text); }
+
+  .data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .data-table th { background: #1e2240; color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  .data-table td { padding: 11px 14px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(79,142,247,0.04); }
+
+  .event-box {
+    border-left: 3px solid var(--accent);
+    background: var(--card);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+  }
+  .event-box.critical { border-left-color: var(--red); }
+  .event-box.warn { border-left-color: var(--amber); }
+  .event-box.positive { border-left-color: var(--green); }
+  .event-box .event-title { font-weight: 700; font-size: 14px; margin-bottom: 6px; color: var(--text); }
+  .event-box .event-body { font-size: 13px; color: #b0b6cc; line-height: 1.7; }
+  .event-box .event-meta { font-size: 11px; color: var(--muted); margin-top: 8px; }
+
+  /* MAGS member grid */
+  .mags-member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .mags-member-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    text-align: center;
+  }
+  .mags-member-card .ticker { font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 3px; }
+  .mags-member-card .weight { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+  .mags-member-card .perf { font-size: 13px; font-weight: 600; }
+
+  .exhibit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .exhibit-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .exhibit-card .ex-name { font-weight: 700; font-size: 14px; margin-bottom: 4px; color: var(--text); }
+  .exhibit-card .ex-date { font-size: 12px; color: var(--gold); margin-bottom: 4px; }
+  .exhibit-card .ex-loc { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .exhibit-card .ex-focus { font-size: 12px; color: #b0b6cc; line-height: 1.6; }
+
+  .next-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .next-table th { background: #1e2240; color: var(--muted); font-size: 11px; text-transform: uppercase; padding: 8px 14px; border-bottom: 1px solid var(--border); text-align: left; }
+  .next-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .next-table tr:last-child td { border-bottom: none; }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .badge-high { background: rgba(226,75,74,0.18); color: var(--red); }
+  .badge-mid { background: rgba(186,117,23,0.18); color: var(--gold); }
+  .badge-low { background: rgba(29,158,117,0.18); color: var(--green); }
+
+  .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    background: #1e2240;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .tag:hover { border-color: var(--accent); color: var(--accent); }
+
+  footer {
+    background: #13162a;
+    border-top: 1px solid var(--border);
+    padding: 24px 32px;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer .disclaimer { max-width: 600px; line-height: 1.6; }
+  footer .nav-links a { color: var(--muted); margin-left: 16px; }
+  footer .nav-links a:hover { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    .site-header { padding: 20px 16px 16px; }
+    nav { padding: 0 16px; }
+    .container { padding: 24px 16px; }
+    footer { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">石府商學院｜Stone Business School</div>
+  <h1>🌐 全球財經週報</h1>
+  <div class="meta">
+    <span class="issue">第 17 期</span>
+    <span>2026-04-14 ~ 2026-04-18</span>
+    <span>發布：2026-04-20</span>
+  </div>
+</header>
+
+<nav>
+  <a href="#overview">市場總覽</a>
+  <a href="#markets">各市場表現</a>
+  <a href="#geopolitics">地緣政治</a>
+  <a href="#mags">MAGS七巨頭</a>
+  <a href="#ai-tech">AI與科技</a>
+  <a href="#exhibits">近期展覽</a>
+  <a href="#nextweek">下週預告</a>
+  <a href="#reading">延伸閱讀</a>
+  <a href="weekly-briefing-2026-04-11.html">← 第16期</a>
+</nav>
+
+<div class="container">
+
+  <!-- ══ 一、市場總覽 ══ -->
+  <section class="section" id="overview">
+    <div class="section-title">一、本週市場總覽</div>
+
+    <div class="summary-box">
+      本週最大主題是<strong>霍爾木茲宣布開放 → 油價崩跌 → 美股雙指數創歷史新高</strong>。4月17日（週四），伊朗外長 Araghchi 宣布停火期間霍爾木茲海峽<strong>完全對商業航運開放</strong>，布倫特單日暴跌逾10%至$90以下，WTI跌穿$84。科技股與整體市場如脫繮飛衝——<strong>S&P 500 收7,126（+4.54%週）、納斯達克收24,468（+6.84%週）</strong>，雙雙刷新歷史最高紀錄。MAGS（七巨頭ETF）月線從低點大幅反彈，收$66.35，距52週高僅差4%。<br><br>
+      台積電4月16日公布<strong>Q1 2026財報大超預期</strong>（EPS +55.7% YoY；毛利率66.2%），但股價盤中卻下跌3.1%——利多出盡訊號引發市場反思。週末劇情逆轉：伊朗4/18重新封閉霍爾木茲，4/19美國扣押伊朗貨輪，<strong>停火4/21到期是下週最大尾端風險</strong>。
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="label">S&P 500</div>
+        <div class="value">7,126</div>
+        <div class="change up">▲ +4.54% 週｜歷史新高</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">納斯達克</div>
+        <div class="value">24,468</div>
+        <div class="change up">▲ +6.84% 週｜歷史新高</div>
+      </div>
+      <div class="stat-card" style="border-color:var(--red)">
+        <div class="label">MAGS 七巨頭</div>
+        <div class="value">$66.35</div>
+        <div class="change up">▲ +10.3% 月｜距高僅-4%</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">布倫特原油</div>
+        <div class="value">~$90/桶</div>
+        <div class="change down">▼ -6% 週（週五已回彈）</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">黃金 COMEX</div>
+        <div class="value">$4,880</div>
+        <div class="change up">▲ +0.8% 週｜連四週上漲</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">初領失業金</div>
+        <div class="value">207K</div>
+        <div class="change up">▲ 低於預期215K</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 二、各市場表現 ══ -->
+  <section class="section" id="markets">
+    <div class="section-title">二、各市場表現</div>
+
+    <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px;">📈 美股指數 / ETF</h3>
+    <table class="data-table" style="margin-bottom:28px">
+      <thead>
+        <tr>
+          <th>指數／ETF</th>
+          <th>週五收盤</th>
+          <th>本週漲跌</th>
+          <th>關鍵事件</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>S&P 500</strong></td>
+          <td>7,126.06</td>
+          <td><span class="up">▲ +4.54%</span></td>
+          <td>週五收創歷史新高；週四霍爾木茲開放消息驅動油價崩跌帶動全面飆漲</td>
+        </tr>
+        <tr>
+          <td><strong>道瓊工業</strong></td>
+          <td>49,447</td>
+          <td><span class="up">▲ +3.19%</span></td>
+          <td>週五大漲869點（+1.79%）；連三週上漲</td>
+        </tr>
+        <tr>
+          <td><strong>納斯達克</strong></td>
+          <td>24,468.48</td>
+          <td><span class="up">▲ +6.84%</span></td>
+          <td>軟體ETF週漲近10%；Nasdaq創歷史新高</td>
+        </tr>
+        <tr>
+          <td><strong>SOXX 半導體 ETF</strong></td>
+          <td>$415.71</td>
+          <td><span class="up">▲ +11.4%</span></td>
+          <td>24年最佳13連漲；ChartMill技術評分10/10；超越91%市場標的</td>
+        </tr>
+        <tr>
+          <td><strong>MAGS 七巨頭 ETF</strong></td>
+          <td>$66.35</td>
+          <td><span class="up">▲ +10.3% 月</span></td>
+          <td>從3月低點大幅反彈；距52週高$69.14僅差4%；YTD仍-16%（見專節分析）</td>
+        </tr>
+        <tr>
+          <td><strong>TSM（台積電 ADR）</strong></td>
+          <td>-</td>
+          <td><span class="down">▼ -3.1% 財報日</span></td>
+          <td>Q1財報全面超預期卻股價下跌——利多出盡；財報前後分析見AI科技節</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px;">⚡ 能源 / 黃金</h3>
+    <table class="data-table" style="margin-bottom:28px">
+      <thead>
+        <tr>
+          <th>商品</th>
+          <th>週五收盤</th>
+          <th>週漲跌</th>
+          <th>備注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>布倫特原油 (Brent)</td>
+          <td>~$90/桶</td>
+          <td><span class="down">▼ -6%（週中低點 $89.x）</span></td>
+          <td>週四霍爾木茲宣布開放單日跌逾10%；週五伊朗再封鎖 → 止跌回彈至$95–96；週末仍在動盪中</td>
+        </tr>
+        <tr>
+          <td>WTI 原油</td>
+          <td>~$84/桶</td>
+          <td><span class="down">▼ -8%（週中低點）</span></td>
+          <td>與Brent同步暴跌；週末反彈重回$90+；能源股 XLE 週內高波動</td>
+        </tr>
+        <tr>
+          <td>黃金 COMEX</td>
+          <td>$4,879.60/oz</td>
+          <td><span class="up">▲ +0.8%</span></td>
+          <td>連四週上漲；油價下跌壓縮通脹預期但黃金仍抗跌；美元走弱支撐。52W高 $5,627</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px;">📅 週間大事記</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>日期</th><th>事件</th><th>市場反應</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>04/14 (一)</td>
+          <td>停火第7天，市場持樂觀態度；S&P 500「抹去伊朗戰爭跌幅」報導；油價仍超$100/桶</td>
+          <td><span class="up">▲ 開週上漲；科技領漲</span></td>
+        </tr>
+        <tr>
+          <td>04/15 (二)</td>
+          <td>ASML Q1財報：年度指引上調至€36-40B；但中國出口限制加劇，盤後承壓；USTR Section 301評論截止</td>
+          <td><span class="neutral">→ ASML盤後波動；大盤平穩</span></td>
+        </tr>
+        <tr>
+          <td>04/16 (三)</td>
+          <td>🏭 台積電 Q1 2026 財報：EPS $3.49（+55.7% YoY）、毛利率66.2%——全面超預期，但TSM ADR盤中跌-3.1%</td>
+          <td><span class="down">▼ 利多出盡；TSM單日-3.1%</span></td>
+        </tr>
+        <tr>
+          <td>04/16 (三)</td>
+          <td>Lam Research 盤中漲2.5%；Gartner發布2026年半導體營收超$1.3兆預測</td>
+          <td><span class="up">▲ 半導體設備股走強</span></td>
+        </tr>
+        <tr>
+          <td>04/17 (四)</td>
+          <td>🔑 伊朗外長宣布霍爾木茲海峽停火期間完全開放 → 布倫特崩跌超10%、WTI跌穿$84</td>
+          <td><span class="up">▲ 大盤飆漲；S&P、Nasdaq衝歷史新高</span></td>
+        </tr>
+        <tr>
+          <td>04/18 (五)</td>
+          <td>S&P 500 收7,126（+1.20%）、Nasdaq收24,468（+1.52%）；伊朗週末再宣布重新封閉霍爾木茲</td>
+          <td><span class="up">▲ 歷史新高收盤；週末油價反彈</span></td>
+        </tr>
+        <tr>
+          <td>04/19 (六)</td>
+          <td>美國在霍爾木茲附近扣押伊朗貨輪；停火4/21到期前局勢再次緊張</td>
+          <td><span class="down">⚠ 下週開盤尾端風險</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ══ 三、地緣政治 ══ -->
+  <section class="section" id="geopolitics">
+    <div class="section-title">三、地緣政治與宏觀事件</div>
+
+    <div class="event-box critical">
+      <div class="event-title">🔴 停火到期危機｜4月21日是本季最大尾端風險</div>
+      <div class="event-body">
+        4月8日開始的10天美伊停火將於<strong>4月21日（本週一）到期</strong>。週四霍爾木茲宣布開放讓市場大爆發，但週五伊朗立即逆轉——宣布<strong>停火接近尾聲，重新封閉海峽</strong>——隔天（4/19）美國更在附近海域扣押伊朗貨輪，雙方劍拔弩張。<br><br>
+        <strong>三個情境：</strong><br>
+        ① 停火延期談判成功 → 油價再跌，科技/AI繼續上衝，MAGS攻$69高點+<br>
+        ② 停火自然到期無事 → 市場觀望，油價回彈$95–100，短線波動加劇<br>
+        ③ 全面衝突重啟 → 布倫特反彈回$120+，通脹預期暴衝，Fed降息窗口關閉，MAGS跌回$50–55
+      </div>
+      <div class="event-meta">來源：CNBC / NPR / Al Jazeera｜04-17 to 04-19</div>
+    </div>
+
+    <div class="event-box warn">
+      <div class="event-title">⚠️ 霍爾木茲結構性風險｜開放≠正常化</div>
+      <div class="event-body">
+        即使停火期間霍爾木茲宣稱「開放」，保險費率、繞道成本、船運公司自主迴避仍使能源供應鏈維持高度緊張。石府判斷：<strong>油價結構性底部約$85–90，高於戰前$70水位</strong>，核心PCE 3–4個月後仍將承壓。<br><br>
+        <strong>投資影響：</strong>能源股 XLE 短線低波動受限；航運股（ZIM、STNG）繼續受益繞道需求；降息時程再度後推，估計最快Q4 2026。
+      </div>
+      <div class="event-meta">來源：Reuters / IEA Oil Market Report｜04-14</div>
+    </div>
+
+    <div class="event-box warn">
+      <div class="event-title">⚠️ ASML財報｜指引上調 vs. 中國出口限制加劇</div>
+      <div class="event-body">
+        ASML Q1 2026財報：<strong>年度營收指引上調至€36–40B</strong>，CEO表示AI基礎建設需求持續超預期。然而中國出口管制進一步收緊，中國訂單能見度降低，盤後承壓。需關注Q2訂單能否抵補中國缺口，設備股（LRCX/KLA/AMAT）估值天花板仍在。
+      </div>
+      <div class="event-meta">來源：CNBC｜04-15</div>
+    </div>
+
+    <div class="event-box">
+      <div class="event-title">🔵 美國關稅戰｜USTR Section 301 評論截止，聽證4月28日</div>
+      <div class="event-body">
+        4月15日 USTR Section 301 調查公眾評論截止，聽證定於<strong>4月28日</strong>。對中關稅均值維持47.5%（覆蓋100%商品），中方報復均值31.9%。下一觀察點：4月28日聽證結論 + 是否出現Trump-習電話或G20前接觸。半導體關稅例外條款動向是MAGS / SOXX最大政策催化劑。
+      </div>
+      <div class="event-meta">來源：Tax Foundation / USTR｜04-15</div>
+    </div>
+
+    <div class="event-box positive">
+      <div class="event-title">🟢 勞動市場韌性｜初領失業金207K創近期低點</div>
+      <div class="event-body">
+        截至4月11日當週，初領失業金<strong>207K</strong>，低於前值218K與預期215K，為近期最大單週降幅，顯示裁員仍受控。注意矛盾：就業韌性 + 通脹頑固（PCE仍高）= Fed維持高息更長，是「好消息是壞消息」的典型場景。
+      </div>
+      <div class="event-meta">來源：DOL / BLS｜04-16</div>
+    </div>
+  </section>
+
+  <!-- ══ 三之一、MAGS 七巨頭 ══ -->
+  <section class="section" id="mags">
+    <div class="section-title">三之一、MAGS 七巨頭 ETF｜近一個月走勢與現況</div>
+
+    <div class="summary-box">
+      Roundhill Magnificent Seven ETF（MAGS）等權重追蹤 Alphabet、Amazon、Apple、Meta、Microsoft、Nvidia、Tesla 七大科技巨頭。2026年年初至3月底一度重挫<strong>-16% YTD</strong>（受伊朗戰爭、關稅戰、通脹預期打擊），但隨著停火消息與市場情緒大逆轉，<strong>4月份已強力反彈+10.3%</strong>，本週收$66.35，距離52週高$69.14僅差4%，距52週低$40.58則已大漲63.5%。
+    </div>
+
+    <!-- 七成員持倉概況 -->
+    <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px;">🏆 成員持倉（等權重設計）</h3>
+    <div class="mags-member-grid" style="margin-bottom:24px">
+      <div class="mags-member-card">
+        <div class="ticker">AMZN</div>
+        <div class="weight">15.8%</div>
+        <div class="perf up">▲ 月強勢</div>
+      </div>
+      <div class="mags-member-card">
+        <div class="ticker">GOOGL</div>
+        <div class="weight">15.1%</div>
+        <div class="perf up">▲ 財報週</div>
+      </div>
+      <div class="mags-member-card">
+        <div class="ticker">META</div>
+        <div class="weight">15.0%</div>
+        <div class="perf up">▲ AI廣告</div>
+      </div>
+      <div class="mags-member-card">
+        <div class="ticker">NVDA</div>
+        <div class="weight">14.3%</div>
+        <div class="perf up">▲ AI需求</div>
+      </div>
+      <div class="mags-member-card">
+        <div class="ticker">AAPL</div>
+        <div class="weight">13.9%</div>
+        <div class="perf neutral">→ 關稅壓力</div>
+      </div>
+      <div class="mags-member-card">
+        <div class="ticker">MSFT</div>
+        <div class="weight">13.6%</div>
+        <div class="perf up">▲ Azure AI</div>
+      </div>
+      <div class="mags-member-card">
+        <div class="ticker">TSLA</div>
+        <div class="weight">12.6%</div>
+        <div class="perf neutral">→ 財報待定</div>
+      </div>
+    </div>
+
+    <!-- 近一個月走勢分析 -->
+    <h3 style="font-size:14px; color:var(--muted); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.5px;">📅 近一個月走勢分期</h3>
+    <table class="data-table" style="margin-bottom:24px">
+      <thead>
+        <tr><th>時間段</th><th>MAGS 走勢</th><th>關鍵驅動力</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>3月中旬（低點）</td>
+          <td><span class="down">接近52週低 $40–45 區間</span></td>
+          <td>伊朗戰爭通脹預期、科技股輪動出場、關稅戰不確定性；2月出現首次$126M大規模淨流出</td>
+        </tr>
+        <tr>
+          <td>3月底</td>
+          <td><span class="down">YTD -16%</span></td>
+          <td>兩個技術訊號引發市場討論：50MA是否跌破200MA（死叉）；估值修正已反映多少壞消息</td>
+        </tr>
+        <tr>
+          <td>4月7–11日（第16期）</td>
+          <td><span class="up">急速反彈，+15%+ 自低點</span></td>
+          <td>美伊停火宣布（4/8）→ 油價崩跌 → 通脹預期下修 → 科技估值重估；NVDA、META週三單日+4–10%</td>
+        </tr>
+        <tr>
+          <td>4月14–18日（本週）</td>
+          <td><span class="up">$66.35，月漲+10.3%，距高僅-4%</span></td>
+          <td>霍爾木茲4/17宣布開放 → 油崩再次 → 市場創歷史新高；軟體ETF週漲近10%，MAGS全面受益</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 現況分析與風險 -->
+    <div class="event-box positive">
+      <div class="event-title">📊 現況：反彈近完成，但距峰值仍有結構性壓力</div>
+      <div class="event-body">
+        MAGS 本週收$66.35，距52週高$69.14僅剩<strong>4.2%差距</strong>。技術面強勢——月漲+10.3%，已收復大部分年初跌幅。但注意幾個結構性壓力：<br><br>
+        ① <strong>YTD 仍-16%</strong>（若從年初高點計算）：代表仍有相當比例的套牢投資人等待解套機會，反彈至前高區附近可能出現賣壓<br>
+        ② <strong>Apple（AAPL）拖累風險</strong>：中美關稅戰下蘋果供應鏈壓力最大，若Q1財報或指引疲軟，MAGS因等權重設計受到直接拖累<br>
+        ③ <strong>Tesla（TSLA）財報本週出爐</strong>：交車量遜色 + Robotaxi延遲是最大不確定因素<br>
+        ④ <strong>地緣風險4/21停火到期</strong>：若衝突重啟，通脹預期反彈，MAGS科技估值首當其衝
+      </div>
+    </div>
+
+    <div class="event-box warn">
+      <div class="event-title">⚠️ 關鍵監控｜下週 GOOG + TSLA 財報是 MAGS 的雙引擎點火或熄火測試</div>
+      <div class="event-body">
+        <strong>① GOOG（4/22）</strong>：若GCP AI業務增速維持28%+，GOOGL為MAGS第二大持倉（15.1%），帶動整體ETF上攻$69高點<br>
+        <strong>② TSLA（4/22預期）</strong>：若交車量不及預期 + Robotaxi無新消息，最大佔比成員之一（12.6%）可能成為MAGS的下行拖累<br>
+        <strong>③ 停火決定（4/21）</strong>：延期 → MAGS 有機會創年度新高；衝突重啟 → MAGS 快速回測$55–58
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 四、AI與科技 ══ -->
+  <section class="section" id="ai-tech">
+    <div class="section-title">四、AI 與科技產業動態</div>
+
+    <div class="event-box warn">
+      <div class="event-title">⚠️ 台積電 Q1 2026 財報｜史上最強季報 × 股價盤中跌3.1%——利多出盡解析</div>
+      <div class="event-body">
+        台積電4月16日公布Q1 2026財報，各項指標<strong>全線超越預期</strong>：<br>
+        · 營收：NT$1.134兆（$35.7B），+40.6% YoY，高於預期NT$1.127兆<br>
+        · 淨利：NT$572.48B，+58% YoY，連續第四季破紀錄<br>
+        · EPS：每ADR $3.49（+55.7% YoY），高於預期<br>
+        · 毛利率：66.2%（+3.9pp），營業利益率：58.1%（+4.1pp）<br>
+        · Q2 2026 指引：$39–40.2B（環比+10%，大超市場預期）<br>
+        · FY2026 指引：全年營收成長「>30%」（前次指引：mid-20%）<br>
+        · 2026年資本支出：上調至$52–56B高端<br>
+        · HPC（AI晶片）：佔Q1總營收<strong>61%</strong><br><br>
+
+        <strong>但股價盤中下跌-3.1%——為何超強財報換來下跌？</strong><br>
+        ① <strong>利多出盡</strong>：財報前市場已定價漲幅，選擇權市場預計±4.04%波動，跌3.1%屬符合預期的負面反應<br>
+        ② <strong>TSM ADR 落後SOX指數12點</strong>（自1月起），資金流向更快速的半導體標的（NVDA、AMD、SOXX）而非台積電本身<br>
+        ③ <strong>供應緊張持續到2027</strong>：CoWoS先進封裝產能仍是瓶頸，意味 NVDA 等客戶短期無法完全解決供應限制<br>
+        ④ <strong>資本支出$52-56B極高</strong>：重資本投入壓縮短期自由現金流，估值模型偏保守的投資人選擇獲利了結<br><br>
+
+        <strong>石府判斷：財報本身極佳，股價反應是籌碼問題而非基本面問題。</strong>若停火延期+GOOG財報超預期，TSM ADR 有機會在下週補漲；若地緣風險重燃，則先前「AI護城河折價」邏輯再次發酵。
+      </div>
+      <div class="event-meta">來源：CNBC / TSMC Investor Relations / Beating The Tide｜04-16</div>
+    </div>
+
+    <div class="event-box positive">
+      <div class="event-title">🟢 Gartner｜2026全球半導體營收超$1.3兆，年增64%——第三連年雙位數成長</div>
+      <div class="event-body">
+        Gartner預測：<strong>2026全球半導體營收將超過$1.3兆</strong>（年增64%），記憶體（HBM）營收預計三倍成長。真正的結構性限制在於HBM供應與先進封裝（台積電CoWoS），限制AI GPU能出貨的實際數量。<br>
+        <strong>受益標的：</strong>SK Hynix（HBM龍頭）、NVDA（需求端）、台積電（CoWoS封裝）、AMAT/LRCX（設備端）
+      </div>
+      <div class="event-meta">來源：Gartner Press Release｜04-08</div>
+    </div>
+
+    <div class="event-box positive">
+      <div class="event-title">🟢 Google Cloud Next 2026 下週登場（4/22-24）｜AI Agent + Gemini 企業化是核心</div>
+      <div class="event-body">
+        Google Cloud Next 2026 即將在拉斯維加斯（4月22-24日）舉行，預計重點展示：<strong>Gemini Ultra企業部署、AI Agent自動化流程、Vertex AI新功能</strong>。GOOG Q1財報同週公布，Cloud業務增速是否能維持28%+是關鍵。GCP若展示超預期AI採購案例 → NVDA/AMD、SOXX/MAGS全線受益。
+      </div>
+      <div class="event-meta">來源：Tech Events Calendar 2026</div>
+    </div>
+
+    <div class="event-box">
+      <div class="event-title">🔵 ASML Q1財報｜指引上調但中國限制是長期估值天花板</div>
+      <div class="event-body">
+        ASML <strong>2026年度指引上調至€36–40B</strong>（前一指引€30–35B），超預期幅度顯著。但中國出口管制進一步收緊，EUV全面禁止、DUV部分型號限制加嚴，中國市場在ASML訂單中的占比急速萎縮。<strong>短線利多 + 長線隱患</strong>——需關注台、韓、美替補訂單能否補缺口。
+      </div>
+      <div class="event-meta">來源：CNBC｜04-15</div>
+    </div>
+  </section>
+
+  <!-- ══ 四之一、展覽 ══ -->
+  <section class="section" id="exhibits">
+    <div class="section-title">四之一、近期重大展覽（4–5月）</div>
+
+    <div class="exhibit-grid" style="margin-bottom:20px">
+      <div class="exhibit-card">
+        <div class="ex-name">Adobe Summit 2026</div>
+        <div class="ex-date">📅 4月19–22日（本週進行中）</div>
+        <div class="ex-loc">🇺🇸 Las Vegas, NV</div>
+        <div class="ex-focus">數位行銷與體驗雲年度盛會；AI驅動個人化行銷、Firefly生成式AI商業化應用</div>
+      </div>
+      <div class="exhibit-card">
+        <div class="ex-name">TECHSPO Vancouver 2026</div>
+        <div class="ex-date">📅 4月20–21日（本週進行中）</div>
+        <div class="ex-loc">🇨🇦 Vancouver, BC</div>
+        <div class="ex-focus">網路、行動、AI、大數據、雲端、物聯網前沿技術展；加拿大科技生態系對接平台</div>
+      </div>
+      <div class="exhibit-card">
+        <div class="ex-name">Google Cloud Next 2026</div>
+        <div class="ex-date">📅 4月22–24日（下週）</div>
+        <div class="ex-loc">🇺🇸 Las Vegas, NV</div>
+        <div class="ex-focus">GCP最大年度活動；Gemini Ultra企業整合、AI Agent、Vertex AI；GOOG估值重要催化劑，同週財報公布</div>
+      </div>
+      <div class="exhibit-card">
+        <div class="ex-name">TECHSPO Houston 2026</div>
+        <div class="ex-date">📅 4月29–30日</div>
+        <div class="ex-loc">🇺🇸 Houston, TX</div>
+        <div class="ex-focus">全球科技展覽系列；AI、IoT、大數據、行動技術在能源產業應用場景為一大特色</div>
+      </div>
+      <div class="exhibit-card">
+        <div class="ex-name">ServiceNow Knowledge 2026</div>
+        <div class="ex-date">📅 5月5–7日</div>
+        <div class="ex-loc">🇺🇸 Las Vegas, NV</div>
+        <div class="ex-focus">IT服務管理與企業AI自動化；Agentic AI進入企業流程；NOW旗艦大會，企業採購決策風向標</div>
+      </div>
+      <div class="exhibit-card">
+        <div class="ex-name">Dell Technologies World 2026</div>
+        <div class="ex-date">📅 5月18–21日</div>
+        <div class="ex-loc">🇺🇸 Las Vegas, NV</div>
+        <div class="ex-focus">AI PC、邊緣運算、私有雲AI基礎設施；DELL 2026 AI伺服器收入指引是CSP採購景氣直接窗口</div>
+      </div>
+      <div class="exhibit-card">
+        <div class="ex-name">Google I/O 2026</div>
+        <div class="ex-date">📅 5月（日期TBA）</div>
+        <div class="ex-loc">🇺🇸 Mountain View, CA</div>
+        <div class="ex-focus">Android AI整合、Gemini新版本、開發者工具；Google軟體生態最重要年度發布場，AI競爭格局定調</div>
+      </div>
+    </div>
+
+    <div class="event-box positive">
+      <div class="event-title">💡 投資視角｜下週 Google Cloud Next 是本月最重要科技催化劑</div>
+      <div class="event-body">
+        <strong>Google Cloud Next（4/22-24）+ GOOG財報</strong>：若GCP AI服務超預期 → 直接驅動NVDA、MAGS全線上漲，TSM ADR有補漲機會。<br>
+        <strong>ServiceNow（5/5-7）</strong>：Agentic AI進入企業自動化是2026最熱門主題，若展示實際ROI案例，SaaS + AI企業軟體板塊可能有一波輪動。<br>
+        <strong>Dell World（5/18-21）</strong>：AI伺服器出貨能見度 + 液冷需求（VRT/ETN）是下一個硬體投資視角的先行訊號。
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 五、下週預告 ══ -->
+  <section class="section" id="nextweek">
+    <div class="section-title">五、下週重要事件預告（04/21 – 04/25）</div>
+
+    <table class="next-table">
+      <thead>
+        <tr><th>日期</th><th>事件</th><th>重要性</th><th>觀察重點</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>04/21 (一)</td>
+          <td>🔴 美伊停火到期日</td>
+          <td><span class="badge badge-high">HIGH</span></td>
+          <td>延期談成 → 市場續漲；衝突重啟 → 開盤跳水，油價急彈$120+，MAGS跌$55–58</td>
+        </tr>
+        <tr>
+          <td>04/22 (二)</td>
+          <td>Alphabet (GOOG) Q1財報</td>
+          <td><span class="badge badge-high">HIGH</span></td>
+          <td>GCP業務增速（目標28%+）；AI廣告ROI；Gemini商業化進度；MAGS第二大成員（15.1%）</td>
+        </tr>
+        <tr>
+          <td>04/22 (二)</td>
+          <td>Tesla (TSLA) Q1財報（預期）</td>
+          <td><span class="badge badge-high">HIGH</span></td>
+          <td>交車量是否達成目標；FSD / Robotaxi時程更新；MAGS最大佔比成員（12.6%）下行風險</td>
+        </tr>
+        <tr>
+          <td>04/22-24</td>
+          <td>Google Cloud Next 2026（Las Vegas）</td>
+          <td><span class="badge badge-high">HIGH</span></td>
+          <td>Gemini Ultra企業部署案例；GCP vs AWS/Azure市占率；AI Agent企業採購規模預告</td>
+        </tr>
+        <tr>
+          <td>04/23 (三)</td>
+          <td>大量科技財報週（165+家公司）</td>
+          <td><span class="badge badge-mid">MED</span></td>
+          <td>企業AI資本支出是否持續增加；多家大型科技若指引下修，MAGS/SOXX動能受壓</td>
+        </tr>
+        <tr>
+          <td>04/28 (一週後)</td>
+          <td>USTR Section 301 關稅聽證</td>
+          <td><span class="badge badge-mid">MED</span></td>
+          <td>中美關稅談判最新動向；半導體相關例外條款走向；影響MAGS中AAPL供應鏈</td>
+        </tr>
+        <tr>
+          <td>持續追蹤</td>
+          <td>霍爾木茲航運正常化進度</td>
+          <td><span class="badge badge-high">HIGH</span></td>
+          <td>美軍扣押伊朗貨輪後緊張局勢；油價走向直接影響通脹預期 → Fed政策 → MAGS估值</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ══ 六、延伸閱讀 ══ -->
+  <section class="section" id="reading">
+    <div class="section-title">六、延伸閱讀關鍵字</div>
+    <div class="tag-cloud">
+      <span class="tag">霍爾木茲 Hormuz 停火到期 4/21</span>
+      <span class="tag">美伊停火 Iran Ceasefire</span>
+      <span class="tag">MAGS 七巨頭 $66.35 月+10%</span>
+      <span class="tag">MAGS YTD -16% 反彈</span>
+      <span class="tag">台積電 TSM Q1 EPS +55.7%</span>
+      <span class="tag">台積電毛利率 66.2%</span>
+      <span class="tag">TSM 利多出盡 -3.1%</span>
+      <span class="tag">台積電 CoWoS 先進封裝 瓶頸</span>
+      <span class="tag">HPC 61% 台積電營收</span>
+      <span class="tag">S&P 500 歷史新高 7126</span>
+      <span class="tag">納斯達克 歷史新高 24468</span>
+      <span class="tag">SOXX 13連漲 24年紀錄</span>
+      <span class="tag">ASML Q1財報 €36-40B指引</span>
+      <span class="tag">Gartner 半導體 $1.3兆 2026</span>
+      <span class="tag">HBM 高頻寬記憶體 瓶頸</span>
+      <span class="tag">Google Cloud Next 2026</span>
+      <span class="tag">GOOG Gemini Ultra 企業</span>
+      <span class="tag">TSLA 財報 Robotaxi</span>
+      <span class="tag">初領失業金 207K</span>
+      <span class="tag">黃金 COMEX $4880 連四週</span>
+      <span class="tag">布倫特原油 Brent $90</span>
+      <span class="tag">USTR Section 301 聽證 4/28</span>
+      <span class="tag">Stagflation 滯脹 PCE</span>
+      <span class="tag">ServiceNow Agentic AI</span>
+      <span class="tag">Dell Technologies World AI伺服器</span>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="disclaimer">
+    ⚠️ 本週報為石府商學院內部研究，僅供參考，不構成任何投資建議。市場數據含估算成分，請以實際收盤數據為準。投資有風險，操作前請自行判斷。
+  </div>
+  <div class="nav-links">
+    <a href="weekly-briefing-2026-04-11.html">← 第16期</a>
+    <a href="index.html">週報總覽</a>
+  </div>
+</footer>
+
+</body>
+</html>

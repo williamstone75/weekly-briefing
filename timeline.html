@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📊 全球事件整理｜2026年1月－4月</title>
+  <title>📊 全球事件整理｜2026年1月－4月（更新至4/18）</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -217,6 +217,23 @@
 
       <div class="month-label" onclick="toggleMonth(this)"><span class="toggle-icon">▾</span>📅 2026年4月</div>
       <div class="month-group">
+
+      <div class="event-row" id="evt-w0418">
+        <div class="event-date">4/14–4/18</div>
+        <div class="event-content">
+          <div><span class="cat-tag cat-geo">地緣政治</span></div>
+          <div class="event-name">📈 霍爾木茲宣布開放→油崩10%→S&P 500 + Nasdaq 雙創歷史新高；台積電Q1財報利多出盡</div>
+          <div class="event-desc">週四伊朗外長宣布停火期間霍爾木茲完全開放，布倫特單日暴跌逾10%至$90以下，WTI跌穿$84。S&P 500收7,126（+4.54%週，歷史新高），Nasdaq收24,468（+6.84%週，歷史新高），道指+3.19%。SOXX創24年最佳13連漲（+11.4%週），MAGS七巨頭月漲+10.3%收$66.35。台積電Q1財報(4/16)：EPS+55.7% YoY、毛利率66.2%全面超預期，但TSM ADR盤中跌-3.1%（利多出盡）。Gartner預測2026全球半導體營收超$1.3兆（年增64%）。週末逆轉：伊朗4/18再次封閉霍爾木茲，美國4/19扣押伊朗貨輪，停火4/21到期危機升溫。</div>
+        </div>
+        <div class="event-impacts">
+          <span class="imp imp-g">S&P ▲ +4.54%｜歷史新高</span>
+          <span class="imp imp-g">Nasdaq ▲ +6.84%｜歷史新高</span>
+          <span class="imp imp-g">SOXX ▲ +11.4%｜13連漲</span>
+          <span class="imp imp-r">布倫特 ▼ -6%</span>
+          <span class="imp imp-o">黃金 $4,880</span>
+          <span class="imp imp-r">TSM ▼ -3.1%（利多出盡）</span>
+        </div>
+      </div>
 
       <div class="event-row" id="evt-w0411">
         <div class="event-date">4/7–4/11</div>
@@ -569,15 +586,15 @@
     ctx.closePath();
   }
 
-  const labels = ['1/1', '1/9', '1/16', '1/23', '1/30', '2/7', '2/14', '2/21', '2/28', '3/7', '3/13', '3/20', '3/27', '4/3', '4/4', '4/11'];
+  const labels = ['1/1', '1/9', '1/16', '1/23', '1/30', '2/7', '2/14', '2/21', '2/28', '3/7', '3/13', '3/20', '3/27', '4/3', '4/4', '4/11', '4/18'];
 
   // 基準 = 1/1 = 100（2026年開年基準，第一個交易日 1/2 開盤值）
-  const vooData  = [100, 100.8, 101.2, 101.5, 101.4, 99.7,  99.75, 100.85, 100.04, 98.04, 96.09, 94.65, 93.07, 91.20, 94.30, 96.66];
-  const qqqData  = [100, 101.8, 102.0, 102.3, 100.7, 97.8,  97.6,  99.1,   96.8,   97.2,  95.9,  94.0,  90.9,  88.7,  92.6,  95.19];
-  const diaData  = [100, 100.8, 101.2, 101.5, 101.8, 100.7, 100.8, 101.1,  101.4,  97.9,  93.7,  92.5,  90.9,  89.4,  92.1,  95.05];
-  const soxxData = [100, 103.2, 103.8, 104.2, 103.5, 94.9,  94.6,  96.8,   94.5,   95.9,  94.2,  92.4,  89.4,  87.5,  90.3,  92.56];
+  const vooData  = [100, 100.8, 101.2, 101.5, 101.4, 99.7,  99.75, 100.85, 100.04, 98.04, 96.09, 94.65, 93.07, 91.20, 94.30, 96.66, 101.05];
+  const qqqData  = [100, 101.8, 102.0, 102.3, 100.7, 97.8,  97.6,  99.1,   96.8,   97.2,  95.9,  94.0,  90.9,  88.7,  92.6,  95.19, 101.70];
+  const diaData  = [100, 100.8, 101.2, 101.5, 101.8, 100.7, 100.8, 101.1,  101.4,  97.9,  93.7,  92.5,  90.9,  89.4,  92.1,  95.05, 98.08];
+  const soxxData = [100, 103.2, 103.8, 104.2, 103.5, 94.9,  94.6,  96.8,   94.5,   95.9,  94.2,  92.4,  89.4,  87.5,  90.3,  92.56, 103.11];
   // IWM（羅素 2000）：小型股，較受內需影響，對AI直接衝擊較小但地緣風險承壓
-  const iwmData  = [100, 100.5, 101.0, 101.5, 101.8, 99.8,  99.9,  100.7,  99.7,   97.3,  94.6,  93.2,  91.8,  90.0,  92.5,  94.35];
+  const iwmData  = [100, 100.5, 101.0, 101.5, 101.8, 99.8,  99.9,  100.7,  99.7,   97.3,  94.6,  93.2,  91.8,  90.0,  92.5,  94.35, 97.18];
 
   const allData = [vooData, qqqData, diaData, soxxData, iwmData];
   const colors  = ['#2ecc71', '#3498db', '#e67e22', '#9b59b6', '#e74c3c'];
@@ -595,6 +612,7 @@
     { idx: 12, label: '🔄 停火幻象',   color: '#e67e22', dash: [4,3], scrollId: 'evt-w1323'  },
     { idx: 13, label: '📉 五連跌',     color: '#c0392b', dash: [4,3], scrollId: 'evt-w1330'  },
     { idx: 15, label: '🕊️ 停火反彈',   color: '#27ae60', dash: [4,3], scrollId: 'evt-w0411'  },
+    { idx: 16, label: '📈 雙指數新高',  color: '#2ecc71', dash: [4,3], scrollId: 'evt-w0418'  },
   ];
   let showMarkers = true;      // 控制事件標記顯示
   const markerBoxes = [];      // 儲存標記標籤的點擊區域
@@ -647,7 +665,7 @@
           grid: { color: 'rgba(0,0,0,0.04)' },
           ticks: { font: { size: 11 }, color: '#888', callback: v => v },
           suggestedMin: 85,
-          suggestedMax: 106,
+          suggestedMax: 108,
         }
       }
     },
@@ -666,6 +684,7 @@
           { from: 10.5,to: 11.5,color: 'rgba(155,89,182,0.08)'  },
           { from: 11.5,to: 12.5,color: 'rgba(230,126,34,0.09)'  },
           { from: 12.5,to: 13.5,color: 'rgba(231,76,60,0.09)'   },
+          { from: 15.5,to: 16.5,color: 'rgba(39,174,96,0.10)'   },
         ];
         ctx.save();
         bands.forEach(b => {
